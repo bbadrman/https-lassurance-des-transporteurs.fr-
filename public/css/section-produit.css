@@ -38,7 +38,7 @@
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-        
+       
         .product-icon {
             width: 70px;
             height: 70px;
@@ -66,7 +66,41 @@
             line-height: 1.2;
             margin: 0;
         }
+         /* Animation alternative - Effet de respiration */
+        .product-icon-breathe {
+            animation: breathe 3s ease-in-out infinite;
+        }
         
+        @keyframes breathe {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.08);
+                opacity: 0.8;
+            }
+        }
+
+  @keyframes notification {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.3;
+                transform: scale(1.2);
+            }
+        }
+        /* Animation de rotation subtile */
+        .product-icon-rotate {
+            animation: subtleRotate 4s linear infinite;
+        }
+        
+        @keyframes subtleRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         .row {
             margin: 0;
         }

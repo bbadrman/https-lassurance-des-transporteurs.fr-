@@ -6,22 +6,11 @@
 {% block body %}
 
 	<!-- Main Banner Section -->
-	<div class="bg-black-color main-banner-section item-bg6">
+	<div class="bg-black-color main-banner-section">
 		<div class="d-table">
 			<div class="d-table-cell">
-				<div class="container">
-					<div class="main-banner-content text-center px-5 mt-4">
-						<div class="btn-box">
-							<a href="#" class="default-btn" onclick="aksam1()">
-								Assurer professionnelle
-								<span></span>
-							</a>
-							<a href="#" class="optional-btn" onclick="aksam2()">
-								Assurer particuliers
-								<span></span>
-							</a>
-						</div>
-					</div>
+				<div
+					class="container">
 
 					<!-- Quote Boxes Section -->
 					<section
@@ -45,35 +34,13 @@
 											</div>
 										</div>
 
-										<div class="col-lg-4 col-md-6">
-											<div class="form-group">
-												<select name="activite">
-													<option selected disabled>Activités</option>
-
-													{# attribue au champ Automobile #}
-
-													<option value="vtc">VTC</option>
-													<option value="taxi">Taxi</option>
-													<option value="transport_pro">Transport professionnelle</option>
-													<option value="flotte_legere">Flotte < 3t5</option>
-													<option value="flotte_lourde">Flotte > 3t5</option>
-
-													{# attribue au champ Personnel #}
-													<option value="sante">Mutuelle sante</option>
-
-													{# attribue au champ retraite #}
-													<option value="retraite">retraite</option>
-
-												</select>
-											</div>
-										</div>
 
 										<div class="col-lg-4 col-md-6">
 											<div class="form-group">
 												<select name="produit">
 													<option selected disabled>produit</option>
 
-													{# attribue au select Transport professionnelle #}
+													{# attribue au select Automobile #}
 													<option value="https://transport-de-marchandise.fr/">Transport de marchandise</option>
 
 													<option value="https://location-vehicuel.fr/">Location véhicules</option>
@@ -89,15 +56,13 @@
 													<option value="https://engin-remouque.fr/">Semi-remorque</option>
 
 
-													{# attribue au select retraite #}
+													{# attribue au select Personnel #}
 													<option value="https://assurance-maintien-salaire.fr/">maintien salaire</option>
 
 													<option value="https://peri-simulation.fr/">retraite epargnie</option>
 
 													<option value="https://tarif-mutuelle-senior.fr/">mutuelle-sante</option>
 
-
-													{# attribue au select Mutuelle sante #}
 													<option value="https://assurance-maintien-jeune.fr/">mutuelle jeune</option>
 
 
@@ -112,7 +77,7 @@
 										</div>
 
 
-										<div class="col-lg-12 col-md-12 text-center px-5 mt-4">
+										<div class="col-lg-4 col-md-12">
 											<button type="submit" class="default-btn">
 												Obtenir un devis
 												<i class="flaticon-right-chevron"></i>
@@ -223,185 +188,307 @@
 		</div>
 	</section>
 
-	<!-- About Section -->
-	<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produits d'Assurance AKSAM</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-       <link
-		rel="stylesheet" href="{{ asset('/css/section-produit.css') }}">
-     
-</head>
-<body>
+	<!-- Partner Section -->
+	<section class="partner-area  ">
+		<div class="container">
 
-<section class="products-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <h2>Nos Produits d'Assurance</h2>
-            <p>AKSAM vous accompagne avec une gamme complète de solutions d'assurance adaptées à tous vos besoins professionnels et personnels</p>
-        </div>
-        
-        <div class="row">
-            <!-- Assurance Retraite -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-piggy-bank"></i>
-                    </div>
-                    <h4>Retraite</h4>
-                    <p>Préparez sereinement votre avenir avec nos solutions d'épargne retraite personnalisées</p>
-                </div>
-            </div>
+			<div class="section-title py-3">
+				<h2>Nos Produits d'Assurance</h2>
+				<p>AKSAM vous accompagne avec une gamme complète de solutions d'assurance adaptées à tous vos besoins professionnels et personnels</p>
+			</div>
+			<div class="partner-slides owl-carousel owl-theme">
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://www.assurance-pour-vtc.fr/">
+							<i class="fas fa-route"></i>
+						</a>
+					</div>
+					<h4>VTC</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://www.assurance-pour-taxi.fr/">
+							<i class="fas fa-taxi"></i>
+						</a>
+					</div>
+					<h4>Taxi</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="#">
+							<i class="fas fa-truck-pickup"></i>
+						</a>
+					</div>
+					<h4>VÉHICULE SOCIÉTÉ</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://lassurance-garantie-decennale.fr/">
+							<i class="fas fa-hard-hat"></i>
+						</a>
+					</div>
+					<h4>DÉCENNALE</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://assurance-professionnels-auto.fr/">
+							<i class="fas fa-car"></i>
+						</a>
+					</div>
+					<h4>PROFESSIONNELS-AUTO</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://tarif-mutuelle-senior.fr">
+							<i class="fas fa-heartbeat"></i>
+						</a>
+					</div>
+					<h4>MUTUELLE</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://assurance-flotte-entreprise.fr">
+							<i class="fas fa-shipping-fast"></i>
+						</a>
+					</div>
+					<h4>FLOTTE PRO</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://peri-simulation.fr">
+							<i class="fas fa-piggy-bank"></i>
+						</a>
+					</div>
+					<h4>EPARGNE-RETRAITE</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="#">
+							<i class="fas fa-hand-holding-usd"></i>
+						</a>
+					</div>
+					<h4>MAINTIEN DE SALAIRE</h4>
+				</div>
+				
+				
 
-            <!-- Assurance Santé -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h4>Santé</h4>
-                    <p>Protégez votre santé et celle de votre famille avec nos complémentaires santé</p>
-                </div>
-            </div>
 
-            <!-- Assurance Auto Pro -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h4>Auto Pro</h4>
-                    <p>Assurez vos véhicules professionnels avec des garanties adaptées à votre activité</p>
-                </div>
-            </div>
+				{# <div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://www.assurance-pour-camion.fr/">
+							<i class="fas fa-truck"></i>
+						</a>
+					</div>
+					<h4>Camion</h4>
+				</div> 
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://lassurance-des-transporteurs.fr/">
+							<i class="fas fa-tractor"></i>
+						</a>
+					</div>
+					<h4>Engins</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="https://assurance-professionnels-auto.fr/loueur-voiture">
+							<i class="fas fa-key"></i>
+						</a>
+					</div>
+					<h4>Location Voiture</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="#">
+							<i class="fas fa-tools"></i>
+						</a>
+					</div>
+					<h4>Maçon</h4>
+				</div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="#">
+							<i class="fas fa-wrench"></i>
+						</a>
+					</div>
+					<h4>Plombier</h4>
+				</div>
 
-            <!-- Assurance Décennale -->
-           <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <h4>Décennale</h4>
-                    <p>Garantie décennale obligatoire pour tous les professionnels du bâtiment</p>
-                </div>
-            </div>
+				<div class="single-partner-item">
+					<div class="product-icon">
+						<a href="#">
+							<i class="fas fa-shield-alt"></i>
+						</a>
+					</div>
+					<h4>Résilié</h4>
+				</div> #}
 
-            <!-- Assurance VTC -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-route"></i>
-                    </div>
-                    <h4>VTC</h4>
-                    <p>Solutions spécialisées pour les chauffeurs VTC et transport de personnes</p>
-                </div>
-            </div>
+			</div>
+		</div>
+	</section>
 
-            <!-- Assurance Camion -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h4>Camion</h4>
-                    <p>Assurance complète pour vos poids lourds et véhicules de transport de marchandises</p>
-                </div>
-            </div>
-
-            <!-- Assurance Flotte -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h4>Flotte</h4>
-                    <p>Gestion optimisée de l'assurance pour votre parc de véhicules d'entreprise</p>
-                </div>
-            </div>
-
-            <!-- Assurance Taxi -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-taxi"></i>
-                    </div>
-                    <h4>Taxi</h4>
-                    <p>Protection spécialisée pour les chauffeurs de taxi et leurs véhicules</p>
-                </div>
-            </div>
-
-            <!-- Assurance Engins -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-tractor"></i>
-                    </div>
-                    <h4>Engins</h4>
-                    <p>Assurance pour engins de chantier, agricoles et matériels spécialisés</p>
-                </div>
-            </div>
-
-            <!-- Location Voiture -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h4>Location Voiture</h4>
-                    <p>Solutions d'assurance pour les entreprises de location de véhicules</p>
-                </div>
-            </div>
-
-            <!-- Assurance Maçon -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h4>Maçon</h4>
-                    <p>Assurance responsabilité civile et décennale pour les maçons et artisans</p>
-                </div>
-            </div>
-
-            <!-- Assurance Plombier -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h4>Plombier</h4>
-                    <p>Protection complète pour les plombiers et installateurs sanitaires</p>
-                </div>
-            </div>
-
-            <!-- Véhicule Pro -->
-           <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-truck-pickup"></i>
-                    </div>
-                    <h4>Véhicule Pro</h4>
-                    <p>Assurance pour tous types de véhicules professionnels et utilitaires</p>
-                </div>
-            </div>
-
-            <!-- Assurance Résilié -->
-            <div class="col-lg-2 col-md-2 col-sm-4">
-                <div class="product-card">
-                    <div class="product-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>Résilié</h4>
-                    <p>Solutions spécialisées pour les profils résiliés ou malussés</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+	{# 
+		<section class="products-area ptb-100">
+		    <div class="container">
+		        
+		    
+		        <div class="row">
+		            <!-- Assurance Retraite -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-piggy-bank"></i>
+		                    </div>
+		                    <h4>Retraite</h4>
+		                    <p>Préparez sereinement votre avenir avec nos solutions d'épargne retraite personnalisées</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Santé -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-heartbeat"></i>
+		                    </div>
+		                    <h4>Santé</h4>
+		                    <p>Protégez votre santé et celle de votre famille avec nos complémentaires santé</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Auto Pro -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-car"></i>
+		                    </div>
+		                    <h4>Auto Pro</h4>
+		                    <p>Assurez vos véhicules professionnels avec des garanties adaptées à votre activité</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Décennale -->
+		           <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-hard-hat"></i>
+		                    </div>
+		                    <h4>Décennale</h4>
+		                    <p>Garantie décennale obligatoire pour tous les professionnels du bâtiment</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance VTC -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-route"></i>
+		                    </div>
+		                    <h4>VTC</h4>
+		                    <p>Solutions spécialisées pour les chauffeurs VTC et transport de personnes</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Camion -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-truck"></i>
+		                    </div>
+		                    <h4>Camion</h4>
+		                    <p>Assurance complète pour vos poids lourds et véhicules de transport de marchandises</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Flotte -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-shipping-fast"></i>
+		                    </div>
+		                    <h4>Flotte</h4>
+		                    <p>Gestion optimisée de l'assurance pour votre parc de véhicules d'entreprise</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Taxi -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-taxi"></i>
+		                    </div>
+		                    <h4>Taxi</h4>
+		                    <p>Protection spécialisée pour les chauffeurs de taxi et leurs véhicules</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Engins -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-tractor"></i>
+		                    </div>
+		                    <h4>Engins</h4>
+		                    <p>Assurance pour engins de chantier, agricoles et matériels spécialisés</p>
+		                </div>
+		            </div>
+		
+		            <!-- Location Voiture -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-key"></i>
+		                    </div>
+		                    <h4>Location Voiture</h4>
+		                    <p>Solutions d'assurance pour les entreprises de location de véhicules</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Maçon -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-tools"></i>
+		                    </div>
+		                    <h4>Maçon</h4>
+		                    <p>Assurance responsabilité civile et décennale pour les maçons et artisans</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Plombier -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-wrench"></i>
+		                    </div>
+		                    <h4>Plombier</h4>
+		                    <p>Protection complète pour les plombiers et installateurs sanitaires</p>
+		                </div>
+		            </div>
+		
+		            <!-- Véhicule Pro -->
+		           <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-truck-pickup"></i>
+		                    </div>
+		                    <h4>Véhicule Pro</h4>
+		                    <p>Assurance pour tous types de véhicules professionnels et utilitaires</p>
+		                </div>
+		            </div>
+		
+		            <!-- Assurance Résilié -->
+		            <div class="col-lg-2 col-md-2 col-sm-4">
+		                <div class="product-card">
+		                    <div class="product-icon">
+		                        <i class="fas fa-shield-alt"></i>
+		                    </div>
+		                    <h4>Résilié</h4>
+		                    <p>Solutions spécialisées pour les profils résiliés ou malussés</p>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section> #}
 
 	<!-- Services Section -->
 	<section class="services-area ptb-100 pb-70 bg-fafafa">
@@ -532,9 +619,9 @@
 						<h2>Réclamation</h2>
 						<p>
 							Selon l'articles R. 520-1 et R. 520-2 du Code des assurances, l'intermédiaire en assurance 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        doit indiquer avec clarté et exactitude, les coordonnées et l'adresse de son service de 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        réclamation quand il existe et indique les modalités de recours à un processus de médiation 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				                        dans les conditions prévues au titre Ier du livre VI du Code de la consommation.
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        doit indiquer avec clarté et exactitude, les coordonnées et l'adresse de son service de 
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        réclamation quand il existe et indique les modalités de recours à un processus de médiation 
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		                        dans les conditions prévues au titre Ier du livre VI du Code de la consommation.
 						</p>
 
 						<div class="image">

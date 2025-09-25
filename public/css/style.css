@@ -3422,8 +3422,12 @@ Main Banner Area CSS
 
 .item-bg6 {
     background-image: url(../img/main-banner-image/6.jpg);
+ 
+ 
+ width: 100%;
     
-    height: 500px; /* définis une hauteur aussi */
+   
+    
 }
 
 .item-bg7 {

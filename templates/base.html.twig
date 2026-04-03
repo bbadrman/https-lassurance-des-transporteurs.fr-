@@ -1,125 +1,280 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+		<meta charset="UTF-8">
 		<title>
-			{% block title %}Aksam - assurances
+			{% block title %}Welcome!
 			{% endblock %}
 		</title>
 
-		<!-- Bootstrap Min CSS -->
-		 
-		<!-- Animate Min CSS -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Aksam Assurance">
+		<link rel="icon" type="image/x-icon" sizes="32x32" href="{{ asset('public/images/favicon.png') }}">
+
+		<link rel="apple-touch-icon" type="icon" href="{{ asset('public/images/logo.png') }}">
+
+		{% block description %}<meta name="description" content="Protégez votre outil de travail avec une assurance véhicule pro sur-mesure. Obtenez votre devis en 2 min pour utilitaire, voiture de société ou flotte. Garanties adaptées et tarifs compétitifs.">
+		{% endblock %}
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+		{% block stylesheets %}
+			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+		{% endblock %}
+
+		<!-- Google Fonts -->
 		<link
-		rel="stylesheet" href="{{ asset('/css/animate.min.css') }}">
-		<!-- FontAwesome Min CSS -->
-		{# <link
-		rel="stylesheet" href="{{ asset('/css/fontawesome.min.css') }}"> #}
-		<!-- FlatIcon CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
-		<!-- Owl Carousel Min CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
-		<!-- Slick Min CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/slick.min.css') }}">
-		<!-- MeanMenu CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/meanmenu.css') }}">
-		<!-- Magnific Popup Min CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/magnific-popup.min.css') }}">
-		<!-- Odometer Min CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/odometer.min.css') }}">
-		<!-- Nice Select Min CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/nice-select.min.css') }}">
-		<!-- Style produt -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-       <link
-		rel="stylesheet" href="{{ asset('/css/section-produit.css') }}">
-		<!-- Style CSS -->
-		<link
-		rel="stylesheet" href="{{ asset('/css/style.css') }}">
-		<!-- Responsive CSS -->
-		<link rel="stylesheet" href="{{ asset('/css/responsive.css') }}">
-		<link rel="icon" type="image/png" href="{{ asset('/img/favicon.png') }}"> {% block stylesheets %}{% endblock %}
+		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+		<!-- Tailwind CSS config -->
+		<script src="{{ asset('js/tailwind.config.js') }}"></script>
+
+		<!-- Tailwind CSS CDN -->
+		<script src="https://cdn.tailwindcss.com"></script>
 
 
-		<!-- JavaScript Functions -->
-		 <script type="text/javascript">
-																														        function aksam1() {
-																														            document.getElementById("div-aksam1").style.display = "block";
-																														            document.getElementById("div-aksam2").style.display = "none";
-																														        }
-																														
-																														        function aksam2() {
-																														            document.getElementById("div-aksam2").style.display = "block";
-																														            document.getElementById("div-aksam1").style.display = "none";
-																														        }
-																														    </script>
-		</head>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+w[l] = w[l] || [];
+w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : '';
+j.async = true;
+j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-xxxx');
+		</script>
+		<!-- End Google Tag Manager -->
 
-		<body>
-			<!-- Header -->
-			{% include 'includes/header.html.twig' %}
+		<!-- Google tag (gtag.js) -->
+		<script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-xxx"></script>
+		<script type="text/plain" data-cookieconsent="statistics">
+			window.dataLayer = window.dataLayer || [];
+			
+			        function gtag() {
+			            dataLayer.push(arguments);
+			        }
+			        gtag('js', new Date());
+			
+			        gtag('config', 'G-xxxxx');
+		</script>
 
-			<!-- Modal -->
-			{% include 'includes/modal.html.twig' %}
+		<!-- Script de gestion du consentement -->
+		<script>
+			window.dataLayer = window.dataLayer || [];
 
-			<!-- Main Content -->
-			{% block body %}{% endblock %}
+function gtag() {
+dataLayer.push(arguments);
+}
 
-			<!-- Footer -->
-			{% include 'includes/footer.html.twig' %}
+gtag('consent', 'default', {
+'ad_storage': 'denied',
+'analytics_storage': 'denied',
+'ad_user_data': 'denied',
+'ad_personalization': 'denied',
+'wait_for_update': 500 // Optionnel : attendre la mise à jour avant d'envoyer les données.
+});
 
-			<!-- Go Top Button -->
-			<div class="go-top">
-				<i class="fas fa-chevron-up"></i>
-				<i class="fas fa-chevron-up"></i>
-			</div>
+function getCookie(cname) {
+var name = cname + "=";
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split(';');
+for (var i = 0; i < ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) == ' ') {
+c = c.substring(1);
+}
+if (c.indexOf(name) == 0) {
+return c.substring(name.length, c.length);
+}
+}
+return "";
+}
 
-			<!-- JavaScript Files -->
-		<!-- jQuery Min JS -->
-			 <script src="{{ asset('/js/jquery.min.js') }}"></script>
-			<!-- Popper Min JS -->
-			 <script src="{{ asset('/js/popper.min.js') }}"></script>
-			<!-- Bootstrap Min JS -->
-			 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-			<!-- Parallax Min JS -->
-			 <script src="{{ asset('/js/parallax.min.js') }}"></script>
-			<!-- Owl Carousel Min JS -->
-			 <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
-			<!-- Slick Min JS -->
-			 <script src="{{ asset('/js/slick.min.js') }}"></script>
-			<!-- MeanMenu JS -->
-			 <script src="{{ asset('/js/jquery.meanmenu.js') }}"></script>
-			<!-- Appear Min JS -->
-			 <script src="{{ asset('/js/jquery.appear.min.js') }}"></script>
-			<!-- Odometer Min JS -->
-			 <script src="{{ asset('/js/odometer.min.js') }}"></script>
-			<!-- Nice Select Min JS -->
-			 <script src="{{ asset('/js/jquery.nice-select.min.js') }}"></script>
-			<!-- Magnific Popup Min JS -->
-			 <script src="{{ asset('/js/jquery.magnific-popup.min.js') }}"></script>
-			<!-- WOW Min JS -->
-			 <script src="{{ asset('/js/wow.min.js') }}"></script>
-			<!-- AjaxChimp Min JS -->
-			 <script src="{{ asset('/js/jquery.ajaxchimp.min.js') }}"></script>
-			<!-- Form Validator Min JS -->
-			 <script src="{{ asset('/js/form-validator.min.js') }}"></script>
-			<!-- Contact Form Min JS -->
-			 <script src="{{ asset('/js/contact-form-script.js') }}"></script>
-			<!-- Main JS -->
-			 <script src="{{ asset('/js/main.js') }}"></script>
-			<!-- Select JS -->
-			 <script src="{{ asset('/js/selectjs.js') }}"></script>
+document.addEventListener('DOMContentLoaded', function () {
+if (document.cookie.indexOf('displayCookieConsent=y') >= 0) {
+gtag('consent', 'update', {
+'ad_storage': 'granted',
+'analytics_storage': 'granted',
+'ad_user_data': 'granted',
+'ad_personalization': 'granted'
+});
+}
+});
+		</script>
+		<!-- Global site tag (gtag.js) - Google Ads -->
+		<script type="text/plain" data-cookieconsent="marketing" async src="https://www.googletagmanager.com/gtag/js?id=AW-xxxx"></script>
+		<script type="text/plain" data-cookieconsent="marketing">
+			window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			
+			  gtag('config', 'AW-xxxx');
+		</script>
+		<!-- End Global site tag (gtag.js) - Google Ads -->
 
 
-		</body>
-	</html>
+		<!-- Cookies  -->
+		<script>
+			gaProperty = 'GTM-xxxxx'
+
+// Désactive le tracking si le cookie d'acception des conditions n'est pas présent
+var disableStr = 'ga-disable-' + gaProperty;
+
+if (document.cookie.indexOf('displayCookieConsent=y') < 0) {
+window[disableStr] = true;
+}
+		</script>
+		<!-- End Cookies  -->
+	</head>
+	<body
+		class="bg-light font-sans">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-xxx" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		{% block header %}
+			{% include '/partiels/header.html.twig' %}
+		{% endblock %}
+
+		{% block body %}{% endblock %}
+
+
+		{% block footer %}
+			{% include '/partiels/footer.html.twig' %}
+		{% endblock %}
+
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+			<script src="{{ asset('/js/app.js') }}"></script>
+
+		{% endblock %}
+
+		<script>
+			document.getElementById("userPref").addEventListener("click", validationUserCookie, false);
+
+
+function validationUserCookie() {
+if (document.getElementById("cookieAccepte").checked === true) {
+createCookiePerformance(1);
+} else {
+createCookiePerformance(0);
+}
+}
+
+function createCookiePerformance(value) {
+var expiryDate = new Date();
+var cookieName = 'aksamPerformance';
+expiryDate.setMonth(expiryDate.getMonth() + 1);
+document.cookie = cookieName + '=' + value + '; path=/; expires=' + expiryDate.toGMTString();
+$("#cookieChoiceInfo").remove();
+
+}
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+const typeSelect = document.querySelector('select[name*="[type]"]');
+const souhAssurerSelect = document.querySelector('select[name*="[souhAssurer]"]');
+
+if (! typeSelect || ! souhAssurerSelect) 
+return;
+
+
+const options = {
+marchandises: [
+{
+value: '',
+text: 'Vous souhaitez assurer ?',
+disabled: true,
+selected: true
+}, {
+value: 'vehicule',
+text: 'Véhicule'
+}, {
+value: 'marchandise transportées',
+text: 'Marchandise transportées'
+}, {
+value: 'véhicule + M/ses trans',
+text: 'Véhicule + M/ses transportées'
+}
+],
+personne: [
+{
+value: '',
+text: 'Vous souhaitez assurer ?',
+disabled: true,
+selected: true
+}, {
+value: 'transp personne onéreux',
+text: 'Transport personne à titre onéreux'
+}, {
+value: 'rc pro',
+text: 'RC pro'
+}, {
+value: 'transp personne onéreux + RC PRO',
+text: 'Transport personne à titre onéreux + RC PRO'
+}
+]
+};
+
+function updateSouhAssurer() {
+const selectedType = typeSelect.value;
+souhAssurerSelect.innerHTML = '';
+
+if (! selectedType) { // Si aucun type sélectionné
+const option = new Option('Sélectionnez d\'abord un type de transport', '', true, true);
+option.disabled = true;
+souhAssurerSelect.add(option);
+return;
+}
+
+const opts = options[selectedType] || [];
+opts.forEach(opt => {
+const option = new Option(opt.text, opt.value, opt.selected || false, opt.selected || false);
+if (opt.disabled) 
+option.disabled = true;
+
+souhAssurerSelect.add(option);
+});
+}
+
+typeSelect.addEventListener('change', updateSouhAssurer);
+updateSouhAssurer(); // Initialiser
+});
+		</script>
+		<script type="application/ld+json">
+			{
+			            "@context": "http://schema.org",
+			            "@type": "LocalBusiness",
+			            "name": "Aksam Assurance",
+			            "image": "https://lassurance-des-transporteurs.fr/assets/img/favicon.png",
+			            "telephone": "01 82 83 48 00",
+			            "address": {
+			                "@type": "PostalAddress",
+			                "streetAddress": "10 rue de Penthièvre",
+			                "addressCountry": "FR",
+			                "addressLocality": "PARIS",
+			                "postalCode": "75008"
+			            },
+			            "url": "https://lassurance-des-transporteurs.fr/",
+			            "priceRange": "€€",
+			            "openingHours": "Mo-Fr 09:00-18:00",
+			            "contactPoint": {
+			                "@type": "ContactPoint",
+			                "telephone": "+33 1 82 83 48 00",
+			                "contactType": "Customer Service",
+			                "availableLanguage": ["French", "English"]
+			            }
+			        }
+		</script>
+
+
+	</body>
+</html>

@@ -1,4 +1,4 @@
-name: aksam-assurance
+name: lassurance-garantie-decennale
 type: symfony
 docroot: public
 php_version: "8.3"

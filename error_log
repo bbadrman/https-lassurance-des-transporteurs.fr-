@@ -1,0 +1,3 @@
+[29-Sep-2025 10:49:51 UTC] PHP Fatal error:  Cannot redeclare App\Controller\HomeController::mentions() in /home/periydkt/test.peri-enligne.fr/src/Controller/HomeController.php on line 26
+[29-Sep-2025 10:50:17 UTC] PHP Fatal error:  Cannot redeclare App\Controller\HomeController::mentions() in /home/periydkt/test.peri-enligne.fr/src/Controller/HomeController.php on line 26
+[29-Sep-2025 10:50:22 UTC] PHP Fatal error:  Cannot redeclare App\Controller\HomeController::mentions() in /home/periydkt/test.peri-enligne.fr/src/Controller/HomeController.php on line 26

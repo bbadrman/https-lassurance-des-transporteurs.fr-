@@ -1,0 +1,734 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Assurance Véhicule Pro | Devis en Ligne pour Pros, Artisans & PME
+
+{% endblock %}
+
+{% block body %}
+	<section
+		class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<!-- Background decoration -->
+
+		<div class="w-full mx-auto px-4 lg:px-40 relative z-10">
+			<div
+				class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+
+				<!-- Image Section - 70% -->
+				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
+					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
+						<div class="w-full h-full bg-green rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
+							<img src="{{ asset('public/images/transport-persone.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy"/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form Section - 30% -->
+				<div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
+					<div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 h-full">
+						<div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12">
+
+							<h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Complétez ce formulaire pour obtenir un tarif</h2>
+							<div class="w-16 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
+						</div>
+
+
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3'}}) }}
+
+
+						<!-- Raison sociale -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-building text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.raison) }}
+							</div>
+							{{ form_errors(form.raison) }}
+						</div>
+
+						<!-- Activité -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-briefcase text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.activite, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.activite) }}
+						</div>
+
+						<!-- Véhicule assuré -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.assurer, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.assurer) }}
+						</div>
+
+
+						<!-- souhaiter assurer -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.souhAssurer, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.souhAssurer) }}
+						</div>
+
+
+						<!-- Code Postal -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-map-marker-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.codepostal) }}
+							</div>
+							{{ form_errors(form.codepostal) }}
+						</div>
+
+						<!-- Nom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.nom) }}
+							</div>
+							{{ form_errors(form.nom) }}
+						</div>
+
+						<!-- Prénom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user-tag text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.prenom) }}
+							</div>
+							{{ form_errors(form.prenom) }}
+						</div>
+
+
+						<!-- Email -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-envelope text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.email) }}
+							</div>
+							{{ form_errors(form.email) }}
+						</div>
+
+						<!-- Téléphone -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-phone text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.tele) }}
+							</div>
+							{{ form_errors(form.tele) }}
+						</div>
+
+						<!-- Consent -->
+						<div class="bg-white rounded-lg border border-blue-200 p-1.5 mt-2">
+							<span class="text-xs text-gray-600 leading-tight block text-justify">
+								En cliquant sur "Comparer", vous acceptez de transmettre vos informations à AKSAM ASSURANCES, qui accepte de les utiliser conformément à sa politique de confidentialité dans le but de vous fournir des propositions de devis d'assurance adaptées à votre recherche.
+							</span>
+						</div>
+
+						<!-- Bouton -->
+						<button type="submit" class="w-full bg-gold text-green font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+							<i class="fas fa-calculator mr-2"></i>
+							Comparer
+						</button>
+
+						{{ form_end(form) }}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Professionals Section -->
+
+	<!-- Professionals Section -->
+
+	<section class="py-12 lg:py-20 bg-surface">
+	<div class="container mx-auto px-4 lg:px-8">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-8 lg:mb-16">
+				<h2 class="text-2xl lg:text-5xl font-bold text-green mb-4 lg:mb-6 leading-tight">
+					Transport de personnes
+				</h2>
+
+				<p class="text-lg lg:text-2xl text-gray-700 mb-4">
+					Assurance véhicule transport de personnes
+				</p>
+				<p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+					Le transport de personnes est une activité réglementée qui exige des garanties spécifiques.
+					Que vous soyez chauffeur VTC, taxi, autocariste, navette privée ou entreprise de transport à la demande, notre assurance transport de personnes à titre onéreux répond à toutes vos obligations légales et professionnelles.
+				</p>
+			</div>
+
+			<!-- GRID 3 COLONNES EN LIGNE -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+				<!-- Card 1 : VTC & Taxi -->
+				<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl card-hover border border-gray-100 flex flex-col">
+					<div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+						<div class="w-12 h-12 lg:w-14 lg:h-14 bg-green rounded-xl flex items-center justify-center flex-shrink-0">
+							<i class="fas fa-taxi text-white text-xl lg:text-2xl"></i>
+						</div>
+						<h3 class="text-base lg:text-xl font-bold text-green">VTC & Taxi</h3>
+					</div>
+
+					<p class="text-gray-700 text-xs lg:text-sm mb-4 lg:mb-5 leading-relaxed">
+						Protection complète pour les chauffeurs VTC, taxi et navettes privées. Notre assurance couvre tous les aspects de votre activité de transport individuel de personnes.
+					</p>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-3 lg:mb-4">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Véhicules couverts :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚖 Véhicules VTC (berline, van)</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚕 Taxis conventionnés</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚗 Navettes privées</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-4 lg:mb-5">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Garanties incluses :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">RC professionnelle transport de personnes</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Garantie conducteur</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Protection passagers</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Assurance bagages</span>
+							</li>
+						</ul>
+					</div>
+
+					<p class="text-gray-600 text-xs lg:text-sm mb-4 lg:mb-5">
+						Contrat adapté aux indépendants et auto-entrepreneurs.
+					</p>
+
+					<div class="mt-auto">
+						<a href="#formulaire" class="inline-block w-full bg-green hover:bg-accent text-white font-bold py-2 lg:py-3 px-4 lg:px-6 rounded-xl transition-all text-center text-xs lg:text-sm">
+							<i class="fas fa-calculator mr-2"></i>
+							Devis assurance VTC / Taxi
+						</a>
+					</div>
+				</div>
+
+				<!-- Card 2 : Autocars & Minibus -->
+				<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl card-hover border border-gray-100 flex flex-col">
+					<div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+						<div class="w-12 h-12 lg:w-14 lg:h-14 bg-green rounded-xl flex items-center justify-center flex-shrink-0">
+							<i class="fas fa-bus text-white text-xl lg:text-2xl"></i>
+						</div>
+						<h3 class="text-base lg:text-xl font-bold text-green">Autocars & Minibus</h3>
+					</div>
+
+					<p class="text-gray-700 text-xs lg:text-sm mb-4 lg:mb-5 leading-relaxed">
+						Assurance complète pour les entreprises de transport collectif : autocars de tourisme, minibus, transport scolaire ou transport de salariés.
+					</p>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-3 lg:mb-4">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Véhicules couverts :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚌 Autocars (9 à 80 places)</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚐 Minibus collectifs</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚍 Véhicules de transport scolaire</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-4 lg:mb-5">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Garanties incluses :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">RC transport collectif de personnes</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Protection multi-passagers</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Assistance 24h/24</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Couverture Europe</span>
+							</li>
+						</ul>
+					</div>
+
+					<p class="text-gray-600 text-xs lg:text-sm mb-4 lg:mb-5">
+						Contrat multi-véhicules pour société de transport et autocaristes.
+					</p>
+
+					<div class="mt-auto">
+						<a href="#formulaire" class="inline-block w-full bg-green hover:bg-accent text-white font-bold py-2 lg:py-3 px-4 lg:px-6 rounded-xl transition-all text-center text-xs lg:text-sm">
+							<i class="fas fa-calculator mr-2"></i>
+							Devis assurance Autocar
+						</a>
+					</div>
+				</div>
+
+				<!-- Card 3 : RC Pro & Garanties Complémentaires -->
+				<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl card-hover border border-gray-100 flex flex-col">
+					<div class="flex items-center gap-3 lg:gap-4 mb-4 lg:mb-6">
+						<div class="w-12 h-12 lg:w-14 lg:h-14 bg-green rounded-xl flex items-center justify-center flex-shrink-0">
+							<i class="fas fa-shield-alt text-white text-xl lg:text-2xl"></i>
+						</div>
+						<h3 class="text-base lg:text-xl font-bold text-green">RC Pro & Options</h3>
+					</div>
+
+					<p class="text-gray-700 text-xs lg:text-sm mb-4 lg:mb-5 leading-relaxed">
+						Complétez votre protection avec notre RC professionnelle et nos garanties complémentaires adaptées aux transporteurs de personnes.
+					</p>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-3 lg:mb-4">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Garanties complémentaires :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🔒 Protection financière</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">🚗 Véhicule de remplacement</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-gray-700 text-xs lg:text-sm">👨‍⚖️ Protection juridique</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="bg-white rounded-xl p-4 lg:p-5 mb-4 lg:mb-5">
+						<h5 class="font-bold text-gray-900 mb-2 lg:mb-3 text-xs lg:text-sm">Options incluses :</h5>
+						<ul class="space-y-1.5 lg:space-y-2">
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">RC Pro transport de personnes</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Protection juridique complète</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Indemnisation rapide</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check-circle text-green-500 mt-0.5 flex-shrink-0 text-xs"></i>
+								<span class="text-gray-700 text-xs lg:text-sm">Extension Europe incluse</span>
+							</li>
+						</ul>
+					</div>
+
+					<p class="text-gray-600 text-xs lg:text-sm mb-4 lg:mb-5 italic">
+						Protection 24h/24 pour votre activité professionnelle.
+					</p>
+
+					<div class="mt-auto">
+						<a href="#formulaire" class="inline-block w-full bg-green hover:bg-accent text-white font-bold py-2 lg:py-3 px-4 lg:px-6 rounded-xl transition-all text-center text-xs lg:text-sm">
+							<i class="fas fa-calculator mr-2"></i>
+							Devis RC Pro Transport
+						</a>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Encadré récapitulatif -->
+			<div class="mt-8 lg:mt-12 bg-gradient-to-r from-green/10 to-accent/10 rounded-2xl p-6 lg:p-8 border border-green/20">
+				<div class="flex items-start gap-4">
+					<div class="text-3xl lg:text-4xl">✅</div>
+					<div>
+						<h4 class="font-bold text-gray-900 text-base lg:text-xl mb-3">En résumé</h4>
+						<p class="text-gray-700 text-sm lg:text-base mb-4">
+							Roulez en toute sérénité avec une assurance qui protège vos véhicules, vos passagers et votre activité professionnelle 24h/24.
+						</p>
+						<ul class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs lg:text-sm text-gray-700">
+							<li>✓ Contrat pour indépendant (chauffeur VTC ou taxi)</li>
+							<li>✓ Contrat multi-véhicules pour société de transport</li>
+							<li>✓ Contrat autocar / autocariste longue distance</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+	<!-- SECTION POURQUOI NOUS CHOISIR -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-12 lg:mb-16">
+					<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">Pourquoi choisir L'Assurance des Transporteurs ?</h2>
+					<div class="w-20 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
+				</div>
+
+				<div
+					class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<!-- Expertise -->
+					<div class="bg-light rounded-2xl p-8 shadow-xl card-hover border border-gray-100 text-center">
+						<div class="w-16 h-16 bg-green to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+							<i class="fas fa-briefcase text-white text-3xl"></i>
+						</div>
+						<h3 class="text-xl font-bold text-green mb-4">Expertise transport</h3>
+						<p class="text-gray-700">
+							Depuis plus de 10 ans, nous accompagnons les transporteurs professionnels et les entreprises de logistique dans leur couverture d'assurance.
+						</p>
+					</div>
+
+					<!-- Flexibilité -->
+					<div class="bg-light rounded-2xl p-8 shadow-xl card-hover border border-gray-100 text-center">
+						<div class="w-16 h-16 bg-green  to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+							<i class="fas fa-cogs text-white text-3xl"></i>
+						</div>
+						<h3 class="text-xl font-bold text-green mb-4">Contrats flexibles</h3>
+						<p class="text-gray-700">
+							Des offres personnalisées selon le type d'activité, le nombre de véhicules ou la nature des marchandises transportées.
+						</p>
+					</div>
+
+					<!-- Réactivité -->
+					<div class="bg-light rounded-2xl p-8 shadow-xl card-hover border border-gray-100 text-center">
+						<div class="w-16 h-16 bg-green to-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+							<i class="fas fa-clock text-white text-3xl"></i>
+						</div>
+						<h3 class="text-xl font-bold text-green mb-4">Service réactif</h3>
+						<p class="text-gray-700">
+							Un accompagnement dédié, une gestion rapide des sinistres et un accès direct à un conseiller spécialiste du transport.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- NOUVELLE SECTION : Assurance complémentaire pour les transporteurs de personnes -->
+	<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surface to-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-5xl mx-auto">
+				<div class="text-center mb-8 lg:mb-12">
+					<h2 class="text-2xl lg:text-4xl font-bold text-green mb-4 lg:mb-6 leading-tight">
+						Assurance complémentaire pour les transporteurs de personnes
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-green to-accent mx-auto rounded-full"></div>
+				</div>
+
+				<div class="bg-white rounded-2xl p-6 lg:p-10 shadow-2xl border border-gray-100">
+					<p class="text-gray-700 text-sm lg:text-base mb-6 lg:mb-8 leading-relaxed">
+						En complément de la couverture obligatoire, nous proposons des garanties étendues :
+					</p>
+
+					<div
+						class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
+						<!-- Protection financière -->
+						<div class="bg-light rounded-xl p-5 lg:p-6 border-l-4 border-green">
+							<div class="flex items-start gap-3">
+								<div class="text-2xl">🔒</div>
+								<div>
+									<h4 class="font-bold text-gray-900 mb-2 text-sm lg:text-base">Protection financière</h4>
+									<p class="text-gray-700 text-xs lg:text-sm">
+										En cas d'arrêt d'activité, maladie ou accident du conducteur
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Assistance véhicule -->
+						<div class="bg-light rounded-xl p-5 lg:p-6 border-l-4 border-green">
+							<div class="flex items-start gap-3">
+								<div class="text-2xl">🚗</div>
+								<div>
+									<h4 class="font-bold text-gray-900 mb-2 text-sm lg:text-base">Assistance véhicule de remplacement</h4>
+									<p class="text-gray-700 text-xs lg:text-sm">
+										Pour ne jamais interrompre votre service
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Protection juridique -->
+						<div class="bg-light rounded-xl p-5 lg:p-6 border-l-4 border-green">
+							<div class="flex items-start gap-3">
+								<div class="text-2xl">👨‍⚖️</div>
+								<div>
+									<h4 class="font-bold text-gray-900 mb-2 text-sm lg:text-base">Protection juridique complète</h4>
+									<p class="text-gray-700 text-xs lg:text-sm">
+										En cas de litige avec un client ou un partenaire
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Extension Europe -->
+						<div class="bg-light rounded-xl p-5 lg:p-6 border-l-4 border-green">
+							<div class="flex items-start gap-3">
+								<div class="text-2xl">🌍</div>
+								<div>
+									<h4 class="font-bold text-gray-900 mb-2 text-sm lg:text-base">Extension Europe</h4>
+									<p class="text-gray-700 text-xs lg:text-sm">
+										Valable sur tous vos trajets à l'étranger
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-gradient-to-r from-green/10 to-accent/10 rounded-xl p-5 lg:p-6 mb-6 lg:mb-8">
+						<p class="text-gray-800 text-sm lg:text-base font-semibold text-center">
+							En résumé : Roulez en toute sérénité avec une assurance qui protège vos véhicules, vos passagers et votre activité professionnelle 24h/24.
+						</p>
+					</div>
+
+					<div class="text-center">
+						<a href="#formulaire" class="inline-flex items-center bg-green hover:bg-accent text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl shadow-lg transition-all text-sm lg:text-base hover:scale-105 transform">
+							<i class="fas fa-file-invoice mr-2"></i>
+							Demander un devis pour mon assurance transport de personnes
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION CTA DEVIS -->
+	<section id="contact" class="py-12 lg:py-20  from-dark-500  ">
+		<div class="container mx-auto px-4 lg:px-8 text-center">
+			<div class="max-w-4xl mx-auto">
+				<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+					<i class="fas fa-file-alt text-white text-4xl"></i>
+				</div>
+				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">Obtenez votre devis d'assurance transport</h2>
+				<p class="text-xl text-dark/90 mb-4">
+					Demandez votre devis d'assurance transport professionnel en moins de 2 minutes.
+				</p>
+				<p class="text-lg text-dark/80 mb-8">
+					Remplissez le formulaire en ligne ou appelez notre équipe d'experts.<br>
+					Un conseiller vous proposera la meilleure formule adaptée à votre activité.
+				</p>
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+					<a href="tel:0182834800" class="inline-flex items-center bg-white text-green-600 font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-gray-100 transition-all">
+						<i class="fas fa-phone mr-3 text-2xl"></i>
+						<span class="text-xl">01 82 83 48 00</span>
+					</a>
+					<a href="#formulaire" class="inline-flex items-center bg-green hover:bg-accent text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-all">
+						<i class="fas fa-paper-plane mr-2"></i>
+						Je fais ma demande maintenant
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION FAQ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-12 lg:mb-16">
+					<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">Foire aux questions</h2>
+					<div class="w-20 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
+				</div>
+
+				<div
+					class="space-y-4">
+					<!-- FAQ 1 -->
+					<div class="bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Quelle est la différence entre une assurance transport de personnes et une assurance transport de marchandises ?</span>
+							<span class="faq-toggle text-2xl text-green  font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							L'assurance transport de personnes couvre les passagers et le véhicule, tandis que l'assurance transport de marchandises protège les biens transportés et les camions contre les risques (vol, perte, casse…).
+						</div>
+					</div>
+
+					<!-- FAQ 2 -->
+					<div class="bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">L'assurance marchandises transportées est-elle obligatoire ?</span>
+							<span class="faq-toggle text-2xl text-green  font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							Pas toujours, mais elle est fortement recommandée pour tous les professionnels du transport. Elle garantit la valeur des biens transportés en cas d'incident pendant le trajet.
+						</div>
+					</div>
+
+					<!-- FAQ 3 -->
+					<div class="bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Peut-on regrouper plusieurs véhicules sous un seul contrat ?</span>
+							<span class="faq-toggle text-2xl text-green  font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							Oui, avec nos formules multivéhicules, vous pouvez assurer votre flotte complète (camions, utilitaires, autocars, etc.) sous un contrat unique.
+						</div>
+					</div>
+
+					<!-- FAQ 4 -->
+					<div class="bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Est-ce que mes chauffeurs sont couverts ?</span>
+							<span class="faq-toggle text-2xl text-green  font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							Oui, nos contrats incluent la garantie conducteur pour les salariés comme pour les indépendants, assurant une protection en cas d'accident.
+						</div>
+					</div>
+
+					<!-- FAQ 5 -->
+					<div class="bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Comment obtenir un devis ?</span>
+							<span class="faq-toggle text-2xl text-green  font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							Rien de plus simple : remplissez notre formulaire en ligne ou contactez-nous directement au 📞 01 82 83 48 00.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- JAVASCRIPT POUR FAQ -->
+	<script>
+		document.querySelectorAll('.faq-question').forEach(button => {
+button.addEventListener('click', () => {
+const answer = button.nextElementSibling;
+const toggle = button.querySelector('.faq-toggle');
+
+answer.classList.toggle('hidden');
+toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+});
+});
+	</script>
+	<script>
+		// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+});
+});
+	</script>
+
+
+	<!-- Cookie Scripts -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function (event) {
+if (document.cookie.indexOf('aksamPerformance') < 0) { // Modern cookie banner
+const banner = document.createElement('div');
+banner.innerHTML = `
+                    <div class="fixed bottom-6 left-6 right-6 bg-surface p-6 rounded-2xl shadow-2xl z-50 max-w-md mx-auto border border-green">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-2 bg-blue-100 rounded-xl">
+                                <i class="fas fa-cookie-bite text-yellow-500 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-dark mb-2">Cookies et confidentialité</h4>
+                                <p class="text-sm text-gray-600 mb-4">www.lassurance-des-transporteurs.fr utilise des cookies pour vous offrir le meilleur service.</p>
+                                <div class="flex space-x-2">
+                                    <button onclick="acceptCookies()" class="bg-green  text-dark px-4 py-2 rounded-xl text-sm font-medium transition-all hover:scale-105 shadow-md">
+                                        <i class="fas fa-check mr-1"></i>J'accepte
+                                    </button>
+                                    <button onclick="this.closest('.fixed').remove()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm transition-all hover:bg-gray-300">
+                                        Refuser
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+document.body.appendChild(banner);
+}
+});
+
+function acceptCookies() {
+const expiryDate = new Date();
+expiryDate.setMonth(expiryDate.getMonth() + 1);
+document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
+document.querySelector('.fixed.bottom-6').remove();
+}
+	</script>
+
+	<!-- JSON-LD -->
+	<script type="application/ld+json">
+		{
+																																																																																																																																																																																																																																																																																																																																																																																											        "@context": "http://schema.org",
+																																																																																																																																																																																																																																																																																																																																																																																											        "@type": "LocalBusiness",
+																																																																																																																																																																																																																																																																																																																																																																																											        "name": "Aksam Assurance",
+																																																																																																																																																																																																																																																																																																																																																																																											        "image": "assets/img/favicon.png",
+																																																																																																																																																																																																																																																																																																																																																																																											        "telephone": "01 82 83 48 00",
+																																																																																																																																																																																																																																																																																																																																																																																											        "address": {
+																																																																																																																																																																																																																																																																																																																																																																																											            "@type": "PostalAddress",
+																																																																																																																																																																																																																																																																																																																																																																																											            "streetAddress": "10 rue de Penthièvre",
+																																																																																																																																																																																																																																																																																																																																																																																											            "addressCountry": "FR",
+																																																																																																																																																																																																																																																																																																																																																																																											            "addressLocality": "PARIS",
+																																																																																																																																																																																																																																																																																																																																																																																											            "postalCode": "75008"
+																																																																																																																																																																																																																																																																																																																																																																																											        },
+																																																																																																																																																																																																																																																																																																																																																																																											        "url": "https://lassurance-des-transporteurs.fr/",
+																																																																																																																																																																																																																																																																																																																																																																																											        "priceRange": "€€",
+																																																																																																																																																																																																																																																																																																																																																																																											        "openingHours": "Mo-Fr 09:00-18:00",
+																																																																																																																																																																																																																																																																																																																																																																																											        "contactPoint": {
+																																																																																																																																																																																																																																																																																																																																																																																											            "@type": "ContactPoint",
+																																																																																																																																																																																																																																																																																																																																																																																											            "telephone": "+33 1 82 83 48 00",
+																																																																																																																																																																																																																																																																																																																																																																																											            "contactType": "Customer Service",
+																																																																																																																																																																																																																																																																																																																																																																																											            "availableLanguage": ["French", "English"]
+																																																																																																																																																																																																																																																																																																																																																																																											        }
+																																																																																																																																																																																																																																																																																																																																																																																											    }
+	</script>
+
+{% endblock %}

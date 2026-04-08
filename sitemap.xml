@@ -6,27 +6,17 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://lassurance-des-transport.fr/</loc>
+  <loc>https://www.lassurance-des-transport.fr/</loc>
   <lastmod>2026-04-08T00:00:00+00:00</lastmod>
   <priority>1.00</priority>
-</url>
+</url> 
 <url>
-  <loc>https://lassurance-des-transport.fr/transport-de-marchandises/</loc>
-  <lastmod>2026-04-08T00:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://lassurance-des-transport.fr/transport-de-personnes/</loc>
-  <lastmod>2026-04-08T00:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://lassurance-des-transport.fr/mention-legale/</loc>
+  <loc>https://www.lassurance-des-transport.fr/mention-legale/</loc>
   <lastmod>2026-04-08T00:00:00+00:00</lastmod>
   <priority>0.50</priority>
 </url>
 <url>
-  <loc>https://lassurance-des-transport.fr/politique-legale/</loc>
+  <loc>https://www.lassurance-des-transport.fr/politique-legale/</loc>
   <lastmod>2026-04-08T00:00:00+00:00</lastmod>
   <priority>0.50</priority>
 </url>

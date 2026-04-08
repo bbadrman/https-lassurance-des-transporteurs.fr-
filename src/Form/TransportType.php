@@ -25,7 +25,7 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le nom est requis'])
+                    new Assert\NotBlank(message: 'Le nom est requis')
                 ]
             ])
             ->add('prenom', TextType::class, [
@@ -35,7 +35,7 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le prénom est requis'])
+                    new Assert\NotBlank(message: 'Le prénom est requis')
                 ]
             ])
             ->add('raison', TextType::class, [
@@ -48,6 +48,7 @@ class TransportType extends AbstractType
             ])
             ->add('activite', ChoiceType::class, [
                 'label' => false,
+                 'required' => false,
                 'placeholder' => 'Démarrage d\'ctivité ?',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
@@ -61,11 +62,12 @@ class TransportType extends AbstractType
 
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'L\'activité est requise'])
+                    new Assert\NotBlank(message: 'L\'activité est requise')
                 ]
             ])
             ->add('ancienne', ChoiceType::class, [
                 'label' => false,
+                 'required' => false,
                 'placeholder' => 'Ancienne assurance résilié?',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
@@ -78,12 +80,10 @@ class TransportType extends AbstractType
 
 
                 ],
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'L\'activité est requise'])
-                ]
             ])
             ->add('motif', ChoiceType::class, [
                 'label' => false,
+                'required' => false,
                 'placeholder' => 'Motif résiliation ?',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
@@ -100,9 +100,6 @@ class TransportType extends AbstractType
 
 
                 ],
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'L\'activité est requise'])
-                ]
             ])
 
             ->add('assurer', ChoiceType::class, [
@@ -116,7 +113,7 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Veuillez indiquer si le véhicule est assuré'])
+                    new Assert\NotBlank(message: 'Veuillez indiquer si le véhicule est assuré')
                 ]
             ])
             // ->add('type', ChoiceType::class, [
@@ -162,11 +159,8 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le code postal est requis']),
-                    new Assert\Regex([
-                        'pattern' => '/^[0-9]{5}$/',
-                        'message' => 'Le code postal doit contenir 5 chiffres'
-                    ])
+                    new Assert\NotBlank(message: 'Le code postal est requis'),
+                    new Assert\Regex(pattern: '/^[0-9]{5}$/', message: 'Le code postal doit contenir 5 chiffres')
                 ]
             ])
             ->add('email', EmailType::class, [
@@ -176,8 +170,8 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'L\'email est requis']),
-                    new Assert\Email(['message' => 'L\'email n\'est pas valide'])
+                    new Assert\NotBlank(message: 'L\'email est requis'),
+                    new Assert\Email(message: 'L\'email n\'est pas valide')
                 ]
             ])
             ->add('tele', TelType::class, [
@@ -187,7 +181,7 @@ class TransportType extends AbstractType
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(['message' => 'Le téléphone est requis'])
+                    new Assert\NotBlank(message: 'Le téléphone est requis')
                 ]
             ])
         ;

@@ -1,46 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="UTF-8">
-		<title>
-			{% block title %}Assurance Transport de Marchandise - Devis Gratuit | Aksam
+	<meta charset="UTF-8">
+    <title>
+			{% block title %}Accueil - Assurance transport de marchandise
 			{% endblock %}
 		</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <meta name="author" content="Aksam Assurance">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('public/image/favicon.png') }}">
+    <link rel=apple-touch-icon type="icon" href="{{ asset('public/image/logo.png') }}">
+    <meta name="description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Robots -->
-         <meta name="robots" content="index, follow"> 
-		<meta name="author" content="Aksam Assurance">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="icon" type="image/x-icon" sizes="32x32" href="{{ asset('public/images/favicon.png') }}">
-      
-		<link rel="apple-touch-icon" type="icon" href="{{ asset('public/images/logo.png') }}">
-       	<meta name="apple-mobile-web-app-title" content="Assurance Transport de Marchandise">
-        <meta name="application-name" content="Assurance Transport de Marchandise">
-
-
-		{% block description %}
-		{% endblock %}
-        {% block keywords %}
-         
-		{% endblock %}
-          
-		{% block canonical %}{% endblock %}
-
-		{% block opengraph %}
-		<meta property="og:site_name" content="Aksam Assurance">
-		<meta property="og:type" content="website">
-		<meta property="og:image" content="https://lassurance-des-transport.fr/images/voiture.jpg">
-		<meta name="twitter:card" content="summary_large_image">
-        <meta property="og:type" content="website">
-        <meta property="og:locale" content="fr_FR">
-		{% endblock %}
+ 
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
-		{% block stylesheets %}
+		{# {% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-		{% endblock %}
+		{% endblock %} #}
 
 		<!-- Google Fonts -->
 		<link

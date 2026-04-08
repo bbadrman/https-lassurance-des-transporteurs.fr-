@@ -64,9 +64,50 @@ class TransportType extends AbstractType
                     new Assert\NotBlank(['message' => 'L\'activité est requise'])
                 ]
             ])
+            ->add('ancienne', ChoiceType::class, [
+                'label' => false,
+                'placeholder' => 'Ancienne assurance résilié?',
+                'attr' => [
+                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+
+                ],
+                'choices' => [
+
+                    'Oui' => 'oui',
+                    'Non' => 'non'
+
+
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(['message' => 'L\'activité est requise'])
+                ]
+            ])
+            ->add('motif', ChoiceType::class, [
+                'label' => false,
+                'placeholder' => 'Motif résiliation ?',
+                'attr' => [
+                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+
+                ],
+                'choices' => [
+
+                    'Sinistre' => 'sinistre',
+                    'Non paiement' => 'non paiement',
+                    'Suspension de paiement' => 'suspension de paiement',
+                    'Fausse declaration' => 'fausse declaration',
+                    'Echéance' => 'echeance',
+
+
+
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(['message' => 'L\'activité est requise'])
+                ]
+            ])
+
             ->add('assurer', ChoiceType::class, [
                 'label' => false,
-                'placeholder' => 'Assuré actuellement ?',
+                'placeholder' => 'Véhicule assuré actuellement ?',
                 'choices' => [
                     'Oui' => 'oui',
                     'Non' => 'non'
@@ -78,36 +119,42 @@ class TransportType extends AbstractType
                     new Assert\NotBlank(['message' => 'Veuillez indiquer si le véhicule est assuré'])
                 ]
             ])
-            ->add('type', ChoiceType::class, [
-                'label' => false,
-                'placeholder' => 'type transport ?',
-                'choices' => [
-                    'Marchandises' => 'marchandises',
-                    'Personne' => 'personne'
-                ],
-                'attr' => [
-                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
-                    'id' => 'transport-type'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Veuillez sélectionner un type de transport'])
-                ]
-            ])
-            ->add('souhAssurer', ChoiceType::class, [
-                'label' => false,
-                // SUPPRIMEZ le placeholder
-                // SUPPRIMEZ toutes les choices, elles seront gérées par JavaScript
-                'choices' => [],  // Laissez vide !
-                'attr' => [
-                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
-                    'id' => 'souh-assurer'
-                ],
-                'required' => false, // Important !
-                'constraints' => [
-                    new Assert\NotBlank(['message' => 'Veuillez sélectionner ce que vous souhaitez assurer'])
-                ]
-            ])
-            
+            // ->add('type', ChoiceType::class, [
+            //     'label' => false,
+            //     'placeholder' => 'type transport ?',
+            //     'choices' => [
+            //         'Marchandises' => 'marchandises',
+            //         'Personne' => 'personne'
+            //     ],
+            //     'attr' => [
+            //         'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
+            //         'id' => 'transport-type'
+            //     ],
+            //     'constraints' => [
+            //         new Assert\NotBlank(['message' => 'Veuillez sélectionner un type de transport'])
+            //     ]
+            // ])
+            // ->add('souhAssurer', ChoiceType::class, [
+            //     'label' => false,
+            //     'placeholder' => 'Vous souhaitez assurer ?',
+            //     'choices' => [
+            //         'Véhicule' => 'vehicule',
+            //         'Marchandise transportées' => 'marchandise transportées',
+            //         'Véhicule + M/ses transportées' => 'véhicule + M/ses trans',
+            //         'Transport personne à titre onéreux' => 'transp personne onéreux',
+            //         'RC pro' => 'rc pro',
+            //         'Transport personne à titre onéreux + RC PRO' => 'transp personne onéreux + RC PRO',
+            //     ],
+            //     'attr' => [
+            //         'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
+            //         'id' => 'souh-assurer'
+            //     ],
+            //     'required' => false,
+            //     'constraints' => [
+            //         new Assert\NotBlank(['message' => 'Veuillez sélectionner ce que vous souhaitez assurer'])
+            //     ]
+            // ])
+
             ->add('codepostal', TextType::class, [
                 'label' => false,
                 'attr' => [

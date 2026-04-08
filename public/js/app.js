@@ -52,12 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Exclure les éléments de formulaire des animations automatiques
-            const excludeSelectors = [
-                'form', 'input', 'select', 'textarea', 'button[type="submit"]',
-                '.form-group', '.input-group'
-            ];
-
             // Animation Header (sans conflits)
             const header = document.querySelector("header");
             if (header) {
@@ -158,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Form submission
-        document.getElementById('quoteForm').addEventListener('submit', (e) => {
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) quoteForm.addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Merci pour votre demande ! Nous vous contacterons très prochainement.');
         });

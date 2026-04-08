@@ -1,11 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	Assurance Véhicule Pro | Devis en Ligne pour Pros, Artisans & PME
+{% block title %}Assurance Transport de Marchandise - Devis Gratuit | Aksam{% endblock %}
 
+{% block description %}
+<meta name="description" content="Obtenez un devis d’assurance transport de marchandise (TPM) en ligne. Aksam Assurance, courtier spécialisé pour les transporteurs professionnels. ☎ 01 82 83 48 00">
+{% endblock %}
+{% block keywords %}
+        <meta name="keywords" content="Assurance transport de marchandise, devis assurance ">
 {% endblock %}
 
+{% block canonical %}
+<link rel="canonical" href="https://lassurance-des-transport.fr/">
+{% endblock %}
+
+{% block opengraph %}
+<meta property="og:title" content="Assurance Transport de Marchandise - Devis Gratuit | Aksam">
+<meta property="og:description" content="Obtenez un devis d’assurance transport de marchandise (TPM) en ligne. Courtier spécialisé pour les transporteurs professionnels.">
+<meta property="og:url" content="https://lassurance-des-transport.fr/">
+<meta property="og:site_name" content="Assurance Transport de Marchandise">
+<meta property="og:image" content="https://lassurance-des-transport.fr/images/voiture.webp">
+<meta property="og:image:alt" content="Antécédents assurance pour transport marchandise"> 
+ 
+{% endblock %}
 {% block body %}
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Assurance transport de marchandise (TPM)</h1>
 {# section card #}
 	<section
 		class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
@@ -20,7 +38,7 @@
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
 						<div class="w-full h-full  rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
 							{# <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full object-contain rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden p-4" loading="lazy"/> #}
-						    <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy"/>
+						    <img src="{{ asset('images/voiture.webp') }}" alt="Antécédents assurance pour transport marchandise" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1200" height="800"/>
 						</div>
 					</div>
 				</div>
@@ -38,7 +56,7 @@
 				
 
 
-						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3'}}) }}
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
 
 
 						<!-- Raison sociale -->
@@ -82,8 +100,52 @@
 							{{ form_errors(form.assurer) }}
 						</div>
 
-                       <!-- type assurer -->
+						<!-- Véhicule assuré -->
 						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.ancienne, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;',
+                              'id': 'ancienne_field',
+                              'onchange': 'toggleMotif(this.value)'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.ancienne) }}
+						</div>
+
+						<!-- Motif résiliation -->
+						<div class="form-group" id="motif_group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.motif, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.motif) }}
+						</div>
+
+						<script>
+							function toggleMotif(value) {
+								var motifGroup = document.getElementById('motif_group');
+								motifGroup.style.display = (value === 'non') ? 'none' : '';
+							}
+							// Init on page load
+							document.addEventListener('DOMContentLoaded', function() {
+								var ancienne = document.getElementById('ancienne_field');
+								if (ancienne) toggleMotif(ancienne.value);
+							});
+						</script>
+
+                       <!-- type assurer -->
+						{# <div class="form-group">
 							<div class="flex">
 								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
 									<i class="fas fa-shield-alt text-green text-sm"></i>
@@ -95,10 +157,10 @@
                                    }) }}
 							</div>
 							{{ form_errors(form.type) }}
-						</div>
+						</div> #}
 
 						<!-- souhaiter assurer -->
-						<div class="form-group">
+						{# <div class="form-group">
 							<div class="flex">
 								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
 									<i class="fas fa-shield-alt text-green text-sm"></i>
@@ -110,7 +172,7 @@
                                    }) }}
 							</div>
 							{{ form_errors(form.souhAssurer) }}
-						</div>
+						</div> #}
 
 						
 
@@ -179,7 +241,7 @@
 						</div>
 
 						<!-- Bouton -->
-						<button type="submit" class="w-full bg-gradient-to-br from-orange-500 via-amber-300 to-yellow-300 text-green font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+						<button type="submit" class="w-full bg-green text-white font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
 							<i class="fas fa-calculator mr-2"></i>
 							Comparer
 						</button>
@@ -599,10 +661,12 @@
 						<li>Assurance flotte transport de marchandise</li>
 					</ul>
 					<p class="mb-6">Pour cela complétez le formulaire en haut de page afin d'obtenir des tarifs d'assurances adaptés à vos besoins en ligne et en quelques clics.</p>
-					<a href="#formulaire" class="inline-flex items-center bg-gradient-to-br from-orange-500 via-amber-300 to-yellow-300 hover:bg-accent text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all">
+					<div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12"> 
+					<div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12"> <a href="#formulaire" class="inline-flex items-center bg-green hover:bg-accent text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all">
 						<i class="fas fa-paper-plane mr-2"></i>
 						Obtenir un devis
 					</a>
+					</div>
 				</div>
 
 			</div>

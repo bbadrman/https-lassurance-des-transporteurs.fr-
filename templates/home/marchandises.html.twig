@@ -1,8 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	Assurance Véhicule Pro | Devis en Ligne pour Pros, Artisans & PME
+{% block title %}Assurance transport marchandise : Protégez vos véhicules et cargaisons dès 89€/mois{% endblock %}
 
+{% block description %}
+<meta name="description" content="Assurance transport marchandise complète : véhicules, marchandises, RC pro. Devis gratuit en 2 min. Couverture 24/7, assistance dépannage, indemnisation rapide.">
+{% endblock %}
+
+{% block keywords %}
+        <meta name="keywords" content="Assurance transport marchandise ">
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://lassurance-des-transport.fr/assurance-transport-marchandise/">
+{% endblock %}
+
+{% block opengraph %}
+<meta property="og:title" content="Assurance Transport de Marchandises - Devis en Ligne | Aksam">
+<meta property="og:description" content="Assurez vos véhicules et marchandises transportées avec Aksam Assurance. Devis en ligne gratuit pour transporteurs professionnels.">
+<meta property="og:url" content="https://lassurance-des-transport.fr/assurance-transport-marchandise/">
+<meta property="og:image" content="https://lassurance-des-transport.fr/images/transport-marchandise.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 {% endblock %}
 
 {% block body %}
@@ -18,7 +36,7 @@
 				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
 						<div class="w-full h-full  rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
-							<img src="{{ asset('public/images/transport-marchandise.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl " loading="lazy"/>
+							<img src="{{ asset('images/transport-marchandise.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl " loading="lazy"/>
 						</div>
 					</div>
 				</div>
@@ -34,7 +52,7 @@
 
 
 						<!-- Nom -->
-						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3'}}) }}
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
 
 						<!-- Nom -->
 						<div class="form-group">
@@ -173,7 +191,7 @@
                 Solutions Professionnelles
             </div>
             <h1 class="text-3xl lg:text-6xl font-bold text-green mb-6 leading-tight">
-                Transport de marchandises
+                Assurance transport marchandise
             </h1>
             <div class="w-20 lg:w-24 h-1 bg-gradient-to-r from-green-400 to-green-500 mx-auto rounded-full mb-8"></div>
             <p class="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">

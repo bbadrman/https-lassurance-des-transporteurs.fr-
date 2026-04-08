@@ -13,37 +13,41 @@ class Transport
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $nom = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $raison = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $activite = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $assurer = null;
 
-
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $type = null;
 
-    #[ORM\Column(length: 20, nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $souhAssurer = null;
-
 
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $codepostal = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 180, nullable: true)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 15, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true)]
     private ?string $tele = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ancienne = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $motif = null;
 
     public function getId(): ?int
     {
@@ -166,6 +170,30 @@ class Transport
     public function setTele(?string $tele): static
     {
         $this->tele = $tele;
+
+        return $this;
+    }
+
+    public function getAncienne(): ?string
+    {
+        return $this->ancienne;
+    }
+
+    public function setAncienne(?string $ancienne): static
+    {
+        $this->ancienne = $ancienne;
+
+        return $this;
+    }
+
+    public function getMotif(): ?string
+    {
+        return $this->motif;
+    }
+
+    public function setMotif(?string $motif): static
+    {
+        $this->motif = $motif;
 
         return $this;
     }

@@ -23,19 +23,17 @@ final class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            
             $entityManager->persist($transp);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_reponse');
         }
         return $this->render('home/index.html.twig', [
              'form' => $form->createView(),
         ]);
     }
 
-    #[Route('/marchandises', name: 'app_marchandises')]
+    #[Route('/transport-de-marchandises', name: 'app_marchandises')]
     public function marchandises(Request $request, EntityManagerInterface $entityManager,): Response
     {
         $transp = new Transport();
@@ -44,19 +42,17 @@ final class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            
             $entityManager->persist($transp);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_reponse');
         }
         return $this->render('home/marchandises.html.twig', [
              'form' => $form->createView(),
         ]);
     }
 
-     #[Route('/personne', name: 'app_personne')]
+     #[Route('/transport-de-personnes', name: 'app_personne')]
     public function personne(Request $request, EntityManagerInterface $entityManager,): Response
     {
         $transp = new Transport();
@@ -65,12 +61,10 @@ final class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            
             $entityManager->persist($transp);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_reponse');
         }
         return $this->render('home/personne.html.twig', [
              'form' => $form->createView(),
@@ -85,7 +79,7 @@ final class HomeController extends AbstractController
         ]);
     }
 
-     #[Route('/politique', name: 'app_politique')]
+     #[Route('/politique-legale', name: 'app_politique')]
     public function politique(): Response
     {
         return $this->render('home/politique.html.twig', [

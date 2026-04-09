@@ -5,14 +5,15 @@
     <title>
 			{% block title %}Accueil - Assurance transport de marchandise
 			{% endblock %}
-		</title>
+	</title>
+    {% block meta %}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
     <meta name="author" content="Aksam Assurance">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('public/image/favicon.png') }}">
-    <link rel=apple-touch-icon type="icon" href="{{ asset('public/image/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
+    <link rel=apple-touch-icon type="icon" href="{{ asset('/images/logo.png') }}">
     <meta name="description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">
-
+ {% endblock %}
  
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
@@ -256,33 +257,29 @@ updateSouhAssurer(); // Initialiser
 });
 		</script>
 		<script type="application/ld+json">
-			{
-			            "@context": "https://schema.org",
-			            "@type": "InsuranceAgency",
-			            "name": "Aksam Assurance",
-			            "description": "Courtier spécialisé en assurance transport de marchandises et transport de personnes pour les professionnels.",
-			            "image": "https://lassurance-des-transport.fr/images/logo.png",
-			            "logo": "https://lassurance-des-transport.fr/images/logo.png",
-			            "telephone": "01 82 83 48 00",
-			            "address": {
-			                "@type": "PostalAddress",
-			                "streetAddress": "10 rue de Penthièvre",
-			                "addressCountry": "FR",
-			                "addressLocality": "PARIS",
-			                "postalCode": "75008"
-			            },
-			            "url": "https://lassurance-des-transport.fr/",
-			            "priceRange": "€€",
-			            "openingHours": "Mo-Fr 09:00-18:00",
-			            "areaServed": "FR",
-			            "sameAs": ["https://www.orias.fr/web/guest/recherche"],
-			            "contactPoint": {
-			                "@type": "ContactPoint",
-			                "telephone": "+33182834800",
-			                "contactType": "Customer Service",
-			                "availableLanguage": ["French", "English"]
-			            }
-			        }
+			 {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Aksam Assurance",
+            "image": "https://www.lassurance-des-transporteurs.fr/assets/img/favicon.png",
+            "telephone": "01 82 83 48 00",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 rue de Penthièvre",
+                "addressCountry": "FR",
+                "addressLocality": "PARIS",
+                "postalCode": "75008"
+            },
+            "url": "https://www.lassurance-des-transporteurs.fr",
+            "priceRange": "€€",
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33 1 82 83 48 00",
+                "contactType": "Customer Service",
+                "availableLanguage": ["French", "English"]
+            }
+        }
 		</script>
 
 

@@ -3,18 +3,22 @@
 	<head>
 	<meta charset="UTF-8">
     <title>
-			{% block title %}Accueil - Assurance transport de marchandise
+			{% block title %}
 			{% endblock %}
 	</title>
-    {% block meta %}
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-    <meta name="author" content="Aksam Assurance">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
-    <link rel=apple-touch-icon type="icon" href="{{ asset('/images/logo.png') }}">
-    <meta name="description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">
+
+    
+{% block meta %}
  {% endblock %}
- 
+
+ {% block opengraph %}
+ {% endblock %}
+
+ {% block description %}
+{% endblock %}
+
+ {% block keywords %}
+{% endblock %}
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
@@ -145,7 +149,9 @@
 			{% include '/partiels/header.html.twig' %}
 		{% endblock %}
 
-		{% block body %}{% endblock %}
+		<main>
+			{% block body %}{% endblock %}
+		</main>
 
 
 		{% block footer %}
@@ -256,6 +262,7 @@ typeSelect.addEventListener('change', updateSouhAssurer);
 updateSouhAssurer(); // Initialiser
 });
 		</script>
+ {% block schema %}{% endblock %}
 		<script type="application/ld+json">
 			 {
             "@context": "http://schema.org",
@@ -281,7 +288,9 @@ updateSouhAssurer(); // Initialiser
             }
         }
 		</script>
-
+        
+    {# Schema spécifique à chaque page #}
+   
 
 	</body>
 </html>

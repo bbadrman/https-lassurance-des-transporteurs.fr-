@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
- 
-  
+ {% block title %}Accueil - Assurance transport de marchandise
+{% endblock %}
+
+   {% block meta %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <meta name="author" content="Aksam Assurance">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
+    <link rel=apple-touch-icon type="icon" href="{{ asset('/images/logo.png') }}">
+    <meta name="description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">
+ {% endblock %}
 {% block body %}
  
 {# section card #}
@@ -17,7 +26,7 @@
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
 						<div class="w-full h-full  rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
 							{# <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full object-contain rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden p-4" loading="lazy"/> #}
-						    <img src="{{ asset('images/assurance-transport-marchandise.webp') }}" alt="Antécédents assurance pour transport marchandise" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1200" height="800"/>
+						    <img src="{{ asset('images/assurance-transport-marchandise.webp') }}" srcset="{{ asset('images/assurance-transport-marchandise-480w.webp') }} 480w, {{ asset('images/assurance-transport-marchandise-768w.webp') }} 768w, {{ asset('images/assurance-transport-marchandise.webp') }} 1000w" sizes="(max-width: 1024px) 100vw, 70vw" alt="Antécédents assurance pour transport marchandise" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1000" height="800"/>
 						</div>
 					</div>
 				</div>

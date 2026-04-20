@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-	<meta charset="UTF-8">
-    <title>
+		<meta charset="UTF-8">
+		   <title>
 			{% block title %}
 			{% endblock %}
 	</title>
 
     
 {% block meta %}
- {% endblock %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <meta name="author" content="Aksam Assurance">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('public/images/favicon.png') }}">
+    <link rel=apple-touch-icon type="icon" href="{{ asset('public/images/logo.png') }}">
+{% endblock %}
+
+
+{% block canonical %}{% endblock %}
 
  {% block opengraph %}
  {% endblock %}
 
  {% block description %}
+  
 {% endblock %}
 
  {% block keywords %}
 {% endblock %}
-
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
 		{# {% block stylesheets %}

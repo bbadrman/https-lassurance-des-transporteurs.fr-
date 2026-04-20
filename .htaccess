@@ -6,6 +6,10 @@ DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # Redirection non-www vers www (évite le contenu dupliqué)
+    RewriteCond %{HTTP_HOST} ^lassurance-des-transport\.fr$ [NC]
+    RewriteRule ^(.*)$ https://www.lassurance-des-transport.fr/$1 [R=301,L]
     
     # Détermination automatique du répertoire de base
     RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$

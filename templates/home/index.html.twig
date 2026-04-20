@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
- {% block title %}Accueil - Assurance transport de marchandise
+ {% block title %}Assurance Transport Marchandise | Devis Gratuit - Aksam
 {% endblock %}
 
 {% block canonical %}
     <link rel="canonical" href="https://www.lassurance-des-transporteurs.fr/">
 {% endblock %}
 
+{% block opengraph %}
+	<meta property="og:title" content="Assurance Transport Marchandise | Devis Gratuit - Aksam">
+	<meta property="og:description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">
+	<meta property="og:url" content="https://lassurance-des-transporteurs.fr/">
+	<meta property="og:image" content="https://lassurance-des-transporteurs.fr/public/images/assurance-transport-marchandise.webp">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+{% endblock %}  
 
  {% block description %}
   <meta name="description" content="Professionnels du transport à la recherche d’une assurance pour un véhicule en usage transport de marchandise ou devis RC pro marchandises.">

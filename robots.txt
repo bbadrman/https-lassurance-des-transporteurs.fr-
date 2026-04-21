@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /_profiler
 Disallow: /_wdt
 
-Sitemap: https://lassurance-des-transporteurs.fr/sitemap.xml
+Sitemap: https://www.lassurance-des-transporteurs.fr/sitemap.xml

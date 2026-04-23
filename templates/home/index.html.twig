@@ -675,32 +675,52 @@
 
 			</div>
 			<!-- Partenaires section -->
-
-				<div class="mt-10 mb-2 ">
+				<div class="mt-10 mb-2">
 					<h3 class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-6">Nos compagnies partenaires</h3>
-					<div class="relative overflow-hidden">
-						<div class="flex items-center justify-center flex-wrap gap-8 partenaires-track">
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-40 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/Allianz.png') }}" alt="Allianz" class="max-h-12 max-w-[120px] object-contain">
+					<div class="partenaires-carousel-wrapper">
+						<div class="partenaires-carousel-track">
+							<!-- Logos originaux -->
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
 							</div>
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/april_logo_.jpg') }}" alt="April" class="max-h-12 max-w-[120px] object-contain">
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/april.jpg') }}" alt="April" loading="lazy">
 							</div>
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/assurmax.png') }}" alt="Assurmax" class="max-h-12 max-w-[120px] object-contain">
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/axa.png') }}" alt="axa" loading="lazy">
 							</div>
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/eurodommage.png') }}" alt="Eurodommage" class="max-h-12 max-w-[120px] object-contain">
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
 							</div>
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/sollyzar.png') }}" alt="Sollyzar" class="max-h-12 max-w-[120px] object-contain">
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
 							</div>
-							<div class="flex items-center justify-center flex-shrink-0 h-16 px-4 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300">
-								<img src="{{ asset('images/partenaire/zephir.png') }}" alt="Zephir" class="max-h-12 max-w-[120px] object-contain">
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
+							</div>
+							<!-- Duplication pour boucle infinie -->
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
+							</div>
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/april.jpg') }}" alt="April" loading="lazy">
+							</div>
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/axa.png') }}" alt="axa" loading="lazy">
+							</div>
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
+							</div>
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
+							</div>
+							<div class="partenaires-logo-item">
+								<img src="{{ asset('images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
 							</div>
 						</div>
 					</div>
 				</div>
+				 
 
 		</div>
 	</section>

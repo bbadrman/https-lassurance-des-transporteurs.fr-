@@ -1,0 +1,795 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Assurance véhicule transport de marchandises{% endblock %}
+
+{% block description %}
+	<meta name="description" content="Assurance véhicule transport de marchandises : garanties RC, marchandises transportées, bris de glace. Comparez les offres adaptées à votre activité.">
+{% endblock %}
+
+{% block keywords %}
+	<meta name="keywords" content="assurance véhicule transport de marchandises, assurance poids lourd, assurance flotte transport, RC transporteur de marchandises, assurance marchandises transportées, assurance fourgon professionnel">
+{% endblock %}
+
+{% block canonical %}
+	<link rel="canonical" href="https://www.lassurance-des-transporteurs.fr/assurance-vehicule-transport-de-marchandises/">
+{% endblock %}
+
+{% block opengraph %}
+	<meta property="og:title" content="Assurance véhicule transport de marchandises | L'Assurance des Transporteurs">
+	<meta property="og:description" content="Protégez vos véhicules de transport de marchandises avec des garanties adaptées : RC, marchandises, flotte. Comparez les offres de nos experts.">
+	<meta property="og:url" content="https://www.lassurance-des-transporteurs.fr/assurance-vehicule-transport-de-marchandises/">
+ 	<meta property="og:image" content="https://www.lassurance-des-transporteurs.fr/images/assurance-vehicule-transport-de-marchandises.webp">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+{% endblock %}
+
+{% block body %}
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 1 — HERO + FORMULAIRE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<div class="w-full mx-auto px-4 lg:px-40 relative z-10">
+			<div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+
+				<!-- Image — 70% -->
+				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
+					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
+						<div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
+							<img src="{{ asset('images/assurance-vehicule-transport-de-marchandises.webp') }}"
+								alt="Véhicule transport de marchandises professionnel"
+								class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl object-cover"
+								loading="eager"/>
+						</div>
+					</div>
+				</div>
+
+				<!-- Formulaire — 30% -->
+				<div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
+					<div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 w-full h-full">
+						<div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12">
+							<h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Comparez les offres d'assurance véhicule transport de marchandises</h2>
+							<div class="w-16 h-1 bg-green mx-auto rounded-full"></div>
+						</div>
+
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
+
+						<!-- Raison sociale -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-building text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.raison) }}
+							</div>
+							{{ form_errors(form.raison) }}
+						</div>
+
+						<!-- Démarrage activité -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-briefcase text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.activite, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.activite) }}
+						</div>
+
+						<!-- Véhicule assuré actuellement -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-truck text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.assurer, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.assurer) }}
+						</div>
+
+						<!-- Ancienne assurance résiliée -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-history text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.ancienne, {
+									'attr': {
+										'style': 'appearance: auto; -webkit-appearance: menulist;',
+										'id': 'ancienne_field',
+										'onchange': 'toggleMotif(this.value)'
+									}
+								}) }}
+							</div>
+							{{ form_errors(form.ancienne) }}
+						</div>
+
+						<!-- Motif résiliation -->
+						<div class="form-group" id="motif_group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.motif, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.motif) }}
+						</div>
+
+						<script>
+							function toggleMotif(value) {
+								var motifGroup = document.getElementById('motif_group');
+								var motifSelect = document.getElementById('transport_motif');
+								var hide = (value === 'non');
+								motifGroup.style.display = hide ? 'none' : '';
+								if (motifSelect) motifSelect.disabled = hide;
+							}
+							document.addEventListener('DOMContentLoaded', function() {
+								var ancienne = document.getElementById('ancienne_field');
+								if (ancienne) toggleMotif(ancienne.value);
+							});
+						</script>
+
+						<!-- Code Postal -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-map-marker-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.codepostal) }}
+							</div>
+							{{ form_errors(form.codepostal) }}
+						</div>
+
+						<!-- Nom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.nom) }}
+							</div>
+							{{ form_errors(form.nom) }}
+						</div>
+
+						<!-- Prénom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user-tag text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.prenom) }}
+							</div>
+							{{ form_errors(form.prenom) }}
+						</div>
+
+						<!-- Email -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-envelope text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.email) }}
+							</div>
+							{{ form_errors(form.email) }}
+						</div>
+
+						<!-- Téléphone -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-phone text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.tele) }}
+							</div>
+							{{ form_errors(form.tele) }}
+						</div>
+
+						<!-- Consentement -->
+						<div class="bg-white rounded-lg border border-blue-200 p-1.5 mt-2">
+							<span class="text-xs text-gray-600 leading-tight block text-justify">
+								En cliquant sur "Comparer", vous acceptez de transmettre vos informations à AKSAM ASSURANCES, qui accepte de les utiliser conformément à sa politique de confidentialité dans le but de vous fournir des propositions de devis d'assurance adaptées à votre recherche.
+							</span>
+						</div>
+
+						<!-- Bouton -->
+						<button type="submit" class="w-full bg-green text-white font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+							<i class="fas fa-calculator mr-2"></i>
+							Comparer
+						</button>
+
+						{{ form_end(form) }}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 2 — H1
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<div class="container mx-auto px-4 lg:px-8 relative z-10">
+			<div class="max-w-6xl mx-auto text-center">
+				<h1 class="text-3xl lg:text-6xl font-bold text-green mb-6 leading-tight">
+					Assurance véhicule transport de marchandises
+				</h1>
+				<div class="w-20 lg:w-24 h-1 bg-green mx-auto rounded-full mb-8"></div>
+				<p class="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+					Exercer une activité de transport routier de marchandises engage votre responsabilité à chaque kilomètre parcouru. Que vous conduisiez un fourgon de 3,5 tonnes ou un semi-remorque de 44 tonnes, votre véhicule professionnel doit être couvert par une assurance adaptée à la réalité du terrain. En vertu de l'article L.211-1 du Code des assurances, tout véhicule terrestre à moteur doit être couvert par une assurance responsabilité civile. Pour un professionnel du transport, cette obligation de base ne suffit pas. Nos experts analysent votre activité, votre flotte et vos risques réels pour vous proposer un contrat qui tient la route.
+				</p>
+				<div class="mt-8">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-file-alt mr-2"></i>
+						Comparez les offres d'assurance véhicule transport de marchandises
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 3 — TYPES DE VÉHICULES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						I. Types véhicule transport de marchandises
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Un véhicule de transport de marchandises se définit comme tout engin motorisé utilisé à titre professionnel pour acheminer des biens d'un point A à un point B, que ce soit pour compte propre ou pour compte d'autrui. Chaque catégorie appelle une approche assurantielle différente.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+
+					<!-- VUL -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-shuttle-van text-green text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">1. Véhicules utilitaires légers (VUL)</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed">
+							Les fourgons et camionnettes jusqu'à 3,5 tonnes de PTAC constituent la majeure partie des flottes de livraison du dernier kilomètre. Ils sont utilisés par les artisans, les prestataires de service, les transporteurs express et les commerces de proximité. Un fourgon Renault Master, un Citroën Jumper ou un Mercedes Sprinter entrent dans cette catégorie. Leur assurance professionnelle se distingue d'un contrat particulier par la prise en compte de l'usage commercial, des conducteurs salariés et du chargement.
+						</p>
+					</div>
+
+					<!-- Poids lourds -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-truck text-blue-600 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">2. Poids lourds porteurs et semi-remorques</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed">
+							Au-delà de 3,5 tonnes, on entre dans le domaine des poids lourds. Les porteurs (camion rigide avec benne, plateau ou caisse) et les ensembles articulés (tracteur + semi-remorque) représentent les véhicules du transport longue distance, du BTP et de la grande distribution. Le PTAC peut atteindre 44 tonnes pour un ensemble européen. La sinistralité, les coûts de réparation et les enjeux de responsabilité sont sans commune mesure avec ceux d'un VUL.
+						</p>
+					</div>
+
+					<!-- Véhicules spécialisés -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-snowflake text-orange-500 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">3. Véhicules spécialisés</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed">
+							Certaines activités nécessitent des équipements spécifiques : camions frigorifiques pour les denrées alimentaires sous température dirigée, citernes pour les liquides ou les matières dangereuses (ADR), bétaillères, malaxeurs pour le béton, ou encore véhicules de transport de fonds. Chacun de ces engins présente des risques particuliers que le contrat doit expressément couvrir.
+						</p>
+					</div>
+
+					<!-- Remorques -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-truck-loading text-purple-600 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">4. Remorques et semi-remorques</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed">
+							La remorque n'est pas couverte automatiquement par le contrat du tracteur. Elle doit faire l'objet d'une assurance spécifique ou être expressément incluse dans le contrat de l'ensemble attelé. Un oubli fréquent qui peut coûter très cher en cas d'accident.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-search mr-2"></i>
+						Identifiez le type véhicule transport de marchandises adapté à votre activité
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 4 — PRIX
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						II. Prix assurance véhicule transport de marchandises
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Le prix d'une assurance véhicule transport de marchandises dépend de plusieurs variables objectives que les assureurs analysent systématiquement. Voici les principaux facteurs de tarification.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
+
+					<!-- Critères -->
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-sliders-h text-green"></i>
+							1. Les critères qui font varier la prime
+						</h3>
+
+						<!-- Tableau de prix -->
+						<div class="space-y-3 mb-6">
+							<div class="flex items-center justify-between bg-green-50 rounded-xl px-4 py-3 border border-green-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-shuttle-van text-green text-lg"></i>
+									<span class="font-semibold text-gray-800">VUL jusqu'à 3,5 t</span>
+								</div>
+								<span class="font-bold text-green">800 – 1 800 €/an</span>
+							</div>
+							<div class="flex items-center justify-between bg-blue-50 rounded-xl px-4 py-3 border border-blue-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-truck text-blue-600 text-lg"></i>
+									<span class="font-semibold text-gray-800">Poids lourd 19 t</span>
+								</div>
+								<span class="font-bold text-blue-700">2 500 – 5 000 €/an</span>
+							</div>
+							<div class="flex items-center justify-between bg-orange-50 rounded-xl px-4 py-3 border border-orange-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-truck-moving text-orange-500 text-lg"></i>
+									<span class="font-semibold text-gray-800">Ensemble articulé 44 t</span>
+								</div>
+								<span class="font-bold text-orange-600">+6 000 €/an</span>
+							</div>
+						</div>
+
+						<ul class="space-y-3">
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5"></i>
+								<span class="text-gray-700">Nature des marchandises transportées (e-commerce, ADR, denrées périssables)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5"></i>
+								<span class="text-gray-700">Kilométrage annuel et zone géographique (régionale, nationale, internationale)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5"></i>
+								<span class="text-gray-700">Historique de sinistralité du conducteur ou de la flotte</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5"></i>
+								<span class="text-gray-700">Ancienneté du permis et valeur à neuf ou vénale du véhicule</span>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Ce que comprend le tarif -->
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-info-circle text-green"></i>
+							2. Ce que comprend réellement le tarif
+						</h3>
+						<p class="text-gray-700 leading-relaxed mb-6">
+							Un tarif bas ne signifie pas une bonne couverture. Il faut distinguer le prix de la garantie responsabilité civile seule, obligatoire mais insuffisante en contexte professionnel, du coût d'un contrat tous risques.
+						</p>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3 bg-red-50 rounded-xl p-3 border border-red-100">
+								<i class="fas fa-times-circle text-red-500 mt-0.5 flex-shrink-0"></i>
+								<div>
+									<p class="font-semibold text-gray-800 text-sm">RC seule (insuffisante)</p>
+									<p class="text-gray-600 text-xs">Obligatoire mais ne couvre pas vos marchandises ni votre véhicule</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3 bg-green-50 rounded-xl p-3 border border-green-100">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<div>
+									<p class="font-semibold text-gray-800 text-sm">Tous risques professionnel (recommandé)</p>
+									<p class="text-gray-600 text-xs">RC + marchandises + bris de glace + assistance + protection juridique + dommages toutes collisions</p>
+								</div>
+							</div>
+						</div>
+						<p class="text-gray-600 text-sm mt-4 italic">
+							Nos experts comparent les offres sur le marché pour identifier la couverture la plus pertinente au meilleur rapport garanties/coût.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-tag mr-2"></i>
+						Évaluez le prix assurance véhicule transport de marchandises pour votre flotte
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 5 — GARANTIES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						III. Garanties assurance véhicule transport de marchandises
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Les garanties d'une assurance véhicule transport de marchandises vont bien au-delà de la responsabilité civile obligatoire. Pour un professionnel, l'exposition aux risques est quotidienne et chaque garantie manquante représente un trou dans la couverture.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-balance-scale text-green text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">1. Responsabilité civile obligatoire</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Socle légal imposé par l'article L.211-1 du Code des assurances. Couvre les dommages causés aux tiers (blessures, dégâts matériels). Indispensable, mais insuffisante pour une activité de transport professionnel.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-boxes text-orange-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">2. Garantie marchandises transportées</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Couvre les pertes ou dommages subis par les marchandises pendant le transport : vol, incendie, choc, détérioration. Attention aux plafonds d'indemnisation et aux exclusions (denrées périssables, matières dangereuses).</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-car-crash text-blue-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">3. Dommages au véhicule</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">La garantie tous risques ou tierce collision couvre les dégâts subis par votre propre véhicule : accident responsable, tentative de vol, incendie ou bris de glace. Souvent exigée par les organismes financiers en crédit-bail.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-shield-alt text-purple-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">4. Garanties complémentaires utiles</h3>
+						<ul class="text-gray-600 text-sm space-y-1">
+							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Protection juridique</li>
+							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Assistance et rapatriement</li>
+							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Garantie conducteur</li>
+							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Garantie perte financière (valeur à neuf)</li>
+						</ul>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100 sm:col-span-2 lg:col-span-2">
+						<div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-radiation-alt text-red-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">5. Cas particulier : transport de matières dangereuses (ADR)</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Les véhicules ADR (Accord européen relatif au transport international des marchandises Dangereuses par Route) nécessitent des garanties spécifiques. Tous les assureurs ne couvrent pas ce segment, et ceux qui le font appliquent des conditions particulières sur la formation des conducteurs, le balisage et les équipements de sécurité.</p>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-eye mr-2"></i>
+						Découvrez les garanties assurance véhicule transport de marchandises disponibles
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 6 — DEVIS
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						IV. Devis assurance véhicule transport de marchandises
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Obtenir un devis précis demande de rassembler les bonnes informations en amont. Un devis approximatif produit une offre approximative — c'est au moment du sinistre que les lacunes se révèlent.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
+
+					<!-- Informations nécessaires -->
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-clipboard-list text-green"></i>
+							1. Informations indispensables pour un devis fiable
+						</h3>
+						<ol class="space-y-3">
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+								<span class="text-gray-700">La carte grise et le type exact du véhicule (ou de chaque véhicule si vous gérez une flotte)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+								<span class="text-gray-700">Le PTAC et la charge utile</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+								<span class="text-gray-700">La nature des marchandises transportées habituellement</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+								<span class="text-gray-700">Le périmètre géographique d'activité (régional, national, international)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">5</span>
+								<span class="text-gray-700">Le kilométrage annuel estimé</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">6</span>
+								<span class="text-gray-700">La liste des conducteurs (permis, ancienneté, sinistres récents)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">7</span>
+								<span class="text-gray-700">L'historique de sinistralité de la flotte sur les 3 dernières années</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">8</span>
+								<span class="text-gray-700">Les garanties déjà souscrites si vous souhaitez compléter ou renégocier</span>
+							</li>
+						</ol>
+					</div>
+
+					<!-- Flotte ou véhicule unique + Pourquoi nos experts -->
+					<div class="space-y-6">
+						<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+							<h3 class="text-xl font-bold text-green mb-4 flex items-center gap-3">
+								<i class="fas fa-truck text-green"></i>
+								2. Flotte ou véhicule unique
+							</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Pour une <strong>flotte de 5 véhicules ou plus</strong>, un contrat flotte permet de mutualiser les risques, de simplifier la gestion administrative et souvent d'obtenir une tarification plus avantageuse. En dessous de ce seuil, les contrats individuels restent la norme, mais leur mise en concurrence reste tout aussi utile.
+							</p>
+						</div>
+
+						<div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-8 border-2 border-green-200">
+							<h3 class="text-xl font-bold text-green mb-4 flex items-center gap-3">
+								<i class="fas fa-user-tie text-green"></i>
+								3. Pourquoi passer par nos experts
+							</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Le marché de l'assurance transport de marchandises est segmenté. Certains assureurs refusent des risques spécifiques (ADR, international, conducteurs juniors), d'autres proposent des contrats déséquilibrés. Nos experts connaissent les critères d'acceptation de chaque compagnie et négocient les conditions pour vous.
+							</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-file-invoice mr-2"></i>
+						Obtenez votre devis assurance véhicule transport de marchandises personnalisé
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 7 — FAQ
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-4xl font-bold text-green mb-6">
+						V. FAQ — Assurance véhicule transport de marchandises
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="space-y-4">
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>La garantie marchandises transportées est-elle obligatoire ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport (lettre de voiture, CMR pour l'international) engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale (valeur de marché au moment du sinistre), valeur à neuf (prix de remplacement par un véhicule neuf équivalent) ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf protège mieux votre outil de travail.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs selon la taille de la flotte. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner une réduction d'indemnité voire un refus de prise en charge.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">La responsabilité civile du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et, pour le transport international, par la Convention CMR. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 8 — CTA FINALE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
+		<div class="container mx-auto px-4 lg:px-8 text-center">
+			<div class="max-w-4xl mx-auto">
+				<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+					<i class="fas fa-truck text-white text-4xl"></i>
+				</div>
+				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
+					Simulez en ligne votre devis assurance véhicule transport de marchandises
+				</h2>
+				<p class="text-xl text-green mb-8 leading-relaxed">
+					Chaque activité de transport a ses propres contraintes. Nos experts examinent votre situation concrète, identifient les risques réels et sélectionnent les offres du marché qui correspondent à votre profil de risque.
+				</p>
+				<a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
+					<i class="fas fa-file-alt mr-2"></i>
+					Obtenez votre devis personnalisé — Gratuit en 2 min
+				</a>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Scripts -->
+	<script>
+		document.querySelectorAll('.faq-question').forEach(button => {
+			button.addEventListener('click', () => {
+				const answer = button.nextElementSibling;
+				const toggle = button.querySelector('.faq-toggle');
+				answer.classList.toggle('hidden');
+				toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+			});
+		});
+
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+	</script>
+
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "InsuranceAgency",
+			"name": "L'Assurance des Transporteurs",
+			"url": "https://www.lassurance-des-transporteur.fr",
+			"telephone": "0808660540",
+			"areaServed": "FR",
+			"address": { "@type": "PostalAddress", "addressCountry": "FR" },
+			"description": "Expert en assurance véhicule transport de marchandises pour professionnels du transport routier en France.",
+			"knowsAbout": [
+				"assurance véhicule transport de marchandises",
+				"assurance poids lourd",
+				"assurance flotte transport",
+				"garantie marchandises transportées",
+				"assurance véhicule utilitaire professionnel"
+			]
+		},
+		{
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "La garantie marchandises transportées est-elle obligatoire ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale, valeur à neuf ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf lors de la souscription protège mieux votre outil de travail."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner un refus de prise en charge."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "La RC du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et la Convention CMR pour le transport international. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable."
+					}
+				}
+			]
+		}
+	]
+}
+</script>
+{% endblock %}

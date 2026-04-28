@@ -1012,78 +1012,110 @@
 	
 
 {% endblock %}
+
 {% block schema %}
-<!-- JSON-LD FAQPage -->
-	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "FAQPage",
-		"mainEntity": [
-			{
-				"@type": "Question",
-				"name": "Pourquoi souscrire une assurance transport marchandise professionnelle ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "L'activité de transport de marchandises implique une exposition quotidienne aux risques routiers, aux intempéries, aux vols et aux dommages matériels. Une assurance transport marchandise adaptée vous permet de protéger simultanément votre outil de travail (véhicules) et les biens confiés par vos clients (marchandises), tout en respectant vos obligations légales et contractuelles. Cette double protection sécurise votre responsabilité professionnelle et garantit la continuité de votre exploitation en cas de sinistre."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Quelle est la différence entre l'assurance véhicule et l'assurance marchandises transportées ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "L'assurance véhicule protège votre outil de travail (camion, utilitaire) contre les dommages matériels, le vol et votre responsabilité civile. L'assurance marchandises transportées couvre spécifiquement la valeur des cargaisons confiées par vos clients pendant le transport. Les deux sont complémentaires pour une protection complète."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "L'assurance transport marchandise est-elle obligatoire ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "L'assurance responsabilité civile du véhicule est obligatoire légalement. L'assurance marchandises transportées devient obligatoire dès lors que vous transportez des biens pour le compte de tiers, conformément aux conventions internationales (CMR) et aux contrats commerciaux."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Quels sont les risques couverts par l'assurance transport marchandise ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Les garanties incluent les dommages accidentels (collision, incendie), le vol partiel ou total, les erreurs de manutention, les catastrophes naturelles, la perte d'exploitation en cas d'immobilisation, et la responsabilité contractuelle du transporteur selon la convention CMR."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Comment est calculé le tarif de mon assurance transport marchandise ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Le tarif dépend de plusieurs critères : type et nombre de véhicules, nature des marchandises transportées, zone géographique d'intervention (nationale/internationale), historique de sinistres, expérience professionnelle et chiffre d'affaires annuel de votre activité."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "L'assurance couvre-t-elle le transport international de marchandises ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Oui, nos formules incluent une couverture mondiale adaptée au transport international, avec respect des conventions CMR pour le transport routier européen et des garanties spécifiques pour les livraisons hors Europe selon vos besoins."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Que faire en cas de sinistre pendant le transport ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Contactez immédiatement notre assistance 24/7, sécurisez la zone si nécessaire, photographiez les dommages, établissez un constat avec les parties impliquées, et déclarez le sinistre dans les délais contractuels (généralement 5 jours ouvrés)."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": "Les marchandises réfrigérées ou sensibles sont-elles couvertes ?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": "Oui, nous proposons des garanties adaptées pour les marchandises sensibles nécessitant des conditions spécifiques de transport : produits réfrigérés, denrées périssables, marchandises fragiles ou de haute valeur, avec des clauses particulières selon leur nature."
-				}
-			}
-		]
-	}
-	</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Aksam Assurance",
+            "url": "https://www.lassurance-des-transporteurs.fr",
+            "telephone": "+33182834800",
+            "image": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+                "width": 300,
+                "height": 60
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 rue de Penthièvre",
+                "addressLocality": "Paris",
+                "postalCode": "75008",
+                "addressCountry": "FR"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "€€",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33182834800",
+                "contactType": "Customer Service",
+                "availableLanguage": ["French", "English"]
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Pourquoi souscrire une assurance transport marchandise professionnelle ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'activité de transport de marchandises implique une exposition quotidienne aux risques routiers, aux intempéries, aux vols et aux dommages matériels. Une assurance transport marchandise adaptée vous permet de protéger simultanément votre outil de travail (véhicules) et les biens confiés par vos clients (marchandises), tout en respectant vos obligations légales et contractuelles."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre l'assurance véhicule et l'assurance marchandises transportées ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'assurance véhicule protège votre outil de travail (camion, utilitaire) contre les dommages matériels, le vol et votre responsabilité civile. L'assurance marchandises transportées couvre spécifiquement la valeur des cargaisons confiées par vos clients pendant le transport. Les deux sont complémentaires pour une protection complète."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'assurance transport marchandise est-elle obligatoire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'assurance responsabilité civile du véhicule est obligatoire légalement. L'assurance marchandises transportées devient obligatoire dès lors que vous transportez des biens pour le compte de tiers, conformément aux conventions internationales (CMR) et aux contrats commerciaux."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels sont les risques couverts par l'assurance transport marchandise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Les garanties incluent les dommages accidentels (collision, incendie), le vol partiel ou total, les erreurs de manutention, les catastrophes naturelles, la perte d'exploitation en cas d'immobilisation, et la responsabilité contractuelle du transporteur selon la convention CMR."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment est calculé le tarif de mon assurance transport marchandise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le tarif dépend de plusieurs critères : type et nombre de véhicules, nature des marchandises transportées, zone géographique d'intervention (nationale/internationale), historique de sinistres, expérience professionnelle et chiffre d'affaires annuel."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'assurance couvre-t-elle le transport international de marchandises ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, nos formules incluent une couverture mondiale adaptée au transport international, avec respect des conventions CMR pour le transport routier européen et des garanties spécifiques pour les livraisons hors Europe selon vos besoins."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Que faire en cas de sinistre pendant le transport ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Contactez immédiatement notre assistance 24/7, sécurisez la zone si nécessaire, photographiez les dommages, établissez un constat avec les parties impliquées, et déclarez le sinistre dans les délais contractuels (généralement 5 jours ouvrés)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les marchandises réfrigérées ou sensibles sont-elles couvertes ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, nous proposons des garanties adaptées pour les marchandises sensibles : produits réfrigérés, denrées périssables, marchandises fragiles ou de haute valeur, avec des clauses particulières selon leur nature."
+                    }
+                }
+            ]
+        }
+    ]
+}
+</script>
 {% endblock %}

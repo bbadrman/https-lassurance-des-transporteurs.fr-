@@ -321,6 +321,74 @@ document.addEventListener('DOMContentLoaded', animateCounters);
 })();
 			</script>
             
+         /* Avis client */
+            <script>
+			(function() {
+				var track = document.getElementById('avisTrack');
+				var dotsEl = document.getElementById('avisDots');
+				var cards = track ? track.querySelectorAll('.avis-card') : [];
+				var total = cards.length;
+				var current = 0;
+				var perView = 3;
+
+				function getPerView() {
+					if (window.innerWidth < 640) return 1;
+					if (window.innerWidth < 1024) return 2;
+					return 3;
+				}
+
+				function maxIndex() { return Math.max(0, total - perView); }
+
+				function buildDots() {
+					dotsEl.innerHTML = '';
+					var pages = maxIndex() + 1;
+					for (var i = 0; i < pages; i++) {
+						var d = document.createElement('button');
+						d.className = 'avis-dot' + (i === current ? ' active' : '');
+						d.setAttribute('aria-label', 'Page ' + (i+1));
+						(function(idx){ d.onclick = function(){ goTo(idx); }; })(i);
+						dotsEl.appendChild(d);
+					}
+				}
+
+				function goTo(idx) {
+					perView = getPerView();
+					current = Math.max(0, Math.min(idx, maxIndex()));
+					var cardWidth = cards[0] ? cards[0].offsetWidth + 24 : 0;
+					track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+					dotsEl.querySelectorAll('.avis-dot').forEach(function(d, i) {
+						d.classList.toggle('active', i === current);
+					});
+				}
+
+				window.avisNav = function(dir) { goTo(current + dir); };
+
+				function init() {
+					perView = getPerView();
+					buildDots();
+					goTo(0);
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', init);
+				} else {
+					init();
+				}
+
+				var resizeTimer;
+				window.addEventListener('resize', function() {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(function() { init(); }, 150);
+				});
+
+				// Auto-slide toutes les 5s
+				setInterval(function() {
+					perView = getPerView();
+					goTo(current >= maxIndex() ? 0 : current + 1);
+				}, 5000);
+			})();
+			</script>
+            
   {% block schema %}
 <script type="application/ld+json">
 {

@@ -1,4 +1,4 @@
-name: lassurance-garantie-decennale
+name: lassurance-des-transporteurs
 type: symfony
 docroot: public
 php_version: "8.3"

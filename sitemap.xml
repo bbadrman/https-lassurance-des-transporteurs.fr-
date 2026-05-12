@@ -6,28 +6,42 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>https://www.lassurance-des-transport.fr/</loc>
+  <loc>https://www.lassurance-des-transporteurs.fr/</loc>
   <lastmod>2026-04-19T00:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.lassurance-des-transport.fr/assurance-transport-marchandise</loc>
-  <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+  <loc>https://www.lassurance-des-transporteurs.fr/mention-legale/</loc>
+  <lastmod>2026-04-08T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>0.90</priority>
-</url> 
-<url>
-  <loc>https://www.lassurance-des-transport.fr/mention-legale</loc>
-  <lastmod>2026-04-19T00:00:00+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.30</priority>
+  <priority>0.50</priority>
 </url>
 <url>
-  <loc>https://www.lassurance-des-transport.fr/politique-legale</loc>
-  <lastmod>2026-04-19T00:00:00+00:00</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.30</priority>
+  <loc>https://www.lassurance-des-transporteurs.fr/politique-legale/</loc>
+  <lastmod>2026-04-08T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>https://www.lassurance-des-transporteurs.fr/assurance-transport-marchandise/</loc>
+  <lastmod>2026-04-08T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.lassurance-des-transporteurs.fr/assurance-vehicule-transport-de-marchandises/</loc>
+  <lastmod>2026-04-23T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee/</loc>
+  <lastmod>2026-05-11T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
 </url>
 
 </urlset>

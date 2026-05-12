@@ -1,0 +1,319 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Assurance marchandise transportée : devis en ligne{% endblock %}
+
+{% block description %}<meta name="description" content="Obtenez votre assurance marchandise transportée au meilleur tarif. Comparez les garanties RC transport, tous risques et obtenez un devis personnalisé rapidement.">{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Assurance marchandise transportée : tarif et devis en ligne">
+<meta property="og:description" content="Protégez vos marchandises en transit avec une assurance adaptée. RC transport, tous risques, multimodal. Devis gratuit et personnalisé pour transporteurs professionnels.">
+<meta property="og:url" content="https://lassurance-des-transporteurs.fr/assurance-marchandise-transportee">
+<meta property="og:image" content="https://lassurance-des-transporteurs.fr/images/assurance-marchandise-transportee.jpg">
+<meta property="og:type" content="website">
+{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 lg:px-8 py-12">
+
+
+    <!-- Hero section -->
+    <section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+        <div class="w-full mx-auto px-4 lg:px-40 relative z-10">
+            <div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+                <!-- Image Section - 70% -->
+                <div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
+                    <div class="relative h-full min-h-[300px] lg:min-h-[600px]">
+                        <div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
+                            <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy"/>
+                        </div>
+                    </div>
+                </div>
+                <!-- CTA Section - 30% -->
+                <div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
+                    <div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 w-full h-full flex flex-col items-center justify-center text-center">
+                        <h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Comparez votre assurance marchandise transportée | Obtenez un tarif RC marchandise adapté</h2>
+                        <a href="{{ path('app_marchandises') }}" class="inline-block bg-gradient-to-br from-orange-500 via-amber-300 to-yellow-300 text-green font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+                            <i class="fas fa-calculator mr-2"></i>
+                            Souscrivez votre garantie RC marchandise en ligne dès aujourd'hui
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- H1 Main Title -->
+    <h1 class="text-3xl lg:text-5xl font-bold text-green mb-8">Assurance marchandise transportée</h1>
+
+    <!-- Introduction Paragraph -->
+    <section class="mb-12 bg-light rounded-2xl p-8 shadow-xl border border-gray-100">
+        <p class="text-lg text-gray-700 leading-relaxed mb-4">
+            Chaque année en France, des milliers de sinistres marchandises surviennent pendant le transport : vol, dommages liés à un accident de la route, avarie due à un choc ou une mauvaise manutention.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+            Pour un transporteur professionnel, une PME logistique ou un chargeur, la question n'est pas de savoir si un incident peut arriver, mais quand. L'assurance marchandise transportée garantit la valeur du fret depuis l'enlèvement jusqu'à la livraison, couvrant aussi bien la responsabilité du transporteur que les pertes subies par le donneur d'ordre.
+        </p>
+    </section>
+
+    <!-- Section I: Assurance RC marchandise -->
+    <section id="assurance-rc-marchandise" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">I. Assurance RC marchandise</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                L'assurance RC marchandise couvre la responsabilité civile du transporteur en cas de dommages ou de perte affectant les marchandises confiées. C'est le socle incontournable de toute activité de transport professionnel en France.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Le cadre légal est précis. Le transport routier intérieur est régi par l'article L.1432-4 du Code des transports, qui fixe la responsabilité de plein droit du transporteur en cas de perte, avarie ou retard. Pour les transports internationaux, c'est la Convention CMR qui s'applique, avec une limitation d'indemnisation fixée à 8,33 DTS par kilogramme de poids brut de la marchandise perdue ou avariée.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Concrètement, la RC marchandise entre en jeu dans des situations comme : un camion percuté par l'arrière sur l'A6, entraînant la destruction de 2 tonnes de produits agro-alimentaires réfrigérés ; un chauffeur qui signe un bon de livraison sans réserve, alors que les caisses étaient déjà choquées au chargement ; ou encore un vol de fret lors d'une halte nocturne sur une aire d'autoroute.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
+                <p class="text-blue-800 font-semibold mb-0">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    La RC transporteur est encadrée par la Convention CMR et l'article L.1432-4 du Code des transports pour le transport routier intérieur.
+                </p>
+            </div>
+            <p class="text-gray-700 leading-relaxed">Comparez votre assurance marchandise transportée | Obtenez un tarif RC marchandise adapté</p>
+        </div>
+    </section>
+
+    <!-- Section II: Assurance marchandise transportés prix -->
+    <section id="assurance-prix" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">II. Assurance marchandise transportés prix</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Le prix d'une assurance marchandise transportée dépend de plusieurs variables précises, qu'il est indispensable de comprendre avant toute comparaison tarifaire. La prime annuelle se calcule généralement en pourcentage de la valeur assurée des marchandises transportées sur l'année.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-2">Voici les principaux facteurs qui font varier le tarif :</p>
+            <ol class="list-decimal pl-6 mb-4 space-y-2">
+                <li><strong>La nature du fret</strong> — une marchandise fragile ou à forte valeur génère une prime plus élevée qu'un fret en vrac ou des matériaux de construction.</li>
+                <li><strong>Le secteur géographique</strong> — les trajets en zone urbaine dense ou vers des pays à risque majorent la prime.</li>
+                <li><strong>L'historique de sinistralité</strong> — un transporteur sans sinistre sur 3 ans bénéficie généralement d'un coefficient réducteur.</li>
+                <li><strong>Le mode de conditionnement</strong> — palette filmée, conteneur scellé, vrac en benne : chaque conditionnement modifie le risque d'avarie.</li>
+            </ol>
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-6">
+                <h4 class="font-bold text-gray-900 mb-3">À titre d'exemple concret :</h4>
+                <p class="text-gray-700 mb-0">
+                    Pour un transporteur routier qui achemine chaque mois pour environ 200 000 euros de fret à valeur déclarée, la prime annuelle tous risques peut se situer autour de 2 400 à 3 600 euros, soit 0,10 % à 0,15 % de la valeur annuelle transportée.
+                </p>
+            </div>
+            <p class="text-gray-700 leading-relaxed">Simulez le prix de votre assurance marchandise transportée | Demandez votre devis assurance marchandise transportée</p>
+        </div>
+    </section>
+
+    <!-- Section III: Garantie RC marchandise en ligne -->
+    <section id="garantie-rc" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">III. Garantie RC marchandise en ligne</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Souscrire une garantie RC marchandise en ligne est désormais possible pour la majorité des profils de transporteurs professionnels, à condition de disposer des bonnes informations au moment de la demande. Le processus en ligne permet d'aller plus vite, mais il ne doit pas se faire au détriment de la qualité des garanties.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Pour une souscription en ligne efficace, il faut avoir sous la main : le type d'activité (transporteur pour compte d'autrui, commissionnaire de transport, logisticien), le chiffre d'affaires transport annuel, la nature principale des marchandises transportées, le secteur géographique habituel et les coordonnées du véhicule ou de la flotte.
+            </p>
+            <p class="text-gray-700 leading-relaxed">Souscrivez votre garantie RC marchandise en ligne dès aujourd'hui</p>
+        </div>
+    </section>
+
+    <!-- Section IV: Types marchandises transportée -->
+    <section id="types-marchandises" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">IV. Types marchandises transportée</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Toutes les marchandises ne se couvrent pas de la même façon, et les assureurs distinguent des catégories très précises qui déterminent les garanties applicables et les exclusions éventuelles.
+            </p>
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li><strong>Les denrées alimentaires périssables</strong> — un bris de la chaîne du froid peut entraîner le refus total d'une livraison.</li>
+                <li><strong>Les matières dangereuses (ADR)</strong> nécessitent une assurance spécifique avec mention expresse des classes de danger transportées.</li>
+                <li><strong>Les marchandises à haute valeur</strong> (bijoux, œuvres d'art, matériel high-tech) exigent souvent une déclaration de valeur préalable.</li>
+                <li><strong>Les matières premières en vrac</strong> sont généralement couvertes à des taux de prime bas, mais avec des franchises adaptées.</li>
+                <li><strong>Les produits pharmaceutiques et médicaux</strong> relèvent d'une catégorie à part, avec des exigences de traçabilité.</li>
+                <li><strong>Les biens d'équipement industriels</strong> nécessitent souvent une évaluation à neuf pour éviter les sous-assurances.</li>
+            </ul>
+            <p class="text-gray-700 leading-relaxed">Identifiez la couverture adaptée à vos types de marchandises transportées</p>
+        </div>
+    </section>
+
+<!-- Section V: Véhicule marchandise transportée -->
+    <section id="vehicule-marchandise" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">V. Véhicule marchandise transportée</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Le véhicule utilisé pour transporter les marchandises joue un rôle central dans la définition du contrat d'assurance cargo, au-delà de l'assurance automobile classique obligatoire. Il faut distinguer deux niveaux de couverture qui fonctionnent en parallèle : l'assurance du véhicule lui-même et l'assurance des marchandises qu'il transporte.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Un véhicule utilitaire léger (VUL) de moins de 3,5 tonnes bénéficiera d'un contrat souple. Un semi-remorque de 40 tonnes fera l'objet d'un contrat avec bordereau de chargement. Un véhicule frigorifique devra mentionner la classe de température dans le contrat.
+            </p>
+            <p class="text-gray-700 leading-relaxed">Trouvez l'assurance pour votre véhicule marchandise transportée</p>
+        </div>
+    </section>
+
+<!-- Section VI: FAQ -->
+    <section id="faq" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">VI. FAQ — Assurance marchandise transportée</h2>
+        
+        <div class="space-y-4 max-w-4xl">
+            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span class="text-lg font-semibold text-gray-900 pr-4">Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?</span>
+                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+                    Le prix d'une assurance marchandise transportée pour un transporteur routier varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour une activité de 2 millions d'euros de fret. Ce taux dépend de la nature des marchandises, du secteur géographique, de l'historique sinistres et du niveau de garantie choisi (RC seule ou tous risques). Un transporteur sans sinistre depuis 3 ans bénéficie généralement d'une réduction sensible sur la prime.
+                </div>
+            </div>
+
+            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span class="text-lg font-semibold text-gray-900 pr-4">Est-ce que l'assurance marchandise transportée est obligatoire en France ?</span>
+                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+                    L'assurance marchandise transportée n'est pas légalement obligatoire pour le transporteur en tant que telle, mais la responsabilité civile du transporteur l'est de fait. L'article L.1432-4 du Code des transports impose une responsabilité de plein droit en cas de perte ou avarie, sans plafond d'exclusion pour faute. Sans assurance adaptée, le transporteur répond sur ses fonds propres.
+                </div>
+            </div>
+
+            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span class="text-lg font-semibold text-gray-900 pr-4">Comment obtenir une assurance marchandise transportée en ligne rapidement ?</span>
+                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+                    Pour obtenir une assurance marchandise transportée en ligne rapidement, il faut préparer : le SIRET de votre entreprise, le type d'activité (transport, commission, logistique), la nature des marchandises, le chiffre d'affaires transport annuel et le périmètre géographique habituel. Avec ces éléments, un devis personnalisé peut être établi en moins de 24 heures et la prise d'effet peut intervenir le lendemain de la signature électronique pour les profils standards.
+                </div>
+            </div>
+
+            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span class="text-lg font-semibold text-gray-900 pr-4">Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?</span>
+                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+                    Un auto-entrepreneur exerçant une activité de transport ou de livraison peut souscrire une assurance marchandise transportée adaptée à son volume d'activité, souvent sous forme de contrat à déclaration mensuelle. La prime est alors calculée sur la valeur réelle des marchandises transportées chaque mois, ce qui évite les surcoûts en période creuse.
+                </div>
+            </div>
+
+            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span class="text-lg font-semibold text-gray-900 pr-4">Que couvre exactement la garantie tous risques marchandise transportée ?</span>
+                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+                    La garantie tous risques marchandise transportée couvre l'intégralité des causes de dommages ou de pertes survenant pendant le transport, sauf exclusions contractuelles limitativement énumérées (vice propre, emballage insuffisant, force majeure). Contrairement à la RC seule limitée aux plafonds CMR, le tous risques indemnise la valeur réelle ou à neuf de la marchandise.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section VII: Devis -->
+    <section id="devis" class="mb-16">
+        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">VII. Devis assurance marchandise transportée</h2>
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Obtenir un devis assurance marchandise transportée précis et exploitable suppose une analyse sérieuse de votre activité réelle : volume de fret, destinations, types de véhicules utilisés, nature des marchandises, conditions de sous-traitance éventuelles.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Notre équipe spécialisée en assurance transport professionnel réunit ces éléments pour vous soumettre une comparaison claire entre plusieurs contrats adaptés à votre profil. Pas de formule standard, pas de couverture générique : chaque dossier est traité selon les spécificités du métier.
+            </p>
+            <p class="text-gray-700 leading-relaxed"> votre devis assurance marchandise transportée sur mesure</p>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+            <div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+                <i class="fas fa-calculator text-white text-4xl"></i>
+            </div>
+            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Comparez votre assurance marchandise transportée</h2>
+            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Obtenez un tarif RC marchandise adapté à votre activité en moins de 2 minutes</p>
+            <a href="{{ path('app_marchandises') }}" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
+                <i class="fas fa-file-alt mr-2"></i>
+                Obtenir un devis pour mon assurance transport marchandises
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- FAQ Toggle Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            const toggle = button.querySelector('.faq-toggle');
+            answer.classList.toggle('hidden');
+            toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+        });
+    });
+});
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Le prix varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour 2 millions d'euros de fret." }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que l'assurance marchandise transportée est obligatoire en France ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non, mais la responsabilité civile du transporteur est de fait obligatoire via l'article L.1432-4 du Code des transports." }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment obtenir une assurance marchandise transportée en ligne rapidement ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Préparez le SIRET, le type d'activité, la nature des marchandises et le chiffre d'affaires pour un devis en moins de 24 heures." }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Une assurance à déclaration mensuelle adaptée au volume d'activité réel du transporteur." }
+    },
+    {
+      "@type": "Question",
+      "name": "Que couvre exactement la garantie tous risques marchandise transportée ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Tous les dommages ou pertes survenant pendant le transport, sauf exclusions contractuelles spécifiques." }
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://lassurance-des-transporteurs.fr"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Assurance marchandise transportée",
+      "item": "https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee"
+    }
+  ]
+}
+</script>
+
+<!-- Speakable Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SpeakableSpecification",
+  "cssSelector": ["h1", ".speakable-intro", ".faq-answer"]
+}
+</script>
+{% endblock %}

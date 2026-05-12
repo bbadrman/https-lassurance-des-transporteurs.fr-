@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Transport;
-use App\Form\MarchandiseType;
+use App\Entity\Transport; 
 use App\Form\PersonneType;
 use App\Form\TransportType;
+use App\Form\VehiculeType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -200,7 +200,7 @@ final class HomeController extends AbstractController
     public function vehiculeMarchandises(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger): Response
     {
         $transp = new Transport();
-        $form = $this->createForm(TransportType::class, $transp);
+        $form = $this->createForm(VehiculeType::class, $transp);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && !$form->isValid()) {
@@ -323,7 +323,7 @@ final class HomeController extends AbstractController
             }
         }
 
-        return $this->render('home/claude-assurance-marchandise-transportee.html.twig', [
+        return $this->render('home/assurance-marchandise-transportee.html.twig', [
             'form' => $form->createView(),
         ]);
     }

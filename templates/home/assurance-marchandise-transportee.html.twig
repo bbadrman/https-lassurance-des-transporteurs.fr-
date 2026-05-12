@@ -2,318 +2,893 @@
 
 {% block title %}Assurance marchandise transportée : devis en ligne{% endblock %}
 
-{% block description %}<meta name="description" content="Obtenez votre assurance marchandise transportée au meilleur tarif. Comparez les garanties RC transport, tous risques et obtenez un devis personnalisé rapidement.">{% endblock %}
+{% block description %}
+	<meta name="description" content="Obtenez votre assurance marchandise transportée au meilleur tarif. Comparez les garanties RC transport, tous risques et obtenez un devis personnalisé rapidement.">
+{% endblock %}
+
+{% block keywords %}
+	<meta name="keywords" content="assurance marchandise transportée, RC transporteur, garantie tous risques marchandises, assurance transport de fret, couverture marchandise en transit, assurance cargo, responsabilité civile transporteur, assurance multirisque transport, contrat de transport routier, assurance logistique professionnelle">
+{% endblock %}
 
 {% block canonical %}
-<link rel="canonical" href="https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Assurance marchandise transportée : tarif et devis en ligne">
-<meta property="og:description" content="Protégez vos marchandises en transit avec une assurance adaptée. RC transport, tous risques, multimodal. Devis gratuit et personnalisé pour transporteurs professionnels.">
-<meta property="og:url" content="https://lassurance-des-transporteurs.fr/assurance-marchandise-transportee">
-<meta property="og:image" content="https://lassurance-des-transporteurs.fr/images/assurance-marchandise-transportee.jpg">
-<meta property="og:type" content="website">
+	<link rel="canonical" href="https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee">
+{% endblock %}
+
+{% block opengraph %}
+	<meta property="og:title" content="Assurance marchandise transportée : tarif et devis en ligne">
+	<meta property="og:description" content="Protégez vos marchandises en transit avec une assurance adaptée. RC transport, tous risques, multimodal. Devis gratuit et personnalisé pour transporteurs professionnels.">
+	<meta property="og:url" content="https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee">
+	<meta property="og:image" content="https://www.lassurance-des-transporteurs.fr/images/assurance-marchandise-transportee.webp">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
 {% endblock %}
 
 {% block body %}
-<div class="container mx-auto px-4 lg:px-8 py-12">
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 1 — HERO + FORMULAIRE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<div class="w-full mx-auto px-4 lg:px-40 relative z-10">
+			<div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+
+				<!-- Image — 70% -->
+				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
+					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
+						<div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
+							<img src="{{ asset('images/assurance-marchandise-transportee.webp') }}"
+								alt="Assurance marchandise transportée pour professionnels du transport"
+								class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1000" height="800"/>
+ 
+						</div>
+					</div>
+				</div>
+
+				<!-- Formulaire — 30% -->
+				<div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
+					<div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 w-full h-full">
+						<div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12">
+							<h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Comparez votre assurance marchandise transportée</h2>
+							<div class="w-16 h-1 bg-green mx-auto rounded-full"></div>
+						</div>
+
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
+
+						<!-- Raison sociale -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-building text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.raison) }}
+							</div>
+							{{ form_errors(form.raison) }}
+						</div>
+
+						<!-- Démarrage activité -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-briefcase text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.activite, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.activite) }}
+						</div>
+
+						<!-- Véhicule assuré actuellement -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-truck text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.assurer, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.assurer) }}
+						</div>
+
+						<!-- Ancienne assurance résiliée -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-history text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.ancienne, {
+									'attr': {
+										'style': 'appearance: auto; -webkit-appearance: menulist;',
+										'id': 'ancienne_field',
+										'onchange': 'toggleMotif(this.value)'
+									}
+								}) }}
+							</div>
+							{{ form_errors(form.ancienne) }}
+						</div>
+
+						<!-- Motif résiliation -->
+						<div class="form-group" id="motif_group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.motif, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+							</div>
+							{{ form_errors(form.motif) }}
+						</div>
+
+						<script>
+							function toggleMotif(value) {
+								var motifGroup = document.getElementById('motif_group');
+								var motifSelect = document.getElementById('transport_motif');
+								var hide = (value === 'non');
+								motifGroup.style.display = hide ? 'none' : '';
+								if (motifSelect) motifSelect.disabled = hide;
+							}
+							document.addEventListener('DOMContentLoaded', function() {
+								var ancienne = document.getElementById('ancienne_field');
+								if (ancienne) toggleMotif(ancienne.value);
+							});
+						</script>
+
+						<!-- Code Postal -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-map-marker-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.codepostal) }}
+							</div>
+							{{ form_errors(form.codepostal) }}
+						</div>
+
+						<!-- Nom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.nom) }}
+							</div>
+							{{ form_errors(form.nom) }}
+						</div>
+
+						<!-- Prénom -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-user-tag text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.prenom) }}
+							</div>
+							{{ form_errors(form.prenom) }}
+						</div>
+
+						<!-- Email -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-envelope text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.email) }}
+							</div>
+							{{ form_errors(form.email) }}
+						</div>
+
+						<!-- Téléphone -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-phone text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.tele) }}
+							</div>
+							{{ form_errors(form.tele) }}
+						</div>
+
+						<!-- Consentement -->
+						<div class="bg-white rounded-lg border border-blue-200 p-1.5 mt-2">
+							<span class="text-xs text-gray-600 leading-tight block text-justify">
+								En cliquant sur "Comparer", vous acceptez de transmettre vos informations à AKSAM ASSURANCES, qui accepte de les utiliser conformément à sa politique de confidentialité dans le but de vous fournir des propositions de devis d'assurance adaptées à votre recherche.
+							</span>
+						</div>
+
+						<!-- Bouton -->
+						<button type="submit" class="w-full bg-green text-white font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+							<i class="fas fa-calculator mr-2"></i>
+							Comparer
+						</button>
+
+						{{ form_end(form) }}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
 
 
-    <!-- Hero section -->
-    <section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
-        <div class="w-full mx-auto px-4 lg:px-40 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
-                <!-- Image Section - 70% -->
-                <div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
-                    <div class="relative h-full min-h-[300px] lg:min-h-[600px]">
-                        <div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
-                            <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy"/>
-                        </div>
-                    </div>
-                </div>
-                <!-- CTA Section - 30% -->
-                <div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
-                    <div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 w-full h-full flex flex-col items-center justify-center text-center">
-                        <h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Comparez votre assurance marchandise transportée | Obtenez un tarif RC marchandise adapté</h2>
-                        <a href="{{ path('app_marchandises') }}" class="inline-block bg-gradient-to-br from-orange-500 via-amber-300 to-yellow-300 text-green font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
-                            <i class="fas fa-calculator mr-2"></i>
-                            Souscrivez votre garantie RC marchandise en ligne dès aujourd'hui
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 2 — H1
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<div class="container mx-auto px-4 lg:px-8 relative z-10">
+			<div class="max-w-6xl mx-auto text-center">
+				<h1 class="text-3xl lg:text-6xl font-bold text-green mb-6 leading-tight">
+					Assurance marchandise transportée
+				</h1>
+				<div class="w-20 lg:w-24 h-1 bg-green mx-auto rounded-full mb-8"></div>
+				<p class="speakable-intro text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+					Chaque année en France, des milliers de sinistres marchandises surviennent pendant le transport : vol, dommages liés à un accident de la route, avarie due à un choc ou une mauvaise manutention. Pour un transporteur professionnel, une PME logistique ou un chargeur, la question n'est pas de savoir si un incident peut arriver, mais quand. L'assurance marchandise transportée garantit la valeur du fret depuis l'enlèvement jusqu'à la livraison, couvrant aussi bien la responsabilité du transporteur que les pertes subies par le donneur d'ordre. Sans cette couverture, une seule palette de matériel électronique endommagée peut représenter plusieurs dizaines de milliers d'euros de préjudice non indemnisé.
+				</p>
+				<div class="mt-8">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-file-alt mr-2"></i>
+						Comparez votre assurance marchandise transportée
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- H1 Main Title -->
-    <h1 class="text-3xl lg:text-5xl font-bold text-green mb-8">Assurance marchandise transportée</h1>
 
-    <!-- Introduction Paragraph -->
-    <section class="mb-12 bg-light rounded-2xl p-8 shadow-xl border border-gray-100">
-        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-            Chaque année en France, des milliers de sinistres marchandises surviennent pendant le transport : vol, dommages liés à un accident de la route, avarie due à un choc ou une mauvaise manutention.
-        </p>
-        <p class="text-lg text-gray-700 leading-relaxed">
-            Pour un transporteur professionnel, une PME logistique ou un chargeur, la question n'est pas de savoir si un incident peut arriver, mais quand. L'assurance marchandise transportée garantit la valeur du fret depuis l'enlèvement jusqu'à la livraison, couvrant aussi bien la responsabilité du transporteur que les pertes subies par le donneur d'ordre.
-        </p>
-    </section>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 3 — ASSURANCE RC MARCHANDISE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						I. Assurance RC marchandise
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						L'assurance RC marchandise couvre la responsabilité civile du transporteur en cas de dommages ou de perte affectant les marchandises confiées. C'est le socle incontournable de toute activité de transport professionnel en France.
+					</p>
+				</div>
 
-    <!-- Section I: Assurance RC marchandise -->
-    <section id="assurance-rc-marchandise" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">I. Assurance RC marchandise</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                L'assurance RC marchandise couvre la responsabilité civile du transporteur en cas de dommages ou de perte affectant les marchandises confiées. C'est le socle incontournable de toute activité de transport professionnel en France.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Le cadre légal est précis. Le transport routier intérieur est régi par l'article L.1432-4 du Code des transports, qui fixe la responsabilité de plein droit du transporteur en cas de perte, avarie ou retard. Pour les transports internationaux, c'est la Convention CMR qui s'applique, avec une limitation d'indemnisation fixée à 8,33 DTS par kilogramme de poids brut de la marchandise perdue ou avariée.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Concrètement, la RC marchandise entre en jeu dans des situations comme : un camion percuté par l'arrière sur l'A6, entraînant la destruction de 2 tonnes de produits agro-alimentaires réfrigérés ; un chauffeur qui signe un bon de livraison sans réserve, alors que les caisses étaient déjà choquées au chargement ; ou encore un vol de fret lors d'une halte nocturne sur une aire d'autoroute.
-            </p>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-6">
-                <p class="text-blue-800 font-semibold mb-0">
-                    <i class="fas fa-info-circle mr-2"></i>
-                    La RC transporteur est encadrée par la Convention CMR et l'article L.1432-4 du Code des transports pour le transport routier intérieur.
-                </p>
-            </div>
-            <p class="text-gray-700 leading-relaxed">Comparez votre assurance marchandise transportée | Obtenez un tarif RC marchandise adapté</p>
-        </div>
-    </section>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
 
-    <!-- Section II: Assurance marchandise transportés prix -->
-    <section id="assurance-prix" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">II. Assurance marchandise transportés prix</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Le prix d'une assurance marchandise transportée dépend de plusieurs variables précises, qu'il est indispensable de comprendre avant toute comparaison tarifaire. La prime annuelle se calcule généralement en pourcentage de la valeur assurée des marchandises transportées sur l'année.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-2">Voici les principaux facteurs qui font varier le tarif :</p>
-            <ol class="list-decimal pl-6 mb-4 space-y-2">
-                <li><strong>La nature du fret</strong> — une marchandise fragile ou à forte valeur génère une prime plus élevée qu'un fret en vrac ou des matériaux de construction.</li>
-                <li><strong>Le secteur géographique</strong> — les trajets en zone urbaine dense ou vers des pays à risque majorent la prime.</li>
-                <li><strong>L'historique de sinistralité</strong> — un transporteur sans sinistre sur 3 ans bénéficie généralement d'un coefficient réducteur.</li>
-                <li><strong>Le mode de conditionnement</strong> — palette filmée, conteneur scellé, vrac en benne : chaque conditionnement modifie le risque d'avarie.</li>
-            </ol>
-            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-6">
-                <h4 class="font-bold text-gray-900 mb-3">À titre d'exemple concret :</h4>
-                <p class="text-gray-700 mb-0">
-                    Pour un transporteur routier qui achemine chaque mois pour environ 200 000 euros de fret à valeur déclarée, la prime annuelle tous risques peut se situer autour de 2 400 à 3 600 euros, soit 0,10 % à 0,15 % de la valeur annuelle transportée.
-                </p>
-            </div>
-            <p class="text-gray-700 leading-relaxed">Simulez le prix de votre assurance marchandise transportée | Demandez votre devis assurance marchandise transportée</p>
-        </div>
-    </section>
+					<!-- Cadre légal -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-balance-scale text-green text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">1. Le cadre légal précis</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed">
+							Le transport routier intérieur est régi par l'article L.1432-4 du Code des transports, qui fixe la responsabilité de plein droit du transporteur en cas de perte, avarie ou retard. Pour les transports internationaux, c'est la Convention CMR qui s'applique, avec une limitation d'indemnisation fixée à 8,33 DTS par kilogramme de poids brut de la marchandise perdue ou avariée. Ces plafonds légaux sont souvent très inférieurs à la valeur réelle du fret — un transporteur de composants électroniques ou de produits pharmaceutiques s'expose à des découverts considérables si son contrat ne dépasse pas ces minima.
+						</p>
+					</div>
 
-    <!-- Section III: Garantie RC marchandise en ligne -->
-    <section id="garantie-rc" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">III. Garantie RC marchandise en ligne</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Souscrire une garantie RC marchandise en ligne est désormais possible pour la majorité des profils de transporteurs professionnels, à condition de disposer des bonnes informations au moment de la demande. Le processus en ligne permet d'aller plus vite, mais il ne doit pas se faire au détriment de la qualité des garanties.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Pour une souscription en ligne efficace, il faut avoir sous la main : le type d'activité (transporteur pour compte d'autrui, commissionnaire de transport, logisticien), le chiffre d'affaires transport annuel, la nature principale des marchandises transportées, le secteur géographique habituel et les coordonnées du véhicule ou de la flotte.
-            </p>
-            <p class="text-gray-700 leading-relaxed">Souscrivez votre garantie RC marchandise en ligne dès aujourd'hui</p>
-        </div>
-    </section>
+					<!-- Situations concrètes -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-exclamation-triangle text-orange-500 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">2. Situations concrètes couvertes</h3>
+							</div>
+						</div>
+						<ul class="space-y-3 text-gray-700">
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span>Camion percuté sur l'autoroute entraînant la destruction de 2 tonnes de produits agroalimentaires réfrigérés</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span>Chauffeur qui signe un bon de livraison sans réserves alors que les caisses étaient déjà choquées au chargement</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span>Vol de fret lors d'une halte nocturne sur une aire d'autoroute</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span>Avarie due à un défaut de manutention ou un arrimage insuffisant</span>
+							</li>
+						</ul>
+					</div>
 
-    <!-- Section IV: Types marchandises transportée -->
-    <section id="types-marchandises" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">IV. Types marchandises transportée</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Toutes les marchandises ne se couvrent pas de la même façon, et les assureurs distinguent des catégories très précises qui déterminent les garanties applicables et les exclusions éventuelles.
-            </p>
-            <ul class="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Les denrées alimentaires périssables</strong> — un bris de la chaîne du froid peut entraîner le refus total d'une livraison.</li>
-                <li><strong>Les matières dangereuses (ADR)</strong> nécessitent une assurance spécifique avec mention expresse des classes de danger transportées.</li>
-                <li><strong>Les marchandises à haute valeur</strong> (bijoux, œuvres d'art, matériel high-tech) exigent souvent une déclaration de valeur préalable.</li>
-                <li><strong>Les matières premières en vrac</strong> sont généralement couvertes à des taux de prime bas, mais avec des franchises adaptées.</li>
-                <li><strong>Les produits pharmaceutiques et médicaux</strong> relèvent d'une catégorie à part, avec des exigences de traçabilité.</li>
-                <li><strong>Les biens d'équipement industriels</strong> nécessitent souvent une évaluation à neuf pour éviter les sous-assurances.</li>
-            </ul>
-            <p class="text-gray-700 leading-relaxed">Identifiez la couverture adaptée à vos types de marchandises transportées</p>
-        </div>
-    </section>
+				</div>
 
-<!-- Section V: Véhicule marchandise transportée -->
-    <section id="vehicule-marchandise" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">V. Véhicule marchandise transportée</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Le véhicule utilisé pour transporter les marchandises joue un rôle central dans la définition du contrat d'assurance cargo, au-delà de l'assurance automobile classique obligatoire. Il faut distinguer deux niveaux de couverture qui fonctionnent en parallèle : l'assurance du véhicule lui-même et l'assurance des marchandises qu'il transporte.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Un véhicule utilitaire léger (VUL) de moins de 3,5 tonnes bénéficiera d'un contrat souple. Un semi-remorque de 40 tonnes fera l'objet d'un contrat avec bordereau de chargement. Un véhicule frigorifique devra mentionner la classe de température dans le contrat.
-            </p>
-            <p class="text-gray-700 leading-relaxed">Trouvez l'assurance pour votre véhicule marchandise transportée</p>
-        </div>
-    </section>
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-tag mr-2"></i>
+						Obtenez un tarif RC marchandise adapté à votre activité
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- Section VI: FAQ -->
-    <section id="faq" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">VI. FAQ — Assurance marchandise transportée</h2>
-        
-        <div class="space-y-4 max-w-4xl">
-            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <span class="text-lg font-semibold text-gray-900 pr-4">Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?</span>
-                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
-                    Le prix d'une assurance marchandise transportée pour un transporteur routier varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour une activité de 2 millions d'euros de fret. Ce taux dépend de la nature des marchandises, du secteur géographique, de l'historique sinistres et du niveau de garantie choisi (RC seule ou tous risques). Un transporteur sans sinistre depuis 3 ans bénéficie généralement d'une réduction sensible sur la prime.
-                </div>
-            </div>
 
-            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <span class="text-lg font-semibold text-gray-900 pr-4">Est-ce que l'assurance marchandise transportée est obligatoire en France ?</span>
-                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
-                    L'assurance marchandise transportée n'est pas légalement obligatoire pour le transporteur en tant que telle, mais la responsabilité civile du transporteur l'est de fait. L'article L.1432-4 du Code des transports impose une responsabilité de plein droit en cas de perte ou avarie, sans plafond d'exclusion pour faute. Sans assurance adaptée, le transporteur répond sur ses fonds propres.
-                </div>
-            </div>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 4 — PRIX
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						II. Assurance marchandise transportée : prix
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Le prix d'une assurance marchandise transportée dépend de plusieurs variables précises. La prime annuelle se calcule généralement en pourcentage de la valeur assurée des marchandises, avec un taux oscillant entre <strong>0,05 % et 0,30 %</strong> de la valeur du fret selon le niveau de garantie choisi.
+					</p>
+				</div>
 
-            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <span class="text-lg font-semibold text-gray-900 pr-4">Comment obtenir une assurance marchandise transportée en ligne rapidement ?</span>
-                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
-                    Pour obtenir une assurance marchandise transportée en ligne rapidement, il faut préparer : le SIRET de votre entreprise, le type d'activité (transport, commission, logistique), la nature des marchandises, le chiffre d'affaires transport annuel et le périmètre géographique habituel. Avec ces éléments, un devis personnalisé peut être établi en moins de 24 heures et la prise d'effet peut intervenir le lendemain de la signature électronique pour les profils standards.
-                </div>
-            </div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
 
-            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <span class="text-lg font-semibold text-gray-900 pr-4">Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?</span>
-                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
-                    Un auto-entrepreneur exerçant une activité de transport ou de livraison peut souscrire une assurance marchandise transportée adaptée à son volume d'activité, souvent sous forme de contrat à déclaration mensuelle. La prime est alors calculée sur la valeur réelle des marchandises transportées chaque mois, ce qui évite les surcoûts en période creuse.
-                </div>
-            </div>
+					<!-- Fourchettes tarifaires -->
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-euro-sign text-green"></i>
+							1. Fourchettes tarifaires indicatives
+						</h3>
+						<div class="space-y-3 mb-6">
+							<div class="flex items-center justify-between bg-green-50 rounded-xl px-4 py-3 border border-green-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-box text-green text-lg"></i>
+									<span class="font-semibold text-gray-800">Fret standard (route nationale)</span>
+								</div>
+								<span class="font-bold text-green">0,05 – 0,10 %/an</span>
+							</div>
+							<div class="flex items-center justify-between bg-blue-50 rounded-xl px-4 py-3 border border-blue-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-laptop text-blue-600 text-lg"></i>
+									<span class="font-semibold text-gray-800">Marchandises à haute valeur</span>
+								</div>
+								<span class="font-bold text-blue-700">0,15 – 0,30 %/an</span>
+							</div>
+							<div class="flex items-center justify-between bg-orange-50 rounded-xl px-4 py-3 border border-orange-200">
+								<div class="flex items-center gap-3">
+									<i class="fas fa-globe-europe text-orange-500 text-lg"></i>
+									<span class="font-semibold text-gray-800">Transport international</span>
+								</div>
+								<span class="font-bold text-orange-600">majoré selon zone</span>
+							</div>
+						</div>
+						<p class="text-gray-600 text-sm italic">
+							Exemple concret : pour 200 000 €/mois de fret à valeur déclarée, la prime annuelle tous risques se situe autour de 2 400 à 3 600 €.
+						</p>
+					</div>
 
-            <div class="bg-light rounded-xl shadow-lg border border-gray-100 overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <span class="text-lg font-semibold text-gray-900 pr-4">Que couvre exactement la garantie tous risques marchandise transportée ?</span>
-                    <span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
-                    La garantie tous risques marchandise transportée couvre l'intégralité des causes de dommages ou de pertes survenant pendant le transport, sauf exclusions contractuelles limitativement énumérées (vice propre, emballage insuffisant, force majeure). Contrairement à la RC seule limitée aux plafonds CMR, le tous risques indemnise la valeur réelle ou à neuf de la marchandise.
-                </div>
-            </div>
-        </div>
-    </section>
+					<!-- Facteurs de variation -->
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-sliders-h text-green"></i>
+							2. Les 4 facteurs qui font varier la prime
+						</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+								<div>
+									<p class="font-semibold text-gray-800">Nature du fret</p>
+									<p class="text-gray-600 text-sm">Une marchandise fragile ou à forte valeur (œuvres d'art, électronique, bijoux) génère une prime plus élevée qu'un fret en vrac.</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+								<div>
+									<p class="font-semibold text-gray-800">Secteur géographique</p>
+									<p class="text-gray-600 text-sm">Les trajets en zone urbaine dense ou vers des pays à risque élevé majorent la prime.</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+								<div>
+									<p class="font-semibold text-gray-800">Historique de sinistralité</p>
+									<p class="text-gray-600 text-sm">Un transporteur sans sinistre sur 3 ans bénéficie généralement d'un coefficient réducteur sensible.</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="w-7 h-7 bg-green text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">4</span>
+								<div>
+									<p class="font-semibold text-gray-800">Mode de conditionnement</p>
+									<p class="text-gray-600 text-sm">Palette filmée, conteneur scellé, vrac en benne : chaque conditionnement modifie le risque d'avarie.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
 
-    <!-- Section VII: Devis -->
-    <section id="devis" class="mb-16">
-        <h2 class="text-2xl lg:text-4xl font-bold text-green mb-8 pb-4 border-b-2 border-gray-200">VII. Devis assurance marchandise transportée</h2>
-        <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Obtenir un devis assurance marchandise transportée précis et exploitable suppose une analyse sérieuse de votre activité réelle : volume de fret, destinations, types de véhicules utilisés, nature des marchandises, conditions de sous-traitance éventuelles.
-            </p>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Notre équipe spécialisée en assurance transport professionnel réunit ces éléments pour vous soumettre une comparaison claire entre plusieurs contrats adaptés à votre profil. Pas de formule standard, pas de couverture générique : chaque dossier est traité selon les spécificités du métier.
-            </p>
-            <p class="text-gray-700 leading-relaxed"> votre devis assurance marchandise transportée sur mesure</p>
-        </div>
-    </section>
-    <!-- CTA Section -->
-    <section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl">
-        <div class="container mx-auto px-4 lg:px-8 text-center">
-            <div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
-                <i class="fas fa-calculator text-white text-4xl"></i>
-            </div>
-            <h2 class="text-3xl lg:text-5xl font-bold text-white mb-6">Comparez votre assurance marchandise transportée</h2>
-            <p class="text-xl text-white mb-8 max-w-2xl mx-auto">Obtenez un tarif RC marchandise adapté à votre activité en moins de 2 minutes</p>
-            <a href="{{ path('app_marchandises') }}" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
-                <i class="fas fa-file-alt mr-2"></i>
-                Obtenir un devis pour mon assurance transport marchandises
-            </a>
-        </div>
-    </section>
-</div>
+				</div>
 
-<!-- FAQ Toggle Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const answer = button.nextElementSibling;
-            const toggle = button.querySelector('.faq-toggle');
-            answer.classList.toggle('hidden');
-            toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
-        });
-    });
-});
-</script>
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-calculator mr-2"></i>
+						Simulez le prix de votre assurance marchandise transportée
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- FAQ Schema -->
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 5 — GARANTIE RC EN LIGNE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						III. Garantie RC marchandise en ligne
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Souscrire une garantie RC marchandise en ligne est désormais possible pour la majorité des profils de transporteurs professionnels, à condition de disposer des bonnes informations et de ne pas sacrifier la qualité des garanties à la rapidité.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+
+					<!-- Exclusions à surveiller -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-exclamation-circle text-green"></i>
+							1. Exclusions fréquentes à vérifier
+						</h3>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3 bg-red-50 rounded-xl p-3 border border-red-100">
+								<i class="fas fa-times-circle text-red-500 mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700 text-sm">Franchise élevée sur les vols simples sans effraction</span>
+							</div>
+							<div class="flex items-start gap-3 bg-red-50 rounded-xl p-3 border border-red-100">
+								<i class="fas fa-times-circle text-red-500 mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700 text-sm">Exclusion des marchandises non palettisées</span>
+							</div>
+							<div class="flex items-start gap-3 bg-red-50 rounded-xl p-3 border border-red-100">
+								<i class="fas fa-times-circle text-red-500 mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700 text-sm">Absence de couverture pour le transport sous température dirigée</span>
+							</div>
+							<div class="flex items-start gap-3 bg-red-50 rounded-xl p-3 border border-red-100">
+								<i class="fas fa-times-circle text-red-500 mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700 text-sm">Exclusion des matières dangereuses non déclarées (ADR)</span>
+							</div>
+						</div>
+						<p class="text-gray-600 text-sm mt-4 italic">Ces lacunes ne se révèlent qu'au moment du sinistre — trop tard pour agir.</p>
+					</div>
+
+					<!-- Informations nécessaires -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl font-bold text-green mb-6 flex items-center gap-3">
+							<i class="fas fa-clipboard-list text-green"></i>
+							2. Informations à préparer pour souscrire
+						</h3>
+						<ul class="space-y-3">
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700">Type d'activité (transporteur pour compte d'autrui, commissionnaire, logisticien)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700">Chiffre d'affaires transport annuel</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700">Nature principale des marchandises transportées</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700">Secteur géographique habituel (national, UE, international)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<i class="fas fa-check-circle text-green mt-0.5 flex-shrink-0"></i>
+								<span class="text-gray-700">SIRET et coordonnées du véhicule ou de la flotte</span>
+							</li>
+						</ul>
+						<div class="mt-4 bg-green-50 rounded-xl p-3 border border-green-200">
+							<p class="text-green text-sm font-semibold"><i class="fas fa-bolt mr-1"></i> Prise d'effet possible le lendemain de la signature électronique pour les profils standards.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-mouse-pointer mr-2"></i>
+						Souscrivez votre garantie RC marchandise en ligne dès aujourd'hui
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 6 — TYPES DE MARCHANDISES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						IV. Types de marchandises transportées
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Toutes les marchandises ne se couvrent pas de la même façon. Les assureurs distinguent des catégories très précises qui déterminent les garanties applicables et les exclusions éventuelles.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-radiation-alt text-blue-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">1. Matières dangereuses (ADR)</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Nécessitent une assurance spécifique avec mention expresse des classes de danger. Un chargement ADR non déclaré peut entraîner la nullité totale du contrat en cas de sinistre.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-gem text-yellow-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">2. Marchandises à haute valeur</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Bijoux, œuvres d'art, matériel high-tech : exigent souvent une déclaration de valeur préalable et des conditions de transport imposées par l'assureur (escorte, GPS, véhicule sécurisé).</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-seedling text-green text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">3. Matières premières en vrac</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Gravats, sable, bois non transformé : généralement couverts à des taux de prime bas, mais avec des franchises adaptées. La sous-assurance est le principal risque.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-pills text-red-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">4. Produits pharmaceutiques</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Catégorie à part avec des exigences de traçabilité et de temperature logging qui peuvent conditionner la prise en charge d'un sinistre. La chaîne du froid doit être expressément couverte.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-snowflake text-orange-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">5. Denrées alimentaires périssables</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Un bris de la chaîne du froid, même partiel, peut entraîner le refus total d'une livraison. La responsabilité du transporteur engage sa RC dès lors que la marchandise ne parvient pas en bon état.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-industry text-purple-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">6. Biens d'équipement industriels</h3>
+						<p class="text-gray-600 text-sm leading-relaxed">Machines, engins de chantier : nécessitent souvent une évaluation à neuf pour éviter les sous-assurances. La valeur vénale est souvent défavorable pour du matériel de plus de 3 ans.</p>
+					</div>
+
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-search mr-2"></i>
+						Identifiez la couverture adaptée à vos types de marchandises transportées
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 7 — VÉHICULE & MARCHANDISE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						V. Véhicule et marchandise transportée
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full mb-6"></div>
+					<p class="text-gray-700 text-lg max-w-3xl mx-auto">
+						Le véhicule et les marchandises qu'il transporte font l'objet de deux contrats distincts. Un sinistre qui détruit le véhicule ne couvre pas automatiquement la valeur du fret chargé — et inversement.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-shuttle-van text-green text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">VUL — moins de 3,5 t</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed text-sm">
+							Utilisé pour la messagerie express ou la livraison du dernier kilomètre, le VUL bénéficiera d'un contrat souple, souvent à déclaration mensuelle de valeur. Adapté aux artisans, indépendants et plateformes de livraison.
+						</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-truck-moving text-blue-600 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">Semi-remorque 40 t</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed text-sm">
+							Affrété pour des transports réguliers de produits de grande consommation, il fait l'objet d'un contrat avec bordereau de chargement et valeur à déclarer par voyage. La gestion administrative est plus lourde mais les garanties plus précises.
+						</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<div class="flex items-start gap-4 mb-4">
+							<div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+								<i class="fas fa-thermometer-half text-orange-500 text-2xl"></i>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-green">Véhicule frigorifique</h3>
+							</div>
+						</div>
+						<p class="text-gray-700 leading-relaxed text-sm">
+							Transportant viande ou produits laitiers, il doit mentionner la classe de température et le groupe frigorifique dans le contrat. Une panne de groupe non mentionnée peut être exclue si le matériel n'est pas expressément couvert.
+						</p>
+					</div>
+
+				</div>
+
+				<div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-8 border-2 border-green-200 mb-10">
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow">
+							<i class="fas fa-layer-group text-green text-xl"></i>
+						</div>
+						<div>
+							<h3 class="text-xl font-bold text-green mb-2">Contrat de flotte avec assurance marchandises intégrée</h3>
+							<p class="text-gray-700 leading-relaxed">
+								Les transporteurs multi-véhicules ou les entreprises logistiques disposant d'une flotte peuvent négocier un contrat de flotte avec assurance marchandises intégrée. Cela simplifie la gestion administrative et peut générer des économies sensibles sur la prime globale.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-truck mr-2"></i>
+						Trouvez l'assurance marchandise adaptée à votre véhicule de transport
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 8 — FAQ
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-4xl font-bold text-green mb-6">
+						VI. FAQ — Assurance marchandise transportée
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="space-y-4">
+
+					<div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Le prix varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour une activité de 2 millions d'euros de fret. Ce taux dépend de la nature des marchandises, du secteur géographique, de l'historique sinistres et du niveau de garantie choisi (RC seule ou tous risques). Un transporteur sans sinistre depuis 3 ans bénéficie généralement d'une réduction sensible sur la prime.</p>
+						</div>
+					</div>
+
+					<div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Est-ce que l'assurance marchandise transportée est obligatoire en France ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">L'assurance marchandise transportée n'est pas légalement obligatoire pour le transporteur en tant que telle, mais la responsabilité civile du transporteur l'est de fait. L'article L.1432-4 du Code des transports impose une responsabilité de plein droit en cas de perte ou avarie, sans plafond d'exclusion pour faute. Sans assurance adaptée, le transporteur répond sur ses fonds propres. De nombreux contrats de sous-traitance imposent contractuellement la preuve d'une couverture marchandises transportées.</p>
+						</div>
+					</div>
+
+					<div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Comment obtenir une assurance marchandise transportée en ligne rapidement ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Pour obtenir une assurance marchandise transportée en ligne rapidement, il faut préparer : le SIRET de votre entreprise, le type d'activité (transport, commission, logistique), la nature des marchandises, le chiffre d'affaires transport annuel et le périmètre géographique habituel. Avec ces éléments, un devis personnalisé peut être établi en moins de 24 heures et la prise d'effet peut intervenir le lendemain de la signature électronique pour les profils standards.</p>
+						</div>
+					</div>
+
+					<div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Un auto-entrepreneur exerçant une activité de transport ou de livraison peut souscrire une assurance marchandise transportée à déclaration mensuelle. La prime est alors calculée sur la valeur réelle des marchandises transportées chaque mois, ce qui évite les surcoûts en période creuse. Il faut néanmoins vérifier que le contrat couvre bien la responsabilité civile transporteur et pas seulement la RC professionnelle générale, qui exclut souvent les dommages au fret confié.</p>
+						</div>
+					</div>
+
+					<div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Que couvre exactement la garantie tous risques marchandise transportée ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">La garantie tous risques marchandise transportée couvre l'intégralité des causes de dommages ou de pertes survenant pendant le transport, sauf exclusions contractuelles limitativement énumérées (vice propre, emballage insuffisant, force majeure). Contrairement à la RC seule limitée aux plafonds CMR (8,33 DTS par kg pour l'international), le tous risques indemnise la valeur réelle ou à neuf de la marchandise. Cette garantie est recommandée pour les frets à haute valeur unitaire, les matériaux fragiles ou les marchandises soumises à des conditions de transport spécifiques.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 9 — DEVIS / CTA FINALE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
+		<div class="container mx-auto px-4 lg:px-8 text-center">
+			<div class="max-w-4xl mx-auto">
+				<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+					<i class="fas fa-boxes text-white text-4xl"></i>
+				</div>
+				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
+					Demandez votre devis assurance marchandise transportée sur mesure
+				</h2>
+				<p class="text-xl text-green/90 mb-8 leading-relaxed">
+					Pas de formule standard, pas de couverture générique. Notre équipe analyse votre activité réelle — volume de fret, destinations, types de véhicules, nature des marchandises — pour vous soumettre une comparaison claire entre plusieurs contrats adaptés à votre profil.
+				</p>
+				<a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
+					<i class="fas fa-file-invoice mr-2"></i>
+					Obtenez votre devis personnalisé — Gratuit en 2 min
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lire aussi -->
+	<section class="py-6 bg-surface border-t border-gray-100">
+		<div class="container mx-auto px-4 lg:px-8">
+			<p class="text-center text-gray-600 text-sm">
+				<i class="fas fa-book-open text-green mr-1"></i>
+				Lire aussi :
+				<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">Assurance transport de marchandise</a>
+			</p>
+		</div>
+	</section>
+
+
+	<!-- Scripts -->
+	<script>
+		document.querySelectorAll('.faq-question').forEach(button => {
+			button.addEventListener('click', () => {
+				const answer = button.nextElementSibling;
+				const toggle = button.querySelector('.faq-toggle');
+				answer.classList.toggle('hidden');
+				toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+			});
+		});
+
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
+	</script>
+
+{% endblock %}
+
+{% block schema %}
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Le prix varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour 2 millions d'euros de fret." }
-    },
-    {
-      "@type": "Question",
-      "name": "Est-ce que l'assurance marchandise transportée est obligatoire en France ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Non, mais la responsabilité civile du transporteur est de fait obligatoire via l'article L.1432-4 du Code des transports." }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment obtenir une assurance marchandise transportée en ligne rapidement ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Préparez le SIRET, le type d'activité, la nature des marchandises et le chiffre d'affaires pour un devis en moins de 24 heures." }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Une assurance à déclaration mensuelle adaptée au volume d'activité réel du transporteur." }
-    },
-    {
-      "@type": "Question",
-      "name": "Que couvre exactement la garantie tous risques marchandise transportée ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Tous les dommages ou pertes survenant pendant le transport, sauf exclusions contractuelles spécifiques." }
-    }
-  ]
-}
-</script>
-
-<!-- Breadcrumb Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Accueil",
-      "item": "https://lassurance-des-transporteurs.fr"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Assurance marchandise transportée",
-      "item": "https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee"
-    }
-  ]
-}
-</script>
-
-<!-- Speakable Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SpeakableSpecification",
-  "cssSelector": ["h1", ".speakable-intro", ".faq-answer"]
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Accueil",
+					"item": "https://lassurance-des-transporteurs.fr"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Assurance transport de marchandise",
+					"item": "https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise"
+				},
+				{
+					"@type": "ListItem",
+					"position": 3,
+					"name": "Assurance marchandise transportée",
+					"item": "https://lassurance-des-transporteurs.fr/assurance-transport-de-marchandise/assurance-marchandise-transportee"
+				}
+			]
+		},
+		{
+			"@type": "InsuranceAgency",
+			"name": "L'Assurance des Transporteurs",
+			"url": "https://www.lassurance-des-transporteurs.fr",
+			"telephone": "0808660540",
+			"areaServed": "FR",
+			"address": { "@type": "PostalAddress", "addressCountry": "FR" },
+			"description": "Expert en assurance marchandise transportée pour professionnels du transport routier en France.",
+			"knowsAbout": [
+				"assurance marchandise transportée",
+				"RC transporteur",
+				"garantie tous risques marchandises",
+				"assurance transport de fret",
+				"Convention CMR",
+				"assurance cargo professionnel"
+			]
+		},
+		{
+			"@type": "SpeakableSpecification",
+			"cssSelector": ["h1", ".speakable-intro", ".faq-answer"]
+		},
+		{
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "Quel est le prix d'une assurance marchandise transportée pour un transporteur routier ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Le prix d'une assurance marchandise transportée pour un transporteur routier varie entre 0,05 % et 0,30 % de la valeur annuelle des marchandises assurées, soit environ 1 200 à 4 800 euros par an pour une activité de 2 millions d'euros de fret. Ce taux dépend de la nature des marchandises, du secteur géographique, de l'historique sinistres et du niveau de garantie choisi (RC seule ou tous risques). Un transporteur sans sinistre depuis 3 ans bénéficie généralement d'une réduction sensible sur la prime."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Est-ce que l'assurance marchandise transportée est obligatoire en France ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "L'assurance marchandise transportée n'est pas légalement obligatoire pour le transporteur en tant que telle, mais la responsabilité civile du transporteur l'est de fait. L'article L.1432-4 du Code des transports impose une responsabilité de plein droit en cas de perte ou avarie, sans plafond d'exclusion pour faute. Sans assurance adaptée, le transporteur répond sur ses fonds propres. De nombreux contrats de sous-traitance imposent contractuellement la preuve d'une couverture marchandises transportées."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Comment obtenir une assurance marchandise transportée en ligne rapidement ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Pour obtenir une assurance marchandise transportée en ligne rapidement, il faut préparer : le SIRET de votre entreprise, le type d'activité (transport, commission, logistique), la nature des marchandises, le chiffre d'affaires transport annuel et le périmètre géographique habituel. Avec ces éléments, un devis personnalisé peut être établi en moins de 24 heures et la prise d'effet peut intervenir le lendemain de la signature électronique pour les profils standards."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Quelle assurance marchandise pour un auto-entrepreneur dans le transport ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Un auto-entrepreneur exerçant une activité de transport ou de livraison peut souscrire une assurance marchandise transportée à déclaration mensuelle. La prime est alors calculée sur la valeur réelle des marchandises transportées chaque mois, ce qui évite les surcoûts en période creuse. Il faut néanmoins vérifier que le contrat couvre bien la responsabilité civile transporteur et pas seulement la RC professionnelle générale, qui exclut souvent les dommages au fret confié."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Que couvre exactement la garantie tous risques marchandise transportée ?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "La garantie tous risques marchandise transportée couvre l'intégralité des causes de dommages ou de pertes survenant pendant le transport, sauf exclusions contractuelles limitativement énumérées (vice propre, emballage insuffisant, force majeure). Contrairement à la RC seule limitée aux plafonds CMR (8,33 DTS par kg pour l'international), le tous risques indemnise la valeur réelle ou à neuf de la marchandise. Cette garantie est recommandée pour les frets à haute valeur unitaire, les matériaux fragiles ou les marchandises soumises à des conditions de transport spécifiques."
+					}
+				}
+			]
+		}
+	]
 }
 </script>
 {% endblock %}

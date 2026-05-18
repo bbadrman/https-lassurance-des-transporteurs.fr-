@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Transport; 
+use App\Entity\Transport;
+use App\Form\MarchandiseType;
 use App\Form\PersonneType;
 use App\Form\TransportType;
 use App\Form\VehiculeType;
@@ -115,7 +116,7 @@ final class HomeController extends AbstractController
     {
          $transp = new Transport();
 
-        $form = $this->createForm(TransportType::class, $transp);
+        $form = $this->createForm(MarchandiseType::class, $transp);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && !$form->isValid()) {

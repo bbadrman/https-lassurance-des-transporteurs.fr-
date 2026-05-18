@@ -980,21 +980,20 @@ toggleMotif(ancienne.value);
 			</div>
 
 
-			{# Lire aussi #}
-			<div class="mt-8 mb-2 ">
-				<p class="mb-0">
-					<strong>
-						Lire aussi :</strong>
-
-
-					<a href="{{ path('app_vehicule_marchandises') }}" class="text-green text-xl underline hover:text-accent font-medium">
-						Assurance véhicule transport marchandise
-					</a>
-				</p>
-			</div>
+		
 
 		</div>
 	</section>
+		<!-- Lire aussi -->
+	   <section class="py-6 bg-surface border-t border-gray-100">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="text-gray-600 text-sm flex flex-col gap-1">
+				<span><i class="fas fa-book-open text-green mr-1"></i> Lire aussi :</span>
+				<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance transport de marchandise</a>
+				<a href="{{ path('app_vehicule_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance véhicule transport de marchandises</a>
+			</div>
+		</div>
+	  </section>
 
 	<!-- JAVASCRIPT POUR FAQ -->
 	<script>

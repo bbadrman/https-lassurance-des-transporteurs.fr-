@@ -102,7 +102,10 @@ class TransportType extends AbstractType
                 ],
             ])
 
-            ->add('assurer', ChoiceType::class, [
+        ;
+
+        if ($options['show_assurer']) {
+            $builder->add('assurer', ChoiceType::class, [
                 'label' => false,
                 'placeholder' => 'Véhicule assuré actuellement ?',
                 'choices' => [
@@ -115,7 +118,10 @@ class TransportType extends AbstractType
                 'constraints' => [
                     new Assert\NotBlank(message: 'Veuillez indiquer si le véhicule est assuré')
                 ]
-            ])
+            ]);
+        }
+
+        $builder
             // ->add('type', ChoiceType::class, [
             //     'label' => false,
             //     'placeholder' => 'type transport ?',
@@ -191,6 +197,7 @@ class TransportType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Transport::class,
+            'show_assurer' => true,
         ]);
     }
 }

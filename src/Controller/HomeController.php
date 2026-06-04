@@ -267,7 +267,7 @@ final class HomeController extends AbstractController
     public function assuranceMarchandiseTransportee(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger): Response
     {
         $transp = new Transport();
-        $form = $this->createForm(TransportType::class, $transp);
+        $form = $this->createForm(TransportType::class, $transp, ['show_assurer' => false]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && !$form->isValid()) {

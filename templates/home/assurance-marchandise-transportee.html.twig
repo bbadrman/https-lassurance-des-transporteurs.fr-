@@ -76,16 +76,6 @@
 							{{ form_errors(form.activite) }}
 						</div>
 
-						<!-- Véhicule assuré actuellement -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-truck text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.assurer, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
-							</div>
-							{{ form_errors(form.assurer) }}
-						</div>
 
 						<!-- Ancienne assurance résiliée -->
 						<div class="form-group">
@@ -757,19 +747,26 @@
 					Obtenez votre devis personnalisé — Gratuit en 2 min
 				</a>
 			</div>
-		</div>
-	</section>
+		
 
-	<!-- Lire aussi -->
-	<section class="py-6 bg-surface border-t border-gray-100">
-		<div class="container mx-auto px-4 lg:px-8">
-			<div class="text-gray-600 text-sm flex flex-col gap-1">
-				<span><i class="fas fa-book-open text-green mr-1"></i> Lire aussi :</span>
-				<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance transport de marchandise</a>
+		{# Lire aussi #}
+			<div class="mt-8 mb-2 text-left">
+				<p class="mb-0">
+					<strong>
+						Lire aussi :</strong>
+
+
+					<a href="{{ path('app_marchandises') }}" class="text-green text-xl underline hover:text-accent font-medium">
+						Assurance transport de marchandise
+					</a>
+				</p>
 			</div>
-		</div>
+			</div>
 	</section>
 
+ 
+
+	  
 
 	<!-- Scripts -->
 	<script>

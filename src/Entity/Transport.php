@@ -6,6 +6,7 @@ use App\Repository\TransportRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TransportRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Transport
 {
     #[ORM\Id]
@@ -48,6 +49,17 @@ class Transport
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $motif = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $creatAt = null;
+
+     #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        if ($this->creatAt === null) {
+            $this->creatAt = new \DateTimeImmutable();
+        }
+    }
 
     public function getId(): ?int
     {
@@ -194,6 +206,18 @@ class Transport
     public function setMotif(?string $motif): static
     {
         $this->motif = $motif;
+
+        return $this;
+    }
+
+    public function getCreatAt(): ?\DateTimeImmutable
+    {
+        return $this->creatAt;
+    }
+
+    public function setCreatAt(?\DateTimeImmutable $creatAt): static
+    {
+        $this->creatAt = $creatAt;
 
         return $this;
     }

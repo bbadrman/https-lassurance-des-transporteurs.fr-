@@ -49,7 +49,7 @@ class TransportType extends AbstractType
             ->add('activite', ChoiceType::class, [
                 'label' => false,
                  'required' => false,
-                'placeholder' => 'Démarrage d\'ctivité ?',
+                'placeholder' => '-- Démarrage d\'activité ? --',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
 
@@ -68,7 +68,7 @@ class TransportType extends AbstractType
             ->add('ancienne', ChoiceType::class, [
                 'label' => false,
                  'required' => false,
-                'placeholder' => 'Ancienne assurance résilié?',
+                'placeholder' => '-- Ancienne assurance résilié? --',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
 
@@ -84,7 +84,7 @@ class TransportType extends AbstractType
             ->add('motif', ChoiceType::class, [
                 'label' => false,
                 'required' => false,
-                'placeholder' => 'Motif résiliation ?',
+                'placeholder' => '-- Motif résiliation ? --',
                 'attr' => [
                     'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
 
@@ -107,7 +107,7 @@ class TransportType extends AbstractType
         if ($options['show_assurer']) {
             $builder->add('assurer', ChoiceType::class, [
                 'label' => false,
-                'placeholder' => 'Véhicule assuré actuellement ?',
+                'placeholder' => '-- Véhicule assuré actuellement ? --',
                 'choices' => [
                     'Oui' => 'oui',
                     'Non' => 'non'
@@ -137,26 +137,26 @@ class TransportType extends AbstractType
             //         new Assert\NotBlank(['message' => 'Veuillez sélectionner un type de transport'])
             //     ]
             // ])
-            // ->add('souhAssurer', ChoiceType::class, [
-            //     'label' => false,
-            //     'placeholder' => 'Vous souhaitez assurer ?',
-            //     'choices' => [
-            //         'Véhicule' => 'vehicule',
-            //         'Marchandise transportées' => 'marchandise transportées',
-            //         'Véhicule + M/ses transportées' => 'véhicule + M/ses trans',
-            //         'Transport personne à titre onéreux' => 'transp personne onéreux',
-            //         'RC pro' => 'rc pro',
-            //         'Transport personne à titre onéreux + RC PRO' => 'transp personne onéreux + RC PRO',
-            //     ],
-            //     'attr' => [
-            //         'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
-            //         'id' => 'souh-assurer'
-            //     ],
-            //     'required' => false,
-            //     'constraints' => [
-            //         new Assert\NotBlank(['message' => 'Veuillez sélectionner ce que vous souhaitez assurer'])
-            //     ]
-            // ])
+            ->add('souhAssurer', ChoiceType::class, [
+                'label' => false,
+                'placeholder' => '-- Vous souhaitez assurer ? --',
+                'choices' => [
+                    'Véhicule' => 'vehicule',
+                    'Marchandise transportées' => 'marchandise transportées',
+                    'Véhicule + M/ses transportées' => 'véhicule + M/ses trans',
+                    // 'Transport personne à titre onéreux' => 'transp personne onéreux',
+                    // 'RC pro' => 'rc pro',
+                    // 'Transport personne à titre onéreux + RC PRO' => 'transp personne onéreux + RC PRO',
+                ],
+                'attr' => [
+                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400',
+                    'id' => 'souh-assurer'
+                ],
+                'required' => false,
+                'constraints' => [
+                    new Assert\NotBlank(['message' => 'Veuillez sélectionner ce que vous souhaitez assurer'])
+                ]
+            ])
 
             ->add('codepostal', TextType::class, [
                 'label' => false,

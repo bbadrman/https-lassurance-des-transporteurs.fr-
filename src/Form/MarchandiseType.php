@@ -65,6 +65,21 @@ class MarchandiseType extends AbstractType
                     new Assert\NotBlank(message: 'L\'activité est requise')
                 ]
             ])
+             ->add('assurer', ChoiceType::class, [
+                'label' => false,
+                'placeholder' => 'Assuré actuellement ?',
+                'choices' => [
+                    'Oui' => 'oui',
+                    'Non' => 'non'
+                ],
+                'attr' => [
+                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(message: 'Veuillez indiquer si le véhicule est assuré')
+                ]
+            ])
+            
             ->add('ancienne', ChoiceType::class, [
                 'label' => false,
                  'required' => false,
@@ -102,21 +117,7 @@ class MarchandiseType extends AbstractType
                 ],
             ])
 
-            ->add('assurer', ChoiceType::class, [
-                'label' => false,
-                'placeholder' => 'Assuré actuellement ?',
-                'choices' => [
-                    'Véhicule' => 'vehicule',
-                    'Marchandise' => 'marchandise'
-                ],
-                'attr' => [
-                    'class' => 'flex-1 px-3 py-2 border border-gray-200 rounded-r-lg bg-light focus:bg-surface transition-all duration-300 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(message: 'Veuillez indiquer si le véhicule est assuré')
-                ]
-            ])
-            
+           
 
             ->add('codepostal', TextType::class, [
                 'label' => false,

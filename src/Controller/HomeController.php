@@ -116,7 +116,7 @@ final class HomeController extends AbstractController
     {
          $transp = new Transport();
 
-        $form = $this->createForm(MarchandiseType::class, $transp);
+        $form = $this->createForm(TransportType::class, $transp);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && !$form->isValid()) {

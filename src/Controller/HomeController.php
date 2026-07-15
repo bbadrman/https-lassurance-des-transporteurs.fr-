@@ -7,6 +7,7 @@ use App\Form\MarchandiseType;
 use App\Form\PersonneType;
 use App\Form\TransportType;
 use App\Form\VehiculeType;
+use App\Service\DevisService;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +18,7 @@ use Symfony\Component\Routing\Attribute\Route;
 final class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger ): Response
     {
        
         $nombreAddProspects    = $entityManager->getRepository(Transport::class)->count([]);
@@ -40,6 +41,7 @@ final class HomeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
+                
                 // 1. Sauvegarde en base
                 $entityManager->persist($transp);
                 $entityManager->flush();

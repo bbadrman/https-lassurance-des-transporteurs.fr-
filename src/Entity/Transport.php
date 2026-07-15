@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\TransportRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: TransportRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -15,12 +18,15 @@ class Transport
     private ?int $id = null;
 
     #[ORM\Column(length: 100, nullable: true)]
+    #[Assert\Length(max: 50)] 
     private ?string $nom = null;
 
     #[ORM\Column(length: 100, nullable: true)]
+    #[Assert\Length(max: 50)] 
     private ?string $prenom = null;
 
     #[ORM\Column(length: 150, nullable: true)]
+    #[Assert\NotBlank(message: 'La raison sociale est obligatoire.')] 
     private ?string $raison = null;
 
     #[ORM\Column(length: 50, nullable: true)]
@@ -39,9 +45,13 @@ class Transport
     private ?string $codepostal = null;
 
     #[ORM\Column(length: 180, nullable: true)]
+     #[Assert\NotBlank(message: 'L email est obligatoire.')]
+    #[Assert\Email(message: 'Veuillez saisir un email valide.')] 
     private ?string $email = null;
 
     #[ORM\Column(length: 20, nullable: true)]
+     #[Assert\NotBlank(message: 'Le téléphone est obligatoire.')]
+    #[Assert\Regex('/^0[1-9]([0-9]{2} ?){4}$/', message: 'Le numéro de téléphone est invalide.')]
     private ?string $tele = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -221,4 +231,15 @@ class Transport
 
         return $this;
     }
+    #[Assert\Callback]
+    public function validateMotif(ExecutionContextInterface $context): void
+    {
+        if ($this->ancienne === 'OUI' && (null === $this->motif || '' === $this->motif)) {
+            $context->buildViolation('Le motif est obligatoire quand l ancienne assurance est résiliée.')
+                ->atPath('motif')
+                ->addViolation();
+        }
+    }
+
+     
 }

@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Professionel;
+use App\Entity\Transport;
 use App\Validator\NoSpam;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -16,7 +17,7 @@ class DevisService
         private ValidatorInterface $validator,
     ) {}
 
-    public function createProfessionel(FormInterface $form): Professionel
+    public function createProfessionel(FormInterface $form): Transport
     {
         $entity = $form->getData();
         $this->handleAncienneAssurance($entity);

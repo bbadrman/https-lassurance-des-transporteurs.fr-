@@ -1,133 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
-		<title>
-			{% block title %}Welcome!
+		   <title>
+			{% block title %}
 			{% endblock %}
-		</title>
+	</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="Aksam Assurance">
-		<link rel="icon" type="image/x-icon" sizes="32x32" href="{{ asset('public/images/favicon.png') }}">
+    
+{% block meta %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <meta name="author" content="Aksam Assurance">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/favicon.png') }}">
+    <link rel=apple-touch-icon type="icon" href="{{ asset('/images/logo.png') }}">
+{% endblock %}
 
-		<link rel="apple-touch-icon" type="icon" href="{{ asset('public/images/logo.png') }}">
 
-		{% block description %}<meta name="description" content="Protégez votre outil de travail avec une assurance véhicule pro sur-mesure. Obtenez votre devis en 2 min pour utilitaire, voiture de société ou flotte. Garanties adaptées et tarifs compétitifs.">
-		{% endblock %}
+{% block canonical %}{% endblock %}
+
+ {% block opengraph %}
+ {% endblock %}
+
+ {% block description %}
+  
+{% endblock %}
+
+ {% block keywords %}
+{% endblock %}
+
 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
 		{% endblock %}
-
+ 
 		<!-- Google Fonts -->
 		<link
 		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-		<!-- Tailwind CSS config -->
-		<script src="{{ asset('js/tailwind.config.js') }}"></script>
-
 		<!-- Tailwind CSS CDN -->
 		<script src="https://cdn.tailwindcss.com"></script>
 
-
-		<!-- Google Tag Manager -->
-		<script>
-			(function (w, d, s, l, i) {
-w[l] = w[l] || [];
-w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-var f = d.getElementsByTagName(s)[0],
-j = d.createElement(s),
-dl = l != 'dataLayer' ? '&l=' + l : '';
-j.async = true;
-j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-f.parentNode.insertBefore(j, f);
-})(window, document, 'script', 'dataLayer', 'GTM-xxxx');
-		</script>
-		<!-- End Google Tag Manager -->
-
-		<!-- Google tag (gtag.js) -->
-		<script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-xxx"></script>
-		<script type="text/plain" data-cookieconsent="statistics">
-			window.dataLayer = window.dataLayer || [];
-			
-			        function gtag() {
-			            dataLayer.push(arguments);
-			        }
-			        gtag('js', new Date());
-			
-			        gtag('config', 'G-xxxxx');
-		</script>
-
-		<!-- Script de gestion du consentement -->
-		<script>
-			window.dataLayer = window.dataLayer || [];
-
-function gtag() {
-dataLayer.push(arguments);
-}
-
-gtag('consent', 'default', {
-'ad_storage': 'denied',
-'analytics_storage': 'denied',
-'ad_user_data': 'denied',
-'ad_personalization': 'denied',
-'wait_for_update': 500 // Optionnel : attendre la mise à jour avant d'envoyer les données.
-});
-
-function getCookie(cname) {
-var name = cname + "=";
-var decodedCookie = decodeURIComponent(document.cookie);
-var ca = decodedCookie.split(';');
-for (var i = 0; i < ca.length; i++) {
-var c = ca[i];
-while (c.charAt(0) == ' ') {
-c = c.substring(1);
-}
-if (c.indexOf(name) == 0) {
-return c.substring(name.length, c.length);
-}
-}
-return "";
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-if (document.cookie.indexOf('displayCookieConsent=y') >= 0) {
-gtag('consent', 'update', {
-'ad_storage': 'granted',
-'analytics_storage': 'granted',
-'ad_user_data': 'granted',
-'ad_personalization': 'granted'
-});
-}
-});
-		</script>
-		<!-- Global site tag (gtag.js) - Google Ads -->
-		<script type="text/plain" data-cookieconsent="marketing" async src="https://www.googletagmanager.com/gtag/js?id=AW-xxxx"></script>
-		<script type="text/plain" data-cookieconsent="marketing">
-			window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			
-			  gtag('config', 'AW-xxxx');
-		</script>
-		<!-- End Global site tag (gtag.js) - Google Ads -->
+		<!-- Tailwind CSS config -->
+		<script src="{{ asset('js/tailwind.config.js') }}"></script>
 
 
-		<!-- Cookies  -->
-		<script>
-			gaProperty = 'GTM-xxxxx'
+		 <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-xxx');
+    </script>
+    <!-- End Google Tag Manager -->
 
-// Désactive le tracking si le cookie d'acception des conditions n'est pas présent
-var disableStr = 'ga-disable-' + gaProperty;
+    <!-- Google tag (gtag.js) -->
+    <script type="text/plain" data-cookieconsent="statistics" async src="https://www.googletagmanager.com/gtag/js?id=G-xxx"></script>
+    <script type="text/plain" data-cookieconsent="statistics">
+        window.dataLayer = window.dataLayer || [];
 
-if (document.cookie.indexOf('displayCookieConsent=y') < 0) {
-window[disableStr] = true;
-}
-		</script>
-		<!-- End Cookies  -->
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-xxx');
+    </script>
+
+    <!-- Script de gestion du consentement -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500 // Optionnel : attendre la mise à jour avant d'envoyer les données.
+        });
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.cookie.indexOf('displayCookieConsent=y') >= 0) {
+                gtag('consent', 'update', {
+                    'ad_storage': 'granted',
+                    'analytics_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted',
+                });
+            }
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads -->
+
+    <script type="text/plain" data-cookieconsent="marketing" async src="https://www.googletagmanager.com/gtag/js?id=AW-xxx"></script>
+    <script type="text/plain" data-cookieconsent="marketing">
+        window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-xxx');
+</script>
+    <!-- End Global site tag (gtag.js) - Google Ads -->
+    <!-- Cookies  -->
+    <script>
+        gaProperty = 'GTM-xx'
+
+        // Désactive le tracking si le cookie d'acception des conditions n'est pas présent
+        var disableStr = 'ga-disable-' + gaProperty;
+
+        if (document.cookie.indexOf('displayCookieConsent=y') < 0) {
+            window[disableStr] = true;
+        }
+    </script>
+    <!-- End Cookies  -->
+
 	</head>
 	<body
 		class="bg-light font-sans">
@@ -141,7 +160,9 @@ window[disableStr] = true;
 			{% include '/partiels/header.html.twig' %}
 		{% endblock %}
 
-		{% block body %}{% endblock %}
+		<main id="simulation" class="w-full">
+			{% block body %}{% endblock %}
+		</main>
 
 
 		{% block footer %}
@@ -152,12 +173,15 @@ window[disableStr] = true;
 			{% block importmap %}
 				{{ importmap('app') }}
 			{% endblock %}
-			<script src="{{ asset('/js/app.js') }}"></script>
+			<script src="{{ asset('/js/app.js') }}" defer></script>
 
 		{% endblock %}
 
 		<script>
-			document.getElementById("userPref").addEventListener("click", validationUserCookie, false);
+			const userPrefEl = document.getElementById("userPref");
+			if (userPrefEl) {
+				userPrefEl.addEventListener("click", validationUserCookie, false);
+			}
 
 
 function validationUserCookie() {
@@ -249,32 +273,160 @@ typeSelect.addEventListener('change', updateSouhAssurer);
 updateSouhAssurer(); // Initialiser
 });
 		</script>
-		<script type="application/ld+json">
-			{
-			            "@context": "http://schema.org",
-			            "@type": "LocalBusiness",
-			            "name": "Aksam Assurance",
-			            "image": "https://lassurance-des-transporteurs.fr/assets/img/favicon.png",
-			            "telephone": "01 82 83 48 00",
-			            "address": {
-			                "@type": "PostalAddress",
-			                "streetAddress": "10 rue de Penthièvre",
-			                "addressCountry": "FR",
-			                "addressLocality": "PARIS",
-			                "postalCode": "75008"
-			            },
-			            "url": "https://lassurance-des-transporteurs.fr/",
-			            "priceRange": "€€",
-			            "openingHours": "Mo-Fr 09:00-18:00",
-			            "contactPoint": {
-			                "@type": "ContactPoint",
-			                "telephone": "+33 1 82 83 48 00",
-			                "contactType": "Customer Service",
-			                "availableLanguage": ["French", "English"]
-			            }
-			        }
-		</script>
+  
+  <!-- calculer par rapport nombre prospects -->
+	<script>
+				(function () {
+function animateCounters() {
+document.querySelectorAll('.stat-number[data-target]').forEach(function (el) {
+var target = parseInt(el.getAttribute('data-target'), 10);
+if (isNaN(target) || target === 0) {
+el.textContent = '0';
+return;
+}
+var duration = 1600;
+var start = null;
+function step(ts) {
+if (! start) 
+start = ts;
 
+var progress = Math.min((ts - start) / duration, 1);
+var ease = 1 - Math.pow(1 - progress, 3);
+el.textContent = Math.floor(ease * target).toLocaleString('fr-FR');
+if (progress < 1) 
+requestAnimationFrame(step);
+ else 
+el.textContent = target.toLocaleString('fr-FR');
+
+}
+requestAnimationFrame(step);
+});
+}
+if ('IntersectionObserver' in window) {
+var obs = new IntersectionObserver(function (entries, o) {
+entries.forEach(function (e) {
+if (e.isIntersecting) {
+animateCounters();
+o.disconnect();
+}
+});
+}, {threshold: 0.3});
+var strip = document.getElementById('stats-strip');
+if (strip) 
+obs.observe(strip);
+
+} else {
+document.addEventListener('DOMContentLoaded', animateCounters);
+}
+})();
+			</script>
+            
+         
+            <script>
+			(function() {
+				var track = document.getElementById('avisTrack');
+				var dotsEl = document.getElementById('avisDots');
+				var cards = track ? track.querySelectorAll('.avis-card') : [];
+				var total = cards.length;
+				var current = 0;
+				var perView = 3;
+
+				function getPerView() {
+					if (window.innerWidth < 640) return 1;
+					if (window.innerWidth < 1024) return 2;
+					return 3;
+				}
+
+				function maxIndex() { return Math.max(0, total - perView); }
+
+				function buildDots() {
+					dotsEl.innerHTML = '';
+					var pages = maxIndex() + 1;
+					for (var i = 0; i < pages; i++) {
+						var d = document.createElement('button');
+						d.className = 'avis-dot' + (i === current ? ' active' : '');
+						d.setAttribute('aria-label', 'Page ' + (i+1));
+						(function(idx){ d.onclick = function(){ goTo(idx); }; })(i);
+						dotsEl.appendChild(d);
+					}
+				}
+
+				function goTo(idx) {
+					perView = getPerView();
+					current = Math.max(0, Math.min(idx, maxIndex()));
+					var cardWidth = cards[0] ? cards[0].offsetWidth + 24 : 0;
+					track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+					dotsEl.querySelectorAll('.avis-dot').forEach(function(d, i) {
+						d.classList.toggle('active', i === current);
+					});
+				}
+
+				window.avisNav = function(dir) { goTo(current + dir); };
+
+				function init() {
+					perView = getPerView();
+					buildDots();
+					goTo(0);
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', init);
+				} else {
+					init();
+				}
+
+				var resizeTimer;
+				window.addEventListener('resize', function() {
+					clearTimeout(resizeTimer);
+					resizeTimer = setTimeout(function() { init(); }, 150);
+				});
+
+				// Auto-slide toutes les 5s
+				setInterval(function() {
+					perView = getPerView();
+					goTo(current >= maxIndex() ? 0 : current + 1);
+				}, 5000);
+			})();
+			</script>
+            
+  {% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Aksam Assurance",
+            "url": "https://www.lassurance-des-transporteurs.fr",
+            "telephone": "+33182834800",
+            "image": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+                "width": 300,
+                "height": 60
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 rue de Penthièvre",
+                "addressLocality": "Paris",
+                "postalCode": "75008",
+                "addressCountry": "FR"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "€€",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33182834800",
+                "contactType": "Customer Service",
+                "availableLanguage": ["French", "English"]
+            }
+        }
+    ]
+}
+</script>
+{% endblock %}
+   
 
 	</body>
 </html>

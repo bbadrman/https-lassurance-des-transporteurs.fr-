@@ -1,40 +1,211 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}
-	Assurance Véhicule Pro | Devis en Ligne pour Pros, Artisans & PME
+{% block title %}Assurance Transport Marchandise - Devis Gratuit | Aksam{% endblock %}
 
+{% block description %}
+	<meta name="description" content="Assurance transport marchandise : véhicules, RC marchandises, RC pro. Devis gratuit en 2 min, assistance 24/7 et indemnisation rapide.">
 {% endblock %}
 
+{% block keywords %}
+	<meta name="keywords" content="Assurance transport marchandise, assurance véhicule transport marchandise, assurance marchandises transportées, protection cargaison transport">
+{% endblock %}
+
+{% block canonical %}
+	<link rel="canonical" href="https://www.lassurance-des-transporteurs.fr/assurance-transport-marchandise/">
+{% endblock %}
+
+{% block opengraph %}
+	<meta property="og:title" content="Assurance Transport de Marchandises - Devis en Ligne | Aksam">
+	<meta property="og:description" content="Assurance transport marchandise complète : véhicules, RC marchandises, RC pro. Devis gratuit en 2 min. assistance 24/7, assistance dépannage, indemnisation rapide.">
+	<meta property="og:url" content="https://www.lassurance-des-transporteurs.fr/assurance-transport-marchandise/">
+	<meta property="og:image" content="https://www.lassurance-des-transporteurs.fr/public/images/transport-marchandise.jpg">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+{% endblock %}  
+
 {% block body %}
-	<section
-		class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
-		<!-- Background decoration -->
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 1 — HERO + FORMULAIRE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
 
 		<div class="w-full mx-auto px-4 lg:px-40 relative z-10">
-			<div
-				class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+			<div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
 
-				<!-- Image Section - 70% -->
+				<!-- Image — 70% -->
 				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
-						<div class="w-full h-full  rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
-							<img src="{{ asset('public/images/transport-marchandise.jpg') }}" alt="Conducteur professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl " loading="lazy"/>
+						<div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
+							<img src="{{ asset('images/transport-marchandise.jpg') }}"
+								alt="Conducteur professionnel de transport de marchandises"
+								class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl object-cover"
+								loading="lazy"/>
 						</div>
 					</div>
 				</div>
 
 				<!-- Form Section - 30% -->
 				<div class="order-1 lg:order-2 slide-in-right flex-1 lg:flex-[3]">
-					<div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 h-full">
-						<div class="text-center mb-4 lg:mb-6">
-
-							<h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Complétez ce formulaire pour obtenir un tarif</h2>
-							<div class="w-16 h-1 bg-green-to-r from-green mx-auto rounded-full"></div>
+					   <div class="bg-surface rounded-xl lg:rounded-3xl shadow-2xl p-4 lg:p-6 card-hover border border-gray-100 w-full h-full">
+						   <div class="text-center mb-4 lg:mb-6 mt-8 lg:mt-12"> 
+							   <h2 class="text-base lg:text-2xl font-bold text-green mb-2 lg:mb-3 leading-tight">Complétez ce formulaire pour obtenir un tarif</h2>
+							<div class="w-16 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
 						</div>
 
+				
 
-						<!-- Nom -->
-						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3'}}) }}
+
+						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
+
+
+						<!-- Raison sociale -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-building text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.raison) }}
+							</div>
+							{{ form_errors(form.raison) }}
+						</div>
+
+						<!-- Activité -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-briefcase text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.activite, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.activite) }}
+						</div>
+
+						<!-- souhaiter assurer -->
+						<div class="form-group">
+																			<div class="flex">
+																				<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+																					<i class="fas fa-shield-alt text-green text-sm"></i>
+																				</span>
+																				{{ form_widget(form.souhAssurer, {
+												                                  'attr': {
+												                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+												                                         }
+												                                   }) }}
+																			</div>
+																			{{ form_errors(form.souhAssurer) }}
+																		</div>
+
+
+						<!-- Véhicule assuré -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.assurer, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.assurer) }}
+						</div>
+
+						<!-- Véhicule assuré -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.ancienne, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;',
+                              'id': 'ancienne_field',
+                              'onchange': 'toggleMotif(this.value)'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.ancienne) }}
+						</div>
+
+						<!-- Motif résiliation -->
+						<div class="form-group" id="motif_group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.motif, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.motif) }}
+						</div>
+
+						<script>
+							function toggleMotif(value) {
+								var motifGroup = document.getElementById('motif_group');
+								var motifSelect = document.getElementById('transport_motif');
+								var hide = (value === 'non');
+								motifGroup.style.display = hide ? 'none' : '';
+								if (motifSelect) motifSelect.disabled = hide;
+							}
+							// Init on page load
+							document.addEventListener('DOMContentLoaded', function() {
+								var ancienne = document.getElementById('ancienne_field');
+								if (ancienne) toggleMotif(ancienne.value);
+							});
+						</script>
+
+                       <!-- type assurer -->
+						{# <div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.type, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.type) }}
+						</div> #}
+
+						<!-- souhaiter assurer -->
+						{# <div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-shield-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.souhAssurer, {
+                                  'attr': {
+                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+                                         }
+                                   }) }}
+							</div>
+							{{ form_errors(form.souhAssurer) }}
+						</div> #}
+
+						
+
+
+						<!-- Code Postal -->
+						<div class="form-group">
+							<div class="flex">
+								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+									<i class="fas fa-map-marker-alt text-green text-sm"></i>
+								</span>
+								{{ form_widget(form.codepostal) }}
+							</div>
+							{{ form_errors(form.codepostal) }}
+						</div>
 
 						<!-- Nom -->
 						<div class="form-group">
@@ -58,67 +229,6 @@
 							{{ form_errors(form.prenom) }}
 						</div>
 
-						<!-- Raison sociale -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-building text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.raison) }}
-							</div>
-							{{ form_errors(form.raison) }}
-						</div>
-
-						<!-- Activité -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-briefcase text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.activite) }}
-							</div>
-							{{ form_errors(form.activite) }}
-						</div>
-
-						<!-- Véhicule assuré -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-shield-alt text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.assurer) }}
-							</div>
-							{{ form_errors(form.assurer) }}
-						</div>
-
-
-						  
-						<!-- souhaiter assurer -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-shield-alt text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.souhAssurer, {
-                                  'attr': {
-                              'style': 'appearance: auto; -webkit-appearance: menulist;'
-                                         }
-                                   }) }}
-							</div>
-							{{ form_errors(form.souhAssurer) }}
-						</div>
-
-
-						<!-- Code Postal -->
-						<div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-map-marker-alt text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.codepostal) }}
-							</div>
-							{{ form_errors(form.codepostal) }}
-						</div>
 
 						<!-- Email -->
 						<div class="form-group">
@@ -143,14 +253,14 @@
 						</div>
 
 						<!-- Consent -->
-						<div class="bg-white rounded-lg border border-green p-1.5 mt-2">
+						<div class="bg-white rounded-lg border border-blue-200 p-1.5 mt-2">
 							<span class="text-xs text-gray-600 leading-tight block text-justify">
 								En cliquant sur "Comparer", vous acceptez de transmettre vos informations à AKSAM ASSURANCES, qui accepte de les utiliser conformément à sa politique de confidentialité dans le but de vous fournir des propositions de devis d'assurance adaptées à votre recherche.
 							</span>
 						</div>
 
 						<!-- Bouton -->
-						<button type="submit" class="w-full bg-gold text-green font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
+						<button type="submit" class="w-full bg-green text-white font-bold py-3 px-4 rounded-lg text-sm lg:text-base pulse-animation shadow-lg hover:shadow-2xl transition-all duration-300 mt-3">
 							<i class="fas fa-calculator mr-2"></i>
 							Comparer
 						</button>
@@ -163,390 +273,875 @@
 		</div>
 	</section>
 
-	<!-- Professionals Section -->
- <!-- HERO SECTION - TRANSPORT DE MARCHANDISES -->
-<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surfaceHover to-light relative overflow-hidden">
-    <div class="container mx-auto px-4 lg:px-8 relative z-10">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-block bg-green-100 text-green px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                <i class="fas fa-truck-moving mr-2"></i>
-                Solutions Professionnelles
-            </div>
-            <h1 class="text-3xl lg:text-6xl font-bold text-green mb-6 leading-tight">
-                Transport de marchandises
-            </h1>
-            <div class="w-20 lg:w-24 h-1 bg-gradient-to-r from-green-400 to-green-500 mx-auto rounded-full mb-8"></div>
-            <p class="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                Transporter des marchandises, c'est exposer vos véhicules et vos cargaisons à de nombreux risques : accidents, vol, incendie, dommages ou perte de produits.
-            </p>
-        </div>
-    </div>
-</section>
 
-<!-- SECTION ASSURANCE VÉHICULE TRANSPORT DE MARCHANDISES -->
-<section class="py-12 lg:py-20 bg-surface">
-    <div class="container mx-auto px-4 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-8 lg:mb-16">
-                <h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
-                    Assurance véhicule transport de marchandises
-                </h2>
-                <div class="w-16 lg:w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
-            </div>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 2 — H1 HERO
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surfaceHover to-light relative overflow-hidden">
+		<div class="container mx-auto px-4 lg:px-8 relative z-10">
+			<div class="max-w-6xl mx-auto text-center">
+				<h1 class="text-3xl lg:text-6xl font-bold text-green mb-6 leading-tight">
+					Assurance transport marchandise
+				</h1>
+				<div class="w-20 lg:w-24 h-1 bg-green mx-auto rounded-full mb-8"></div>
+				<p class="text-lg lg:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+					Transporter des marchandises, c'est exposer vos véhicules et vos cargaisons à de nombreux risques : accidents, vol, incendie, dommages ou perte de produits. Dans un secteur où chaque kilomètre parcouru représente un risque, l'assurance transport marchandise constitue une protection indispensable pour pérenniser votre activité et sécuriser votre chiffre d'affaires face aux aléas du métier.
+				</p>
+				<div class="mt-8">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-file-alt mr-2"></i>
+						Devis Assurance transport marchandise gratuit en 2 min
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Colonne gauche : Types de véhicules -->
-                <div>
-                    <div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 mb-8">
-                        <h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Notre assurance protège votre flotte :</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4 bg-white rounded-xl p-4">
-                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-truck text-green text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Camions porteurs et semi-remorques</h4>
-                                    <p class="text-gray-600 text-sm">Protection complète</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 bg-white rounded-xl p-4">
-                                <div class="w-12 h-12 bg-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-truck-moving text-green text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Tracteurs routiers et véhicules de livraison</h4>
-                                    <p class="text-gray-600 text-sm">Couverture adaptée</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 bg-white rounded-xl p-4">
-                                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-shuttle-van text-green text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900">Utilitaires légers et véhicules frigorifiques</h4>
-                                    <p class="text-gray-600 text-sm">Formules sur mesure</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Profils adaptés -->
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 lg:p-8 border border-blue-200">
-                        <h3 class="text-xl font-bold text-green mb-4 flex items-center gap-2">
-                            <i class="fas fa-users"></i>
-                            Formules adaptées à votre profil :
-                        </h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center gap-2 text-green">
-                                <i class="fas fa-check-circle text-green"></i>
-                                <span>Artisan transporteur indépendant</span>
-                            </li>
-                            <li class="flex items-center gap-2 text-green">
-                                <i class="fas fa-check-circle text-green"></i>
-                                <span>Entreprise de logistique</span>
-                            </li>
-                            <li class="flex items-center gap-2 text-green">
-                                <i class="fas fa-check-circle text-green"></i>
-                                <span>Transporteur international</span>
-                            </li>
-                            <li class="flex items-center gap-2 text-green">
-                                <i class="fas fa-check-circle text-green"></i>
-                                <span>Gestionnaire de flotte multi-véhicules</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 3 — SOUSCRIRE ASSURANCE TRANSPORT MARCHANDISE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Souscrire assurance transport marchandise
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
 
-                <!-- Colonne droite : Garanties -->
-                <div>
-                    <div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 h-full">
-                        <h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Nos garanties couvrent :</h3>
-                        <ul class="space-y-5">
-                            <li class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-check text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 mb-1">Dommages matériels</h4>
-                                    <p class="text-gray-600 text-sm">Protection de vos véhicules professionnels</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-check text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 mb-1">Responsabilité civile</h4>
-                                    <p class="text-gray-600 text-sm">Circulation et exploitation</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-check text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 mb-1">Assistance 24/7</h4>
-                                    <p class="text-gray-600 text-sm">Remorquage et dépannage</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-check text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 mb-1">Perte d'exploitation</h4>
-                                    <p class="text-gray-600 text-sm">En cas d'immobilisation prolongée</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-check text-green-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 mb-1">Dommages aux tiers</h4>
-                                    <p class="text-gray-600 text-sm">Et aux marchandises</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+					<div>
+						<p class="text-gray-700 text-lg leading-relaxed mb-6">
+							L'activité de transport de marchandises implique une exposition quotidienne aux risques routiers, aux intempéries, aux vols et aux dommages matériels. Une assurance transport marchandise adaptée vous permet de protéger simultanément votre outil de travail (véhicules) et les biens confiés par vos clients (marchandises), tout en respectant vos obligations légales et contractuelles.
+						</p>
+						<p class="text-gray-700 text-lg leading-relaxed">
+							Cette double protection sécurise votre responsabilité professionnelle et garantit la continuité de votre exploitation en cas de sinistre.
+						</p>
+					</div>
+					<div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-8 border-2 border-green-200">
+						<div class="space-y-4">
+							<div class="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm">
+								<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-truck text-green text-xl"></i>
+								</div>
+								<div>
+									<h3 class="font-bold text-gray-900">Protection de vos véhicules</h3>
+									<p class="text-gray-600 text-sm">Flotte mono ou multi-véhicules</p>
+								</div>
+							</div>
+							<div class="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm">
+								<div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-boxes text-orange-500 text-xl"></i>
+								</div>
+								<div>
+									<h3 class="font-bold text-gray-900">Couverture des marchandises</h3>
+									<p class="text-gray-600 text-sm">Tous types de cargaisons</p>
+								</div>
+							</div>
+							<div class="flex items-center gap-4 bg-white rounded-xl p-4 shadow-sm">
+								<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-balance-scale text-blue-500 text-xl"></i>
+								</div>
+								<div>
+									<h3 class="font-bold text-gray-900">Conformité légale et contractuelle</h3>
+									<p class="text-gray-600 text-sm">Obligations CMR respectées</p>
+								</div>
+							</div>
+						</div>
+						<div class="mt-6 text-center">
+							<a href="#formulaire" class="inline-block bg-green text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 text-sm">
+								<i class="fas fa-shield-alt mr-2"></i>
+								Protégez votre flotte avec notre Assurance transport marchandise
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<!-- SECTION ASSURANCE MARCHANDISES TRANSPORTÉES -->
-<section class="py-12 lg:py-20 bg-light">
-    <div class="container mx-auto px-4 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-8 lg:mb-16">
-                <h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
-                    Assurance marchandises transportées
-                </h2>
-                <div class="w-16 lg:w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-500 mx-auto rounded-full"></div>
-                <p class="text-gray-700 mt-6 max-w-3xl mx-auto text-lg">
-                    La valeur des biens que vous transportez représente souvent un enjeu majeur pour votre activité. L'assurance marchandises transportées protège votre entreprise contre toute perte financière liée à la détérioration, au vol ou à la disparition des cargaisons pendant le transport.
-                </p>
-            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-                <!-- Types de marchandises -->
-                <div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
-                    <h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Tous types de marchandises :</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3 bg-white rounded-xl p-4">
-                            <i class="fas fa-hard-hat text-orange-500 text-2xl flex-shrink-0"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Matériaux de construction et BTP</h4>
-                                <p class="text-gray-600 text-sm">Couverture adaptée</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white rounded-xl p-4">
-                            <i class="fas fa-shopping-cart text-blue-500 text-2xl flex-shrink-0"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Biens de consommation</h4>
-                                <p class="text-gray-600 text-sm">Protection complète</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white rounded-xl p-4">
-                            <i class="fas fa-industry text-purple-500 text-2xl flex-shrink-0"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Produits industriels ou chimiques</h4>
-                                <p class="text-gray-600 text-sm">Formules spécialisées</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white rounded-xl p-4">
-                            <i class="fas fa-snowflake text-cyan-500 text-2xl flex-shrink-0"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Marchandises sensibles ou réfrigérées</h4>
-                                <p class="text-gray-600 text-sm">Garanties adaptées</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 bg-white rounded-xl p-4">
-                            <i class="fas fa-globe-europe text-green-500 text-2xl flex-shrink-0"></i>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Livraisons nationales ou internationales</h4>
-                                <p class="text-gray-600 text-sm">Couverture mondiale</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 4 — ASSURANCE VÉHICULE TRANSPORT
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-16">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Assurance véhicule transport de marchandises : protégez votre véhicule
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
 
-                <!-- Couverture complète -->
-                <div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
-                    <h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Couverture complète :</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-orange-600 text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Dommages accidentels</h4>
-                                <p class="text-gray-600 text-sm">Chocs, incendie, chute</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-orange-600 text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Vols partiels ou totaux</h4>
-                                <p class="text-gray-600 text-sm">Protection contre le vol</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-orange-600 text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Erreurs de manutention</h4>
-                                <p class="text-gray-600 text-sm">Ou de chargement</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-orange-600 text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Catastrophes naturelles</h4>
-                                <p class="text-gray-600 text-sm">Pendant le transport</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-check text-orange-600 text-sm"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-gray-900">Responsabilité contractuelle</h4>
-                                <p class="text-gray-600 text-sm">Du transporteur (CMR)</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
 
-            <!-- Résumé -->
-            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-10 border-2 border-green-300 text-center">
-                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <i class="fas fa-shield-alt text-white text-3xl"></i>
-                </div>
-                <h3 class="text-2xl lg:text-3xl font-bold text-green-900 mb-4">En résumé</h3>
-                <p class="text-green-800 text-lg max-w-3xl mx-auto leading-relaxed">
-                    Vous protégez à la fois vos <strong>véhicules de transport</strong> et la <strong>valeur des marchandises transportées</strong>, tout en sécurisant vos revenus face aux aléas du métier.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
+					<!-- Colonne gauche : Types de véhicules + Profils -->
+					<div>
+						<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 mb-8">
+							<h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Notre assurance protège votre véhicule en mono ou en flotte :</h3>
+							<div class="space-y-4">
+								<div class="flex items-start gap-4 bg-white rounded-xl p-4">
+									<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-truck text-green text-xl"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900">Camions porteurs et semi-remorques</h4>
+										<p class="text-gray-600 text-sm">Protection complète</p>
+									</div>
+								</div>
+								<div class="flex items-start gap-4 bg-white rounded-xl p-4">
+									<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-truck-moving text-green text-xl"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900">Tracteurs routiers et véhicules de livraison</h4>
+										<p class="text-gray-600 text-sm">Couverture adaptée</p>
+									</div>
+								</div>
+								<div class="flex items-start gap-4 bg-white rounded-xl p-4">
+									<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-shuttle-van text-green text-xl"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900">Utilitaires légers et véhicules frigorifiques</h4>
+										<p class="text-gray-600 text-sm">Formules sur mesure</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-<!-- SECTION CTA FINALE -->
-<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
-    <div class="container mx-auto px-4 lg:px-8 text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
-                <i class="fas fa-calculator text-white text-4xl"></i>
-            </div>
-            <h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
-                Protégez votre activité de transport
-            </h2>
-            <p class="text-xl text-green mb-8 leading-relaxed">
-                Obtenez un devis personnalisé pour votre assurance transport de marchandises en moins de 2 minutes
-            </p>
-            <a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
-                <i class="fas fa-file-alt mr-2"></i>
-                Obtenir un devis pour mon assurance transport marchandises
-            </a>
-        </div>
-    </div>
-</section>
+						<div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 lg:p-8 border border-blue-200">
+							<h3 class="text-xl font-bold text-green mb-4 flex items-center gap-2">
+								<i class="fas fa-users"></i>
+								Formules adaptées à votre profil :
+							</h3>
+							<ul class="space-y-2">
+								<li class="flex items-center gap-2 text-green">
+									<i class="fas fa-check-circle text-green"></i>
+									<span>Artisan transporteur indépendant</span>
+								</li>
+								<li class="flex items-center gap-2 text-green">
+									<i class="fas fa-check-circle text-green"></i>
+									<span>Entreprise de logistique</span>
+								</li>
+								<li class="flex items-center gap-2 text-green">
+									<i class="fas fa-check-circle text-green"></i>
+									<span>Transporteur international</span>
+								</li>
+								<li class="flex items-center gap-2 text-green">
+									<i class="fas fa-check-circle text-green"></i>
+									<span>Gestionnaire de flotte multi-véhicules</span>
+								</li>
+							</ul>
+						</div>
+					</div>
 
-	<!-- JAVASCRIPT POUR FAQ -->
+					<!-- Colonne droite : Garanties -->
+					<div>
+						<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100 h-full">
+							<h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Nos garanties couvrent :</h3>
+							<ul class="space-y-5">
+								<li class="flex items-start gap-4">
+									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-check text-green-600"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900 mb-1">Dommages matériels</h4>
+										<p class="text-gray-600 text-sm">Protection de vos véhicules professionnels</p>
+									</div>
+								</li>
+								<li class="flex items-start gap-4">
+									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-check text-green-600"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900 mb-1">Responsabilité civile</h4>
+										<p class="text-gray-600 text-sm">Circulation et exploitation</p>
+									</div>
+								</li>
+								<li class="flex items-start gap-4">
+									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-check text-green-600"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900 mb-1">Assistance 24/7</h4>
+										<p class="text-gray-600 text-sm">Remorquage et dépannage</p>
+									</div>
+								</li>
+								<li class="flex items-start gap-4">
+									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-check text-green-600"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900 mb-1">Perte d'exploitation</h4>
+										<p class="text-gray-600 text-sm">En cas d'immobilisation prolongée</p>
+									</div>
+								</li>
+								<li class="flex items-start gap-4">
+									<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+										<i class="fas fa-check text-green-600"></i>
+									</div>
+									<div>
+										<h4 class="font-bold text-gray-900 mb-1">Dommages aux tiers</h4>
+										<p class="text-gray-600 text-sm">Et aux marchandises</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-10 text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-truck mr-2"></i>
+						Sécurisez vos cargaisons : Assurance transport marchandise sur mesure
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 5 — ASSURANCE MARCHANDISES TRANSPORTÉES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-16">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Assurance marchandises transportées : sécurisez vos cargaisons
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+					<p class="text-gray-700 mt-6 max-w-3xl mx-auto text-lg">
+						La valeur des biens que vous transportez représente souvent un enjeu majeur pour votre activité. L'assurance marchandises transportées protège votre entreprise contre toute perte financière liée à la détérioration, au vol ou à la disparition des cargaisons pendant le transport.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+
+					<!-- Types de marchandises -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Tous types de marchandises :</h3>
+						<div class="space-y-1">
+							<div class="flex items-start gap-3 bg-white rounded-xl p-1">
+								<i class="fas fa-globe-europe text-green-500 text-2xl flex-shrink-0"></i>
+								<div>
+									<h4 class="font-bold text-gray-900">Livraisons nationales ou internationales</h4>
+									<p class="text-gray-600 text-sm">Couverture mondiale</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3 bg-white rounded-xl p-1">
+								<i class="fas fa-hard-hat text-orange-500 text-2xl flex-shrink-0"></i>
+								<div>
+									<h4 class="font-bold text-gray-900">Matériaux de construction et BTP</h4>
+									<p class="text-gray-600 text-sm">Couverture adaptée</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3 bg-white rounded-xl p-1">
+								<i class="fas fa-shopping-cart text-blue-500 text-2xl flex-shrink-0"></i>
+								<div>
+									<h4 class="font-bold text-gray-900">Biens de consommation</h4>
+									<p class="text-gray-600 text-sm">Protection complète</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3 bg-white rounded-xl p-1">
+								<i class="fas fa-industry text-purple-500 text-2xl flex-shrink-0"></i>
+								<div>
+									<h4 class="font-bold text-gray-900">Produits industriels ou chimiques</h4>
+									<p class="text-gray-600 text-sm">Formules spécialisées</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3 bg-white rounded-xl p-1">
+								<i class="fas fa-snowflake text-cyan-500 text-2xl flex-shrink-0"></i>
+								<div>
+									<h4 class="font-bold text-gray-900">Marchandises sensibles ou réfrigérées</h4>
+									<p class="text-gray-600 text-sm">Garanties adaptées</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Couverture complète -->
+					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl lg:text-2xl font-bold text-green mb-6">Couverture complète :</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-check text-orange-600 text-sm"></i>
+								</div>
+								<div>
+									<h4 class="font-bold text-gray-900">Dommages accidentels</h4>
+									<p class="text-gray-600 text-sm">Chocs, incendie, chute</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-check text-orange-600 text-sm"></i>
+								</div>
+								<div>
+									<h4 class="font-bold text-gray-900">Vols partiels ou totaux</h4>
+									<p class="text-gray-600 text-sm">Protection contre le vol</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-check text-orange-600 text-sm"></i>
+								</div>
+								<div>
+									<h4 class="font-bold text-gray-900">Erreurs de manutention</h4>
+									<p class="text-gray-600 text-sm">Ou de chargement</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-check text-orange-600 text-sm"></i>
+								</div>
+								<div>
+									<h4 class="font-bold text-gray-900">Catastrophes naturelles</h4>
+									<p class="text-gray-600 text-sm">Pendant le transport</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+									<i class="fas fa-check text-orange-600 text-sm"></i>
+								</div>
+								<div>
+									<h4 class="font-bold text-gray-900">Responsabilité contractuelle</h4>
+									<p class="text-gray-600 text-sm">Du transporteur (CMR)</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- CTA -->
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-search-dollar mr-2"></i>
+						Comparez les garanties Assurance transport marchandise
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 6 — FORMULES ADAPTÉES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Formules d'assurance transport marchandise adaptées à votre activité
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+					<div class="bg-surface rounded-2xl p-6 shadow-xl border border-gray-100 text-center hover:shadow-2xl transition-all">
+						<div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+							<i class="fas fa-user text-green text-2xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Artisan transporteur indépendant</h3>
+						<p class="text-gray-600 text-sm">Formule monovéhicule, tarif compétitif, souscription rapide.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-xl border border-gray-100 text-center hover:shadow-2xl transition-all">
+						<div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+							<i class="fas fa-warehouse text-blue-500 text-2xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Entreprise de logistique</h3>
+						<p class="text-gray-600 text-sm">Couverture flotte, gestion centralisée, garanties étendues.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-xl border border-gray-100 text-center hover:shadow-2xl transition-all">
+						<div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+							<i class="fas fa-globe-europe text-orange-500 text-2xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Transporteur international</h3>
+						<p class="text-gray-600 text-sm">Convention CMR, couverture transfrontalière, assistance 24/7.</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 shadow-xl border border-gray-100 text-center hover:shadow-2xl transition-all">
+						<div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+							<i class="fas fa-layer-group text-purple-500 text-2xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Gestionnaire multi-véhicules</h3>
+						<p class="text-gray-600 text-sm">Contrat flotte modulable, déclaration simplifiée par véhicule.</p>
+					</div>
+				</div>
+
+				<div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-10 border-2 border-green-300">
+					<p class="text-green-800 text-lg max-w-4xl mx-auto leading-relaxed text-center">
+						Chaque contrat est modulable selon vos besoins spécifiques, la nature des marchandises transportées et votre zone géographique d'intervention. Nos conseillers vous accompagnent pour choisir la formule optimale.
+					</p>
+					<div class="text-center mt-6">
+						<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+							<i class="fas fa-pencil-alt mr-2"></i>
+							Obtenez votre Assurance transport marchandise personnalisée dès aujourd'hui
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 7 — GARANTIES ET COUVERTURES
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Garanties et couvertures de l'assurance transport marchandise
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-car-crash text-green text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Dommages matériels</h3>
+						<p class="text-gray-600 text-sm">Protection de vos véhicules professionnels contre tout dommage accidentel.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-balance-scale text-blue-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Responsabilité civile</h3>
+						<p class="text-gray-600 text-sm">Circulation et exploitation — couvre les dommages causés aux tiers.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-headset text-yellow-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Assistance 24/7</h3>
+						<p class="text-gray-600 text-sm">Remorquage et dépannage sur route, en France et à l'international.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-chart-line text-red-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Perte d'exploitation</h3>
+						<p class="text-gray-600 text-sm">Compensation de vos revenus en cas d'immobilisation prolongée du véhicule.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-fire text-orange-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Dommages accidentels cargaison</h3>
+						<p class="text-gray-600 text-sm">Chocs, incendie, chute — protection de vos marchandises en transit.</p>
+					</div>
+
+					<div class="bg-light rounded-2xl p-6 shadow-md border border-gray-100">
+						<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+							<i class="fas fa-file-contract text-purple-500 text-xl"></i>
+						</div>
+						<h3 class="font-bold text-gray-900 mb-2">Responsabilité contractuelle CMR</h3>
+						<p class="text-gray-600 text-sm">Conformité avec la convention internationale CMR pour le transport routier.</p>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-eye mr-2"></i>
+						Découvrez toutes les garanties Assurance transport marchandise disponibles
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 8 — TARIFS ET DEVIS
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-light">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-5xl font-bold text-green mb-6">
+						Tarifs et devis d'assurance transport marchandise en ligne
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-10">
+					<div>
+						<p class="text-gray-700 text-lg leading-relaxed mb-6">
+							Obtenez un devis personnalisé pour votre assurance transport de marchandises en moins de 2 minutes. Nos tarifs sont calculés en fonction de votre activité, du type de véhicules, de la nature des marchandises transportées et de votre historique professionnel.
+						</p>
+						<p class="text-gray-700 text-lg leading-relaxed">
+							Comparez gratuitement nos offres et bénéficiez d'un accompagnement personnalisé pour choisir la formule optimale selon votre budget et vos besoins de protection.
+						</p>
+					</div>
+
+					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
+						<h3 class="text-xl font-bold text-green mb-6">Le tarif est calculé selon :</h3>
+						<ul class="space-y-3">
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Type et nombre de véhicules</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Nature des marchandises transportées</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Zone géographique d'intervention</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Historique de sinistres</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Expérience professionnelle</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<i class="fas fa-check-circle text-green text-lg"></i>
+								<span class="text-gray-700">Chiffre d'affaires annuel</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- En résumé -->
+				<div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 lg:p-10 border-2 border-green-300 text-center mb-8">
+					<div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+						<i class="fas fa-shield-alt text-white text-3xl"></i>
+					</div>
+					<h3 class="text-2xl lg:text-3xl font-bold text-green-900 mb-4">En résumé</h3>
+					<p class="text-green-800 text-lg max-w-3xl mx-auto leading-relaxed">
+						Vous protégez à la fois vos <strong>véhicules de transport</strong> et la <strong>valeur des marchandises transportées</strong>, tout en sécurisant vos revenus face aux aléas du métier. L'assurance transport marchandise représente un investissement stratégique pour garantir la pérennité de votre activité professionnelle.
+					</p>
+				</div>
+
+				<div class="text-center">
+					<a href="#formulaire" class="inline-block bg-green text-white font-bold py-4 px-10 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-base lg:text-lg">
+						<i class="fas fa-tag mr-2"></i>
+						Obtenez votre tarif Assurance transport marchandise — À partir de 89€/mois
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 9 — FAQ
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-surface">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-8 lg:mb-14">
+					<h2 class="text-2xl lg:text-4xl font-bold text-green mb-6">
+						Questions fréquentes sur l'assurance transport marchandise
+					</h2>
+					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
+				</div>
+
+				<div class="space-y-4">
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Quelle est la différence entre l'assurance véhicule et l'assurance marchandises transportées ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">L'assurance véhicule protège votre outil de travail (camion, utilitaire) contre les dommages matériels, le vol et votre responsabilité civile. L'assurance marchandises transportées couvre spécifiquement la valeur des cargaisons confiées par vos clients pendant le transport. Les deux sont complémentaires pour une protection complète.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>L'assurance transport marchandise est-elle obligatoire ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">L'assurance responsabilité civile du véhicule est obligatoire légalement. L'assurance marchandises transportées devient obligatoire dès lors que vous transportez des biens pour le compte de tiers, conformément aux conventions internationales (CMR) et aux contrats commerciaux.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Quels sont les risques couverts par l'assurance transport marchandise ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Les garanties incluent les dommages accidentels (collision, incendie), le vol partiel ou total, les erreurs de manutention, les catastrophes naturelles, la perte d'exploitation en cas d'immobilisation, et la responsabilité contractuelle du transporteur selon la convention CMR.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Comment est calculé le tarif de mon assurance transport marchandise ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Le tarif dépend de plusieurs critères : type et nombre de véhicules, nature des marchandises transportées, zone géographique d'intervention (nationale/internationale), historique de sinistres, expérience professionnelle et chiffre d'affaires annuel de votre activité.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>L'assurance couvre-t-elle le transport international de marchandises ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Oui, nos formules incluent une couverture mondiale adaptée au transport international, avec respect des conventions CMR pour le transport routier européen et des garanties spécifiques pour les livraisons hors Europe selon vos besoins.</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Que faire en cas de sinistre pendant le transport ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Contactez immédiatement notre assistance 24/7, sécurisez la zone si nécessaire, photographiez les dommages, établissez un constat avec les parties impliquées, et déclarez le sinistre dans les délais contractuels (généralement 5 jours ouvrés).</p>
+						</div>
+					</div>
+
+					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
+							<span>Les marchandises réfrigérées ou sensibles sont-elles couvertes ?</span>
+							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5">
+							<p class="text-gray-600 leading-relaxed">Oui, nous proposons des garanties adaptées pour les marchandises sensibles nécessitant des conditions spécifiques de transport : produits réfrigérés, denrées périssables, marchandises fragiles ou de haute valeur, avec des clauses particulières selon leur nature.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SECTION 10 — CTA FINALE
+	═══════════════════════════════════════════════════ -->
+	<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
+		<div class="container mx-auto px-4 lg:px-8 text-center">
+			<div class="max-w-4xl mx-auto">
+				<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+					<i class="fas fa-calculator text-white text-4xl"></i>
+				</div>
+				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
+					Protégez votre activité de transport
+				</h2>
+				<p class="text-xl text-green mb-8 leading-relaxed">
+					Obtenez un devis personnalisé pour votre assurance transport de marchandises en moins de 2 minutes
+				</p>
+				<a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
+					<i class="fas fa-file-alt mr-2"></i>
+					Devis Assurance transport marchandise personnalisé
+				</a>
+			</div>
+		</div>
+	</section>
+  <!-- Lire aussi -->
+	   <section class="py-6 bg-surface border-t border-gray-100">
+		<div class="container mx-auto px-4 lg:px-8">
+			<div class="text-gray-600 text-sm flex flex-col gap-1">
+				<span><i class="fas fa-book-open text-green mr-1"></i> Lire aussi :</span>
+				<a href="{{ path('app_assurance_marchandise_transportee') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance marchandise transportée</a>
+				<a href="{{ path('app_vehicule_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance véhicule transport de marchandises</a>
+			</div>
+		</div>
+	  </section>
+
+
+	<!-- ═══════════════════════════════════════════════════
+	     SCRIPTS
+	═══════════════════════════════════════════════════ -->
 	<script>
+		// FAQ accordion
 		document.querySelectorAll('.faq-question').forEach(button => {
-button.addEventListener('click', () => {
-const answer = button.nextElementSibling;
-const toggle = button.querySelector('.faq-toggle');
+			button.addEventListener('click', () => {
+				const answer = button.nextElementSibling;
+				const toggle = button.querySelector('.faq-toggle');
+				answer.classList.toggle('hidden');
+				toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+			});
+		});
 
-answer.classList.toggle('hidden');
-toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
-});
-});
-	</script>
-	<script>
 		// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-anchor.addEventListener('click', function (e) {
-e.preventDefault();
-const target = document.querySelector(this.getAttribute('href'));
-if (target) {
-target.scrollIntoView({behavior: 'smooth', block: 'start'});
-}
-});
-});
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			});
+		});
 	</script>
 
-	<!-- Cookie Scripts -->
+	<!-- Cookie Banner -->
 	<script>
-		document.addEventListener('DOMContentLoaded', function (event) {
-if (document.cookie.indexOf('aksamPerformance') < 0) { // Modern cookie banner
-const banner = document.createElement('div');
-banner.innerHTML = `
-                    <div class="fixed bottom-6 left-6 right-6 bg-surface p-6 rounded-2xl shadow-2xl z-50 max-w-md mx-auto border border-green">
-                        <div class="flex items-start space-x-4">
-                            <div class="p-2 bg-green rounded-xl">
-                                <i class="fas fa-cookie-bite text-yellow-500 text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h4 class="font-bold text-dark mb-2">Cookies et confidentialité</h4>
-                                <p class="text-sm text-gray-600 mb-4">www.lassurance-des-transporteurs.fr utilise des cookies pour vous offrir le meilleur service.</p>
-                                <div class="flex space-x-2">
-                                    <button onclick="acceptCookies()" class="bg-green  text-dark px-4 py-2 rounded-xl text-sm font-medium transition-all hover:scale-105 shadow-md">
-                                        <i class="fas fa-check mr-1"></i>J'accepte
-                                    </button>
-                                    <button onclick="this.closest('.fixed').remove()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm transition-all hover:bg-gray-300">
-                                        Refuser
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-document.body.appendChild(banner);
-}
-});
+		document.addEventListener('DOMContentLoaded', function () {
+			if (document.cookie.indexOf('aksamPerformance') < 0) {
+				const banner = document.createElement('div');
+				banner.innerHTML = `
+					<div class="fixed bottom-6 left-6 right-6 bg-surface p-6 rounded-2xl shadow-2xl z-50 max-w-md mx-auto border border-green">
+						<div class="flex items-start space-x-4">
+							<div class="p-2 bg-green rounded-xl">
+								<i class="fas fa-cookie-bite text-yellow-500 text-xl"></i>
+							</div>
+							<div class="flex-1">
+								<h4 class="font-bold text-dark mb-2">Cookies et confidentialité</h4>
+								<p class="text-sm text-gray-600 mb-4">www.lassurance-des-transport.fr utilise des cookies pour vous offrir le meilleur service.</p>
+								<div class="flex space-x-2">
+									<button onclick="acceptCookies()" class="bg-green text-dark px-4 py-2 rounded-xl text-sm font-medium transition-all hover:scale-105 shadow-md">
+										<i class="fas fa-check mr-1"></i>J'accepte
+									</button>
+									<button onclick="this.closest('.fixed').remove()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm transition-all hover:bg-gray-300">
+										Refuser
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				`;
+				document.body.appendChild(banner);
+			}
+		});
 
-function acceptCookies() {
-const expiryDate = new Date();
-expiryDate.setMonth(expiryDate.getMonth() + 1);
-document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
-document.querySelector('.fixed.bottom-6').remove();
-}
+		function acceptCookies() {
+			const expiryDate = new Date();
+			expiryDate.setMonth(expiryDate.getMonth() + 1);
+			document.cookie = 'aksamPerformance=1; path=/; expires=' + expiryDate.toGMTString();
+			document.querySelector('.fixed.bottom-6').remove();
+		}
 	</script>
+ 
 
-	<!-- JSON-LD -->
-	<script type="application/ld+json">
-		{
-																																																																																																																																																																																																																																																																																																																																																																																					        "@context": "http://schema.org",
-																																																																																																																																																																																																																																																																																																																																																																																					        "@type": "LocalBusiness",
-																																																																																																																																																																																																																																																																																																																																																																																					        "name": "Aksam Assurance",
-																																																																																																																																																																																																																																																																																																																																																																																					        "image": "assets/img/favicon.png",
-																																																																																																																																																																																																																																																																																																																																																																																					        "telephone": "01 82 83 48 00",
-																																																																																																																																																																																																																																																																																																																																																																																					        "address": {
-																																																																																																																																																																																																																																																																																																																																																																																					            "@type": "PostalAddress",
-																																																																																																																																																																																																																																																																																																																																																																																					            "streetAddress": "10 rue de Penthièvre",
-																																																																																																																																																																																																																																																																																																																																																																																					            "addressCountry": "FR",
-																																																																																																																																																																																																																																																																																																																																																																																					            "addressLocality": "PARIS",
-																																																																																																																																																																																																																																																																																																																																																																																					            "postalCode": "75008"
-																																																																																																																																																																																																																																																																																																																																																																																					        },
-																																																																																																																																																																																																																																																																																																																																																																																					        "url": "https://lassurance-des-transporteurs.fr/",
-																																																																																																																																																																																																																																																																																																																																																																																					        "priceRange": "€€",
-																																																																																																																																																																																																																																																																																																																																																																																					        "openingHours": "Mo-Fr 09:00-18:00",
-																																																																																																																																																																																																																																																																																																																																																																																					        "contactPoint": {
-																																																																																																																																																																																																																																																																																																																																																																																					            "@type": "ContactPoint",
-																																																																																																																																																																																																																																																																																																																																																																																					            "telephone": "+33 1 82 83 48 00",
-																																																																																																																																																																																																																																																																																																																																																																																					            "contactType": "Customer Service",
-																																																																																																																																																																																																																																																																																																																																																																																					            "availableLanguage": ["French", "English"]
-																																																																																																																																																																																																																																																																																																																																																																																					        }
-																																																																																																																																																																																																																																																																																																																																																																																					    }
-	</script>
+	
+
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "LocalBusiness",
+            "name": "Aksam Assurance",
+            "url": "https://www.lassurance-des-transporteurs.fr",
+            "telephone": "+33182834800",
+            "image": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.lassurance-des-transporteurs.fr/public/images/favicon.png",
+                "width": 300,
+                "height": 60
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10 rue de Penthièvre",
+                "addressLocality": "Paris",
+                "postalCode": "75008",
+                "addressCountry": "FR"
+            },
+            "openingHours": "Mo-Fr 09:00-18:00",
+            "priceRange": "€€",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33182834800",
+                "contactType": "Customer Service",
+                "availableLanguage": ["French", "English"]
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Pourquoi souscrire une assurance transport marchandise professionnelle ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'activité de transport de marchandises implique une exposition quotidienne aux risques routiers, aux intempéries, aux vols et aux dommages matériels. Une assurance transport marchandise adaptée vous permet de protéger simultanément votre outil de travail (véhicules) et les biens confiés par vos clients (marchandises), tout en respectant vos obligations légales et contractuelles."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quelle est la différence entre l'assurance véhicule et l'assurance marchandises transportées ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'assurance véhicule protège votre outil de travail (camion, utilitaire) contre les dommages matériels, le vol et votre responsabilité civile. L'assurance marchandises transportées couvre spécifiquement la valeur des cargaisons confiées par vos clients pendant le transport. Les deux sont complémentaires pour une protection complète."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'assurance transport marchandise est-elle obligatoire ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "L'assurance responsabilité civile du véhicule est obligatoire légalement. L'assurance marchandises transportées devient obligatoire dès lors que vous transportez des biens pour le compte de tiers, conformément aux conventions internationales (CMR) et aux contrats commerciaux."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Quels sont les risques couverts par l'assurance transport marchandise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Les garanties incluent les dommages accidentels (collision, incendie), le vol partiel ou total, les erreurs de manutention, les catastrophes naturelles, la perte d'exploitation en cas d'immobilisation, et la responsabilité contractuelle du transporteur selon la convention CMR."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Comment est calculé le tarif de mon assurance transport marchandise ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Le tarif dépend de plusieurs critères : type et nombre de véhicules, nature des marchandises transportées, zone géographique d'intervention (nationale/internationale), historique de sinistres, expérience professionnelle et chiffre d'affaires annuel."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "L'assurance couvre-t-elle le transport international de marchandises ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, nos formules incluent une couverture mondiale adaptée au transport international, avec respect des conventions CMR pour le transport routier européen et des garanties spécifiques pour les livraisons hors Europe selon vos besoins."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Que faire en cas de sinistre pendant le transport ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Contactez immédiatement notre assistance 24/7, sécurisez la zone si nécessaire, photographiez les dommages, établissez un constat avec les parties impliquées, et déclarez le sinistre dans les délais contractuels (généralement 5 jours ouvrés)."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Les marchandises réfrigérées ou sensibles sont-elles couvertes ?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Oui, nous proposons des garanties adaptées pour les marchandises sensibles : produits réfrigérés, denrées périssables, marchandises fragiles ou de haute valeur, avec des clauses particulières selon leur nature."
+                    }
+                }
+            ]
+        }
+    ]
+}
+</script>
 {% endblock %}

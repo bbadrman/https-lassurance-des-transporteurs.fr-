@@ -36,9 +36,12 @@
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
 						<div
 							class="w-full h-full  rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
-							{# <img src="{{ asset('images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full object-contain rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden p-4" loading="lazy"/> #}
-							<img src="{{ asset('images/assurance-transport-marchandise.webp') }}" srcset="{{ asset('images/assurance-transport-marchandise-480w.webp') }} 480w, {{ asset('images/assurance-transport-marchandise-768w.webp') }} 768w, {{ asset('images/assurance-transport-marchandise.webp') }} 1000w" sizes="(max-width: 1024px) 100vw, 70vw" alt="Antécédents assurance pour transport marchandise" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1000" height="800"/>
-						</div>
+							{# <img src="{{ asset('public/images/acceuil.jpg') }}" alt="Conducteur professionnel" class="w-full h-full object-contain rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden p-4" loading="lazy"/> #}
+					         	<img src="{{ asset('public/images/assurance-transport-marchandise.webp') }}"
+								alt="Véhicule transport de marchandises professionnel"
+								class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl object-cover"
+								loading="eager"/>
+							</div>
 					</div>
 				</div>
 
@@ -55,7 +58,7 @@
 						{{ form_start(form, {'attr': {'id': 'formulaire', 'class': 'space-y-2 lg:space-y-3', 'data-turbo': 'false'}}) }}
 
 
-						<!-- Raison sociale -->
+					<!-- Raison sociale -->
 						<div class="form-group">
 							<div class="flex">
 								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
@@ -180,7 +183,21 @@ toggleMotif(ancienne.value);
 																			{{ form_errors(form.type) }}
 																		</div> #}
 
-						
+						<!-- souhaiter assurer -->
+						{# <div class="form-group">
+																			<div class="flex">
+																				<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+																					<i class="fas fa-shield-alt text-green text-sm"></i>
+																				</span>
+																				{{ form_widget(form.souhAssurer, {
+												                                  'attr': {
+												                              'style': 'appearance: auto; -webkit-appearance: menulist;'
+												                                         }
+												                                   }) }}
+																			</div>
+																			{{ form_errors(form.souhAssurer) }}
+																		</div> #}
+
 
 						<!-- Code Postal -->
 							<div class="form-group"> <div class="flex">
@@ -732,6 +749,111 @@ toggleMotif(ancienne.value);
 
 			</div>
 
+				<!-- SECTION FAQ -->
+	 
+		<div class="container mx-auto px-6 lg:px-12 mt-12 lg:mt-20">
+			<div class="max-w-4xl mx-auto">
+				<div class="text-center mb-12 lg:mb-16">
+					<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">Foire aux questions</h2>
+					<div class="w-20 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
+					<p class="text-gray-600 mt-4 max-w-2xl mx-auto">Les réponses aux questions les plus fréquentes sur l'assurance professionnelle transport.</p>
+				</div>
+
+				<div class="space-y-4" id="faq-container">
+
+					<!-- FAQ 1 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">C'est quoi l'assurance professionnelle transport ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">L'assurance professionnelle transport est un contrat couvrant les risques liés à l'activité de transport de marchandises ou de personnes à titre professionnel : responsabilité civile, dommages aux véhicules, pertes de marchandises. Elle s'adresse aux transporteurs routiers, coursiers, déménageurs et tout professionnel dont le véhicule est un outil de travail.</p>
+							<p class="mb-3">Contrairement à une assurance auto classique, elle intègre des garanties spécifiques à l'exploitation commerciale : couverture du chargement, responsabilité du fait des préposés, garanties en cas d'immobilisation du véhicule. Un transporteur roulant avec un contrat particulier n'est pas couvert en cas de sinistre professionnel. Nos experts accompagnent les professionnels du transport dans la construction d'un contrat adapté à leur activité réelle, pas à un profil type.</p>
+							<p class="mb-0">Le Code des transports, notamment son article L. 1432-4, pose le cadre des obligations d'assurance spécifiques aux transporteurs publics routiers.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 2 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Est-ce que l'assurance professionnelle transport est obligatoire en France ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">Oui, l'assurance professionnelle transport est obligatoire pour tout transporteur public routier de marchandises ou de personnes. La loi impose a minima une garantie responsabilité civile couvrant les dommages causés aux tiers, aux marchandises transportées et aux chargeurs.</p>
+							<p class="mb-0">L'obligation découle de deux textes distincts selon l'activité. Pour le transport de marchandises, l'article L. 1432-4 du Code des transports conditionne la délivrance de la licence de transport à la justification d'une couverture d'assurance. Pour le transport de personnes, la réglementation impose des plafonds de garantie minimaux par victime. L'absence d'assurance expose le professionnel à une suspension immédiate de son autorisation d'exercer, en plus des sanctions pénales prévues à l'article L. 211-1 du Code des assurances. Le site service-public.fr détaille les démarches d'obtention des licences et les pièces justificatives exigées, dont l'attestation d'assurance.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 3 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Combien coûte une assurance professionnelle transport ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">Le tarif d'une assurance professionnelle transport varie selon l'activité entre 1 200 et 8 000 euros par an par véhicule, parfois davantage pour les flottes ou les marchandises à haute valeur. Aucun tarif standard n'existe : chaque devis dépend du profil de risque réel.</p>
+							<p class="mb-0">Plusieurs paramètres influencent directement la prime : le PTAC du véhicule, le type de marchandises transportées, le rayon géographique d'activité, l'ancienneté du permis de conduire des conducteurs déclarés et l'historique de sinistralité de l'entreprise. Un transporteur avec deux sinistres responsables sur trois ans peut se voir appliquer une surprime pouvant atteindre 50 % par rapport au tarif de base. La forme juridique, SASU, EURL ou entreprise individuelle, n'a qu'une incidence marginale sur la tarification, contrairement à ce que beaucoup pensent. Nos experts analysent le dossier complet avant toute proposition pour éviter les mauvaises surprises à la souscription.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 4 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Comment souscrire une assurance professionnelle transport rapidement ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">La souscription d'une assurance professionnelle transport nécessite de fournir le certificat d'immatriculation du véhicule, le justificatif de licence de transport, le relevé d'informations assurance et le Kbis ou extrait SIRENE. Le délai de mise en place effective est généralement de 48 à 72 heures ouvrées.</p>
+							<p class="mb-0">Certaines situations urgentes, comme un véhicule nouvellement acquis ou un contrat résilié à l'échéance, permettent d'obtenir une note de couverture provisoire valable 30 jours le temps que le dossier complet soit traité. Il est impératif de déclarer avec précision l'usage réel du véhicule, car une fausse déclaration engage la nullité du contrat en vertu de l'article L. 113-8 du Code des assurances. Nos experts peuvent accompagner cette démarche de la constitution du dossier jusqu'à la réception de l'attestation définitive.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 5 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Peut-on souscrire une assurance professionnelle transport quand on est auto-entrepreneur ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">Oui, un auto-entrepreneur exerçant une activité de transport peut et doit souscrire une assurance professionnelle transport. Le statut micro-entrepreneur n'exonère d'aucune obligation légale en matière d'assurance. Le contrat doit refléter l'usage professionnel réel du véhicule, quel que soit le régime fiscal.</p>
+							<p class="mb-0">Le principal écueil pour les auto-entrepreneurs est de conserver leur assurance personnelle en croyant qu'elle suffit pour des livraisons ou des courses professionnelles. Or, dès la première prestation rémunérée, le véhicule bascule dans un usage professionnel non couvert par un contrat particulier. En cas de sinistre, l'assureur peut refuser toute indemnisation et exercer un recours contre le conducteur. L'ACPR, autorité de contrôle prudentiel, rappelle régulièrement que la qualité de l'assuré prime sur son régime social pour définir la nature du contrat applicable. Nos experts connaissent les offres adaptées aux volumes d'activité fluctuants propres au statut auto-entrepreneur.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 6 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Quelle est la différence entre assurance professionnelle transport et assurance marchandises transportées ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">L'assurance professionnelle transport couvre la responsabilité civile du transporteur envers les tiers et les chargeurs. L'assurance marchandises transportées couvre quant à elle la valeur des biens en transit, indépendamment de la responsabilité du transporteur. Ces deux garanties sont complémentaires et non substituables.</p>
+							<p class="mb-0">Un transporteur routier peut voir sa responsabilité limitée par les plafonds réglementaires issus de la Convention de Montréal ou du contrat-type de transport routier de marchandises. Dans ce cas, si la marchandise vaut 50 000 euros mais que le plafond de responsabilité contractuel est de 23 euros par kilogramme, le chargeur ne sera indemnisé qu'à hauteur de ce plafond par la RC du transporteur. C'est précisément pour couvrir cet écart que l'assurance marchandises transportées, souscrite par le chargeur ou le destinataire, intervient en complément. Nos experts aident à identifier quelle couverture relève du transporteur et laquelle relève du client donneur d'ordre.</p>
+						</div>
+					</div>
+
+					<!-- FAQ 7 -->
+					<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+						<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+							<span class="text-lg font-semibold text-gray-900 pr-4">Quelles exclusions de garantie faut-il surveiller dans un contrat d'assurance professionnelle transport ?</span>
+							<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+						</button>
+						<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+							<p class="mb-3">Les principales exclusions à surveiller dans un contrat d'assurance professionnelle transport concernent les marchandises dangereuses non déclarées, la conduite sous l'emprise d'alcool ou de stupéfiants, et le dépassement de la charge utile autorisée. Ces exclusions peuvent entraîner un refus total d'indemnisation.</p>
+							<p class="mb-0">D'autres clauses limitatives méritent une attention particulière : l'exclusion des marchandises en température dirigée si la garantie frigo n'a pas été souscrite, la non-couverture des sous-traitants non déclarés, et l'exclusion des trajets hors du territoire européen sans extension géographique spécifique. Le non-respect des règles de chargement inscrites au contrat-type annexé au décret 99-269 peut également être invoqué par l'assureur pour réduire son indemnité. Nos experts vérifient ligne par ligne les clauses d'exclusion avant toute signature, car c'est souvent à la lecture des pages 18 à 22 d'un contrat qu'on découvre ce qu'il ne couvre pas vraiment.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Pagination FAQ -->
+				<div class="flex items-center justify-center gap-2 mt-8" id="faq-pagination"></div>
+
+			</div>
+		</div>
+
 			<!-- Partenaires section -->
 			<div class="mt-10 mb-2 py-8 w-full">
 
@@ -741,41 +863,41 @@ toggleMotif(ancienne.value);
 						class="partenaires-carousel-track">
 						<!-- Logos originaux -->
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/april.jpg') }}" alt="April" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/april.jpg') }}" alt="April" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/axa.png') }}" alt="axa" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/axa.png') }}" alt="axa" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
 						</div>
 						<!-- Duplication pour boucle infinie -->
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/allianz.png') }}" alt="Allianz" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/april.jpg') }}" alt="April" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/april.jpg') }}" alt="April" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/axa.png') }}" alt="axa" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/axa.png') }}" alt="axa" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/eurodommage.png') }}" alt="Eurodommage" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/sollyzar.png') }}" alt="Sollyzar" loading="lazy">
 						</div>
 						<div class="partenaires-logo-item">
-							<img src="{{ asset('images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
+							<img src="{{ asset('public/images/partenaire/zephir.png') }}" alt="Zephir" loading="lazy">
 						</div>
 					</div>
 				</div>
@@ -954,7 +1076,7 @@ toggleMotif(ancienne.value);
 								<i class="far fa-star text-yellow-400"></i>
 								<i class="far fa-star text-yellow-400"></i>
 							</div>
-							<p class="text-gray-600 text-sm leading-relaxed flex-1">Devis plus chère que la ou je suis actuellement, j'ai pas eu le temps d'expliquer quoi que soit que la conseillère avait déjà raccroché.
+							<p class="text-gray-600 text-sm leading-relaxed flex-1">Le devis est plus cher que celui que j’ai actuellement. Intéressant, pour les garanties proposées.
 							</p>
 							<div class="mt-4 flex items-center gap-3">
 								<div class="avis-avatar">LK</div>
@@ -982,20 +1104,23 @@ toggleMotif(ancienne.value);
 			</div>
 
 
-		
+			{# Lire aussi #}
+			<div class="mt-8 mb-2 ">
+				<p class="mb-0">
+					<strong>
+						Lire aussi :</strong>
+
+
+					<a href="{{ path('app_vehicule_marchandises') }}" class="text-green text-xl underline hover:text-accent font-medium">
+						Assurance véhicule transport marchandise
+					</a>
+				</p>
+			</div>
 
 		</div>
 	</section>
-		<!-- Lire aussi -->
-	   <section class="py-6 bg-surface border-t border-gray-100">
-		<div class="container mx-auto px-4 lg:px-8">
-			<div class="text-gray-600 text-sm flex flex-col gap-1">
-				<span><i class="fas fa-book-open text-green mr-1"></i> Lire aussi :</span>
-				<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance transport de marchandise</a>
-				<a href="{{ path('app_vehicule_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance véhicule transport de marchandises</a>
-			</div>
-		</div>
-	  </section>
+
+	 
 
 	<!-- JAVASCRIPT POUR FAQ -->
 	<script>
@@ -1009,6 +1134,52 @@ toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
 });
 });
 	</script>
+
+	<!-- JAVASCRIPT PAGINATION FAQ (5 questions par page, réutilisable sur d'autres pages) -->
+	<script>
+		(function () {
+const PER_PAGE = 5;
+const container = document.getElementById('faq-container');
+const pagination = document.getElementById('faq-pagination');
+if (!container || !pagination) return;
+
+const items = Array.from(container.querySelectorAll('.faq-item'));
+const totalPages = Math.ceil(items.length / PER_PAGE);
+if (totalPages <= 1) return;
+
+function showPage(page, scroll) {
+items.forEach((item, index) => {
+const itemPage = Math.floor(index / PER_PAGE) + 1;
+item.style.display = itemPage === page ? '' : 'none';
+});
+
+pagination.querySelectorAll('.faq-page-btn').forEach(btn => {
+const isActive = Number(btn.dataset.page) === page;
+btn.classList.toggle('bg-green', isActive);
+btn.classList.toggle('text-white', isActive);
+btn.classList.toggle('bg-white', !isActive);
+btn.classList.toggle('text-gray-700', !isActive);
+});
+
+if (scroll) {
+container.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+}
+
+for (let page = 1; page <= totalPages; page++) {
+const btn = document.createElement('button');
+btn.type = 'button';
+btn.dataset.page = page;
+btn.textContent = page;
+btn.className = 'faq-page-btn w-10 h-10 rounded-lg font-semibold border border-gray-200 shadow-sm transition-colors bg-white text-gray-700 hover:bg-gray-50';
+btn.addEventListener('click', () => showPage(page, true));
+pagination.appendChild(btn);
+}
+
+showPage(1, false);
+})();
+	</script>
+	
 	<script>
 		// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1100,6 +1271,67 @@ document.querySelector('.fixed.bottom-6').remove();
 		            "name": "L'Assurance des Transporteurs",
 		            "url": "https://www.lassurance-des-transporteurs.fr",
 		            "description": "Spécialiste de l'assurance transport marchandise et flotte de véhicules professionnels."
+		        },
+		        {
+		            "@type": "FAQPage",
+		            "mainEntity": [
+		                {
+		                    "@type": "Question",
+		                    "name": "C'est quoi l'assurance professionnelle transport ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "L'assurance professionnelle transport est un contrat couvrant les risques liés à l'activité de transport de marchandises ou de personnes à titre professionnel : responsabilité civile, dommages aux véhicules, pertes de marchandises. Elle s'adresse aux transporteurs routiers, coursiers, déménageurs et tout professionnel dont le véhicule est un outil de travail."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Est-ce que l'assurance professionnelle transport est obligatoire en France ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "Oui, l'assurance professionnelle transport est obligatoire pour tout transporteur public routier de marchandises ou de personnes. La loi impose a minima une garantie responsabilité civile couvrant les dommages causés aux tiers, aux marchandises transportées et aux chargeurs."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Combien coûte une assurance professionnelle transport ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "Le tarif d'une assurance professionnelle transport varie selon l'activité entre 1 200 et 8 000 euros par an par véhicule, parfois davantage pour les flottes ou les marchandises à haute valeur. Aucun tarif standard n'existe : chaque devis dépend du profil de risque réel."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Comment souscrire une assurance professionnelle transport rapidement ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "La souscription d'une assurance professionnelle transport nécessite de fournir le certificat d'immatriculation du véhicule, le justificatif de licence de transport, le relevé d'informations assurance et le Kbis ou extrait SIRENE. Le délai de mise en place effective est généralement de 48 à 72 heures ouvrées."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Peut-on souscrire une assurance professionnelle transport quand on est auto-entrepreneur ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "Oui, un auto-entrepreneur exerçant une activité de transport peut et doit souscrire une assurance professionnelle transport. Le statut micro-entrepreneur n'exonère d'aucune obligation légale en matière d'assurance. Le contrat doit refléter l'usage professionnel réel du véhicule, quel que soit le régime fiscal."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Quelle est la différence entre assurance professionnelle transport et assurance marchandises transportées ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "L'assurance professionnelle transport couvre la responsabilité civile du transporteur envers les tiers et les chargeurs. L'assurance marchandises transportées couvre quant à elle la valeur des biens en transit, indépendamment de la responsabilité du transporteur. Ces deux garanties sont complémentaires et non substituables."
+		                    }
+		                },
+		                {
+		                    "@type": "Question",
+		                    "name": "Quelles exclusions de garantie faut-il surveiller dans un contrat d'assurance professionnelle transport ?",
+		                    "acceptedAnswer": {
+		                        "@type": "Answer",
+		                        "text": "Les principales exclusions à surveiller dans un contrat d'assurance professionnelle transport concernent les marchandises dangereuses non déclarées, la conduite sous l'emprise d'alcool ou de stupéfiants, et le dépassement de la charge utile autorisée. Ces exclusions peuvent entraîner un refus total d'indemnisation."
+		                    }
+		                }
+		            ]
 		        }
 		    ]
 		}

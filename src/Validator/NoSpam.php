@@ -9,87 +9,71 @@ use Symfony\Component\Validator\Constraint;
 class NoSpam extends Constraint
 {
     public const SPAM_URL = 'spam-url';
-    public const SPAM_KEYWORD = 'spam-keyword';
-    public const SPAM_DOMAIN = 'spam-domain';
     public const SPAM_PATTERN = 'spam-pattern';
     public const SPAM_EMOJI = 'spam-emoji';
-
-    public array $spamKeywords = [
-        'payment',
-        'transfer',
-        'balance',
-        'sign in',
-        'earn money',
-        'bitcoin',
-        'crypto',
-        'cripton',
-        'crypton',
-        'wallet',
-        'account verified',
-        'dollar',
-        'usdt',
-        'usdc',
-        'binance',
-        'forex',
-        'trading',
-        'investissement',
-        'gain quotidien',
-        'profit',
-        'return', 
-        'passive income',
-    ];
-
-    public array $suspiciousDomains = [
-        'graph.org',
-        't.me',
-        'bit.ly',
-        'tinyurl.com',
-        'tinyurl',
-    ];
-
-    public array $spamEmojis = [
-        '💳',
-        '💵',
-        '📊',
-        '🔥',
-        '💰',
-        '🤑',
-        '💸',
-        '🏦',
-        '📈',
-        '🪙',
-        '💎',
-        '🧧',
-        '💶',
-        '💴',
-        '💱'
-    ];
+    public const SPAM_SQL_INJECTION = 'spam-sql-injection';
 
     public string $message = 'Contenu non autorisé.';
     public string $messageUrl = 'Les liens et URLs ne sont pas autorisés.';
-    public string $messageKeyword = 'Ce champ contient des mots interdits associés au spam ou aux arnaques.';
-    public string $messageDomain = 'Ce domaine est interdit.';
     public string $messagePattern = 'Contenu suspect détecté.';
     public string $messageEmoji = 'Les emojis ne sont pas autorisés dans ce champ.';
+    public string $messageSqlInjection = 'Des caractères ou un format suspects ont été détectés.';
 
     public string $mode = 'strict';
+    public bool $alphaOnly = false;
 
-    public function __construct(mixed $options = null, ?array $groups = null, mixed $payload = null)
-    {
+    public function __construct(
+        mixed $options = null,
+        ?array $groups = null,
+        mixed $payload = null,
+        ?string $message = null,
+        ?string $messageUrl = null,
+        ?string $messagePattern = null,
+        ?string $messageEmoji = null,
+        ?string $messageSqlInjection = null,
+        ?string $mode = null,
+        ?bool $alphaOnly = null,
+    ) {
+        $namedArgs = [
+            'message' => $message,
+            'messageUrl' => $messageUrl,
+            'messagePattern' => $messagePattern,
+            'messageEmoji' => $messageEmoji,
+            'messageSqlInjection' => $messageSqlInjection,
+            'mode' => $mode,
+            'alphaOnly' => $alphaOnly,
+        ];
+
+        $namedArgs = array_filter($namedArgs, static fn ($v) => null !== $v);
+
         if (is_array($options)) {
-            $allowed = ['message', 'messageUrl', 'messageKeyword', 'messageDomain', 'messagePattern', 'messageEmoji', 'spamKeywords', 'suspiciousDomains', 'spamEmojis', 'mode'];
-            $options = array_intersect_key($options, array_flip($allowed));
+            $options = array_merge($options, $namedArgs);
         } elseif (is_string($options)) {
-            $options = ['message' => $options];
+            $options = array_merge(['message' => $options], $namedArgs);
         } else {
-            $options = [];
+            $options = $namedArgs;
         }
+
+        $allowed = [
+            'message',
+            'messageUrl',
+            'messagePattern',
+            'messageEmoji',
+            'messageSqlInjection',
+            'mode',
+            'alphaOnly',
+        ];
+
+        $options = array_intersect_key(
+            $options,
+            array_flip($allowed)
+        );
 
         parent::__construct($options, $groups, $payload);
     }
 
     public function validatedBy(): string
     {
-        return static::class.'Validator';
+        return static::class . 'Validator';
     }
 }

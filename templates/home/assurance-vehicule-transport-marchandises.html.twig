@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Assurance véhicule transport de marchandises{% endblock %}
+{% block title %}Assurance véhicule transport de marchandises
+{% endblock %}
 
 {% block description %}
 	<meta name="description" content="Assurance véhicule transport de marchandises : garanties RC, marchandises transportées, bris de glace. Comparez les offres adaptées à votre activité.">
@@ -18,7 +19,7 @@
 	<meta property="og:title" content="Assurance véhicule transport de marchandises | L'Assurance des Transporteurs">
 	<meta property="og:description" content="Protégez vos véhicules de transport de marchandises avec des garanties adaptées : RC, marchandises, flotte. Comparez les offres de nos experts.">
 	<meta property="og:url" content="https://www.lassurance-des-transporteurs.fr/assurance-vehicule-transport-de-marchandises/">
- 	<meta property="og:image" content="https://www.lassurance-des-transporteurs.fr/images/assurance-vehicule-transport-de-marchandises.webp">
+	<meta property="og:image" content="https://www.lassurance-des-transporteurs.fr/images/assurance-vehicule-transport-de-marchandises.webp">
 	<meta property="og:type" content="website">
 	<meta name="twitter:card" content="summary_large_image">
 {% endblock %}
@@ -26,20 +27,19 @@
 {% block body %}
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 1 — HERO + FORMULAIRE
-	═══════════════════════════════════════════════════ -->
+					     SECTION 1 — HERO + FORMULAIRE
+					═══════════════════════════════════════════════════ -->
 	<section class="py-0 lg:py-2 bg-green-to-br from-light via-surfaceHover to-light relative overflow-hidden">
 		<div class="w-full mx-auto px-4 lg:px-40 relative z-10">
-			<div class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
+			<div
+				class="flex flex-col lg:flex-row gap-1 lg:gap-2 items-stretch">
 
 				<!-- Image — 70% -->
 				<div class="order-2 lg:order-1 slide-in-left flex-1 lg:flex-[7]">
 					<div class="relative h-full min-h-[300px] lg:min-h-[600px]">
 						<div class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl overflow-hidden">
-							<img src="{{ asset('images/assurance-vehicule-transport-de-marchandises.webp') }}"
-								alt="Véhicule transport de marchandises professionnel"
-								class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1000" height="800"/>
- 
+							<img src="{{ asset('public/images/assurance-vehicule-transport-de-marchandises.webp') }}" alt="Véhicule transport de marchandises professionnel" class="w-full h-full rounded-xl lg:rounded-3xl shadow-2xl" loading="lazy" width="1000" height="800"/>
+
 
 						</div>
 					</div>
@@ -79,18 +79,17 @@
 
 						<!-- Véhicule assuré actuellement -->
 						{# <div class="form-group">
-							<div class="flex">
-								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
-									<i class="fas fa-truck text-green text-sm"></i>
-								</span>
-								{{ form_widget(form.assurer, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
-							</div>
-							{{ form_errors(form.assurer) }}
-						</div> #}
+																															<div class="flex">
+																																<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
+																																	<i class="fas fa-truck text-green text-sm"></i>
+																																</span>
+																																{{ form_widget(form.assurer, {'attr': {'style': 'appearance: auto; -webkit-appearance: menulist;'}}) }}
+																															</div>
+																															{{ form_errors(form.assurer) }}
+																														</div> #}
 
 						<!-- Ancienne assurance résiliée -->
-						<div class="form-group">
-							<div class="flex">
+							<div class="form-group"> <div class="flex">
 								<span class="inline-flex items-center px-2 py-2 bg-gray-50 border border-r-0 border-gray-200 rounded-l-lg text-gray-600">
 									<i class="fas fa-history text-green text-sm"></i>
 								</span>
@@ -118,16 +117,24 @@
 
 						<script>
 							function toggleMotif(value) {
-								var motifGroup = document.getElementById('motif_group');
-								var motifSelect = document.getElementById('transport_motif');
-								var hide = (value === 'non');
-								motifGroup.style.display = hide ? 'none' : '';
-								if (motifSelect) motifSelect.disabled = hide;
-							}
-							document.addEventListener('DOMContentLoaded', function() {
-								var ancienne = document.getElementById('ancienne_field');
-								if (ancienne) toggleMotif(ancienne.value);
-							});
+var motifGroup = document.getElementById('motif_group');
+var motifSelect = document.getElementById('vehicule_motif');
+var hide = (value === 'non');
+motifGroup.style.display = hide ? 'none' : '';
+if (motifSelect) 
+motifSelect.disabled = hide;
+
+
+
+}
+document.addEventListener('DOMContentLoaded', function () {
+var ancienne = document.getElementById('ancienne_field');
+if (ancienne) 
+toggleMotif(ancienne.value);
+
+
+
+});
 						</script>
 
 						<!-- Code Postal -->
@@ -208,8 +215,8 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 2 — H1
-	═══════════════════════════════════════════════════ -->
+					     SECTION 2 — H1
+					═══════════════════════════════════════════════════ -->
 	<section class="py-12 lg:py-20 bg-gradient-to-br from-light via-surfaceHover to-light relative overflow-hidden">
 		<div class="container mx-auto px-4 lg:px-8 relative z-10">
 			<div class="max-w-6xl mx-auto text-center">
@@ -232,8 +239,8 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 3 — TYPES DE VÉHICULES
-	═══════════════════════════════════════════════════ -->
+					     SECTION 3 — TYPES DE VÉHICULES
+					═══════════════════════════════════════════════════ -->
 	<section class="py-12 lg:py-20 bg-surface">
 		<div class="container mx-auto px-4 lg:px-8">
 			<div class="max-w-6xl mx-auto">
@@ -247,7 +254,8 @@
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
 
 					<!-- VUL -->
 					<div class="bg-light rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
@@ -323,8 +331,8 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 4 — PRIX
-	═══════════════════════════════════════════════════ -->
+					     SECTION 4 — PRIX
+					═══════════════════════════════════════════════════ -->
 	<section class="py-12 lg:py-20 bg-light">
 		<div class="container mx-auto px-4 lg:px-8">
 			<div class="max-w-6xl mx-auto">
@@ -338,7 +346,8 @@
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
 
 					<!-- Critères -->
 					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
@@ -436,8 +445,8 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 5 — GARANTIES
-	═══════════════════════════════════════════════════ -->
+					     SECTION 5 — GARANTIES
+					═══════════════════════════════════════════════════ -->
 	<section class="py-12 lg:py-20 bg-surface">
 		<div class="container mx-auto px-4 lg:px-8">
 			<div class="max-w-6xl mx-auto">
@@ -483,10 +492,18 @@
 						</div>
 						<h3 class="font-bold text-gray-900 mb-2">4. Garanties complémentaires utiles</h3>
 						<ul class="text-gray-600 text-sm space-y-1">
-							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Protection juridique</li>
-							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Assistance et rapatriement</li>
-							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Garantie conducteur</li>
-							<li class="flex items-start gap-2"><i class="fas fa-check text-green text-xs mt-1"></i> Garantie perte financière (valeur à neuf)</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check text-green text-xs mt-1"></i>
+								Protection juridique</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check text-green text-xs mt-1"></i>
+								Assistance et rapatriement</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check text-green text-xs mt-1"></i>
+								Garantie conducteur</li>
+							<li class="flex items-start gap-2">
+								<i class="fas fa-check text-green text-xs mt-1"></i>
+								Garantie perte financière (valeur à neuf)</li>
 						</ul>
 					</div>
 
@@ -512,8 +529,8 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 6 — DEVIS
-	═══════════════════════════════════════════════════ -->
+					     SECTION 6 — DEVIS
+					═══════════════════════════════════════════════════ -->
 	<section class="py-12 lg:py-20 bg-light">
 		<div class="container mx-auto px-4 lg:px-8">
 			<div class="max-w-6xl mx-auto">
@@ -527,7 +544,8 @@
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-10">
 
 					<!-- Informations nécessaires -->
 					<div class="bg-surface rounded-2xl p-6 lg:p-8 shadow-xl border border-gray-100">
@@ -579,7 +597,8 @@
 								2. Flotte ou véhicule unique
 							</h3>
 							<p class="text-gray-700 leading-relaxed">
-								Pour une <strong>flotte de 5 véhicules ou plus</strong>, un contrat flotte permet de mutualiser les risques, de simplifier la gestion administrative et souvent d'obtenir une tarification plus avantageuse. En dessous de ce seuil, les contrats individuels restent la norme, mais leur mise en concurrence reste tout aussi utile.
+								Pour une
+								<strong>flotte de 5 véhicules ou plus</strong>, un contrat flotte permet de mutualiser les risques, de simplifier la gestion administrative et souvent d'obtenir une tarification plus avantageuse. En dessous de ce seuil, les contrats individuels restent la norme, mais leur mise en concurrence reste tout aussi utile.
 							</p>
 						</div>
 
@@ -608,198 +627,616 @@
 
 
 	<!-- ═══════════════════════════════════════════════════
-	     SECTION 7 — FAQ
-	═══════════════════════════════════════════════════ -->
-	<section class="py-12 lg:py-20 bg-surface">
-		<div class="container mx-auto px-4 lg:px-8">
-			<div class="max-w-4xl mx-auto">
-				<div class="text-center mb-8 lg:mb-14">
-					<h2 class="text-2xl lg:text-4xl font-bold text-green mb-6">
-						V. FAQ — Assurance véhicule transport de marchandises
+					     SECTION 7 — FAQ
+					═══════════════════════════════════════════════════ -->
+	<div class="container mx-auto px-6 lg:px-12 mt-12 lg:mt-20">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-12 lg:mb-16">
+				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">V. FAQ — Assurance véhicule transport de marchandises</h2>
+				<div class="w-20 h-1 bg-green-to-r from-blue-400 to-blue-500 mx-auto rounded-full"></div>
+			</div>
+
+			<div
+				class="space-y-4" id="faq-container">
+
+				<!-- FAQ 1 -->
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">La garantie marchandises transportées est-elle obligatoire ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport (lettre de voiture, CMR pour l'international) engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale (valeur de marché au moment du sinistre), valeur à neuf (prix de remplacement par un véhicule neuf équivalent) ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf protège mieux votre outil de travail.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs selon la taille de la flotte. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner une réduction d'indemnité voire un refus de prise en charge.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?
+
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">La responsabilité civile du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et, pour le transport international, par la Convention CMR. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">C'est quoi exactement une assurance véhicule transport de marchandises ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">L'assurance véhicule transport de marchandises est un contrat couvrant à la fois la responsabilité   
+														civile du transporteur routier et les dommages subis par les marchandises acheminées. Elle diffère   
+														d'une assurance automobile classique par ses garanties spécifiques au risque marchandises.
+						</p>
+						<p class="mb-3">Un transporteur professionnel engage sa responsabilité à chaque chargement, qu'il roule 10   
+														kilomètres ou traverse plusieurs régions. Le contrat intègre généralement une garantie   
+														responsabilité civile exploitation, une couverture des marchandises transportées pour compte   
+														d'autrui, et parfois une protection juridique en cas de litige avec un chargeur ou un   
+														commissionnaire. Les plafonds d'indemnisation varient selon la nature des marchandises et le   
+														tonnage du véhicule. Nos experts accompagnent les transporteurs dans le choix des garanties   
+														adaptées à leur activité réelle, pas à un profil générique.
+						</p>
+						<p class="mb-3">L'article L. 1432-4 du Code des transports précise les conditions dans lesquelles la responsabilité du   
+														transporteur routier de marchandises peut être engagée. Pour une présentation générale du cadre   
+														légal applicable, service-public.fr constitue une référence fiable et à jour.
+						</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Est-ce obligatoire de souscrire une assurance véhicule transport de marchandises   
+														pour exercer ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Oui, c'est une obligation légale. Tout véhicule utilisé pour le transport routier de marchandises à   
+														titre onéreux doit être couvert par une assurance responsabilité civile, sans laquelle aucune licence   
+														de transport ne peut être délivrée.
+						</p>
+						<p class="mb-3">L'obligation ne se limite pas à la circulation sur voie publique. L'inscription au registre des   
+														transporteurs routiers, géré par les DREAL, exige la production d'une attestation d'assurance en   
+														cours de validité. Un défaut de couverture expose l'entreprise à une suspension immédiate de sa   
+														licence et à des sanctions pénales. En France, plus de 40 000 entreprises de transport routier de   
+														marchandises sont soumises à cette exigence. Nos experts vérifient systématiquement la   
+														conformité des contrats aux exigences réglementaires en vigueur.
+						</p>
+						<p class="mb-3">L'article R. 3113-1 du Code des transports conditionne l'obtention de la licence de transport à la   
+														justification d'une assurance couvrant les risques liés à l'exploitation. L'ACPR contrôle par ailleurs la   
+														solvabilité des assureurs délivrant ces garanties.
+						</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">
+							Combien coûte une assurance véhicule transport de marchandises en France ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Le tarif varie de 1 500 à plus de 8 000 euros par an selon le tonnage du véhicule, la nature des   
+														marchandises transportées, l'ancienneté du conducteur et le sinistre antérieur déclaré.
+						</p>
+						<p class="mb-3">Plusieurs facteurs font varier la prime de façon significative : un poids lourd de plus de 19 tonnes   
+														revient nettement plus cher qu'un utilitaire léger, et un transporteur avec un sinistre responsable   
+														sur les trois dernières années peut voir sa prime majorée de 50 à 150 %. La nature des   
+														marchandises joue aussi un rôle déterminant — denrées périssables, matières dangereuses ou   
+														équipements de haute valeur génèrent des franchises et plafonds spécifiques. Pour obtenir un 
+														chiffrage précis correspondant à votre flotte et à votre activité, nos experts comparent les offres du   
+														marché et identifient les leviers d'optimisation disponibles.
+						</p>
+						<p class="mb-3">La Fédération Française de l'Assurance (FFA) publie chaque année des données sectorielles sur la   
+														sinistralité des véhicules utilitaires et poids lourds, qui orientent directement la tarification   
+														pratiquée par les assureurs.
+						</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">
+							Quelle différence entre assurance marchandises transportées et assurance   
+														véhicule transport de marchandises ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">L'assurance véhicule couvre la responsabilité civile du transporteur et les dommages au véhicule   
+														lui-même, tandis que l'assurance marchandises transportées indemnise le chargeur pour les pertes   
+														ou dommages subis par la cargaison pendant le transport.
+						</p>
+						<p class="mb-3">Ces deux garanties répondent à des besoins distincts et peuvent coexister dans un même contrat   
+														ou faire l'objet de polices séparées. Un transporteur pour compte d'autrui est tenu de couvrir sa   
+														responsabilité vis-à-vis du chargeur, mais c'est ce dernier qui choisit souvent de souscrire une   
+														assurance ad valorem pour protéger ses propres marchandises au-delà des plafonds légaux. Le   
+														plafond légal de responsabilité du transporteur routier est fixé à 23 euros par kilogramme de   
+														marchandise manquante ou avariée, ce qui peut s'avérer très insuffisant pour des cargaisons à   
+														forte valeur. Nos experts clarifieront quelle combinaison de garanties correspond précisément à   
+														votre situation.
+						</p>
+						<p class="mb-3">L'article L. 133-1 du Code de commerce encadre la responsabilité du voiturier, et les conditions   
+														générales du contrat type transport fixent les modalités d'indemnisation applicables en cas de   
+														litige.
+						</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Comment souscrire une assurance véhicule transport de marchandises
+														rapidement ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Pour souscrire, il faut fournir le relevé d'informations du ou des véhicules, le justificatif   
+														d'immatriculation, le numéro de licence de transport et une déclaration de sinistralité sur les 36   
+														derniers mois.
+						</p>
+						<p class="mb-3">La constitution du dossier prend en général deux à cinq jours ouvrés selon la complexité de la flotte   
+														et les garanties demandées. Un transporteur nouvellement créé devra également fournir son   
+														extrait Kbis et son justificatif d'inscription au registre des transporteurs. Certaines situations   
+														particulières — reprise d'activité après résiliation, sinistralité élevée — nécessitent un passage   
+														devant le Bureau Central de Tarification (BCT), instance qui impose à un assureur d'accepter la   
+														couverture à des conditions définies. Nos experts gèrent ces cas techniques et préparent les   
+														dossiers pour obtenir une prise d'effet rapide.</p>
+						<p class="mb-3">L'ORIAS recense les intermédiaires habilités à placer ce type de contrat en France ; vérifier   
+														l'inscription de votre interlocuteur sur orias.fr constitue un réflexe de prudence élémentaire avant   
+														toute souscription.
+						</p>
+
+					</div>
+				</div>
+
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Peut-on assurer un véhicule transport de marchandises après une résiliation pour
+													sinistres ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Oui, une résiliation pour sinistres n'empêche pas de s'assurer, mais elle réduit le nombre   
+													d'assureurs accepteurs et augmente la prime. Le recours au Bureau Central de Tarification reste   
+													possible si tout refus est opposé.
+						</p>
+						<p class="mb-3">Un transporteur résilié reste inscrit dans le fichier AGIRA pendant cinq ans, ce qui est visible de tous   
+													les assureurs sollicités. Cette situation oblige souvent à passer par des marchés spécialisés ou des   
+													assureurs non-vie acceptant les profils aggravés, avec des franchises parfois deux à trois fois   
+													supérieures à la normale. Le BCT, institué par le Code des assurances, contraint l'assureur désigné   
+													à couvrir le risque aux conditions qu'il fixe, sans pouvoir refuser la garantie responsabilité civile.   
+													Nos experts connaissent les assureurs accepteurs sur ce segment et constituent les dossiers BCT   
+													lorsque la situation l'exige.
+						</p>
+						<p class="mb-3">L'article L. 212-1 du Code des assurances fonde le mécanisme du Bureau Central de Tarification,   
+													accessible à tout professionnel se voyant opposer deux refus d'assurance successifs.
+						</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Quelles exclusions de garantie faut-il surveiller dans un contrat assurance   
+													véhicule transport de marchandises ?
+						</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Les exclusions les plus fréquentes portent sur le transport de matières dangereuses non déclarées,   
+													la surcharge du véhicule et les marchandises non mentionnées dans la déclaration d'activité initiale
+						</p>
+						<p class="mb-3">Un contrat standard exclut également les dommages causés par une faute inexcusable du   
+													conducteur, les avaries résultant d'un défaut d'emballage imputable au chargeur, et parfois les vols   
+													sans effraction sur véhicule non équipé d'un système de géolocalisation homologué. Ces exclusions   
+													peuvent annuler une indemnisation sur un sinistre pourtant couvert en apparence, d'où   
+													l'importance d'une lecture rigoureuse des conditions particulières avant signature. Une franchise   
+													kilométrique ou une clause de stationnement nocturne obligatoire peut aussi avoir des   
+													conséquences majeures pour un transporteur en longue distance. Nos experts analysent les   
+													conditions générales ligne par ligne pour identifier les clauses susceptibles de fragiliser la   
+													couverture réelle.
+						</p>
+						<p class="mb-3">La directive européenne 2009/103/CE harmonise les exigences minimales de responsabilité civile   
+													pour les véhicules à moteur dans l'Union, mais laisse aux États membres la faculté d'étendre les   
+													obligations au-delà de ce socle commun.</p>
+
+					</div>
+
+
+				</div>
+
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">C'est quoi une assurance marchandise transport et à quoi sert-elle concrètement ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">L'assurance marchandise transport couvre les dommages subis par des biens pendant leur acheminement, qu'il s'agisse de pertes, vols, avaries ou destructions. Elle protège à la fois le transporteur et l'expéditeur selon la formule retenue. Cette garantie s'applique dès la prise en charge des marchandises jusqu'à leur livraison effective. En pratique, une palette endommagée lors d'un chargement ou un colis disparu en transit sont des sinistres typiques traités par ce type de contrat. La responsabilité du transporteur routier est encadrée par la Convention CMR pour les transports internationaux, avec un plafond d'indemnisation fixé à 8,33 DTS par kilogramme de marchandise manquante ou avariée, soit environ 10 euros au cours actuel. L'article L. 5422-1 du Code des transports précise les conditions de responsabilité applicables au transport de marchandises en France.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Quels types de marchandises sont couverts par une assurance marchandise transport ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Une assurance marchandise transport peut couvrir pratiquement toute nature de biens : produits alimentaires, matériaux de construction, équipements industriels, textiles ou biens de consommation courante. Certaines catégories font l'objet de conditions particulières. Les marchandises dites sensibles — œuvres d'art, métaux précieux, denrées périssables ou produits pharmaceutiques — nécessitent des garanties spécifiques, souvent assorties de contraintes de conditionnement ou de températures imposées. Un contrat standard exclut généralement les matières dangereuses classées ADR sans mention expresse. La valeur déclarée conditionne directement le montant de l'indemnisation : sous-déclarer une cargaison expose à une règle proportionnelle qui réduit l'indemnité en cas de sinistre. Nos experts analysent précisément la nature des biens transportés avant toute souscription pour éviter ce type d'écueil. L'article L. 113-9 du Code des assurances régit les effets de la fausse déclaration sur les garanties.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Pourquoi choisir une assurance marchandise transport plutôt que de se reposer sur la responsabilité du transporteur ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Se reposer uniquement sur la responsabilité du transporteur est une erreur fréquente et coûteuse. Le transporteur routier répond des dommages dans des limites strictes fixées par la loi ou les conventions collectives du transport, largement inférieures à la valeur marchande des biens. Pour un envoi de matériel informatique valant 30 000 euros, l'indemnisation plafonnée peut ne représenter que quelques milliers d'euros. Une assurance marchandise transport souscrite directement par l'expéditeur ou le destinataire garantit la valeur réelle des biens, sans attendre la reconnaissance de responsabilité du transporteur, ni engager de procédure contradictoire longue. Le délai moyen de règlement amiable d'un litige avec un transporteur dépasse souvent 18 mois. Une couverture autonome permet une indemnisation directe, généralement en moins de 30 jours après dépôt du dossier complet. Nos experts comparent les formules disponibles pour vous garantir une couverture à hauteur de la valeur réelle transportée.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Comment fonctionne l'indemnisation en assurance marchandise transport après un sinistre ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Dès la survenance d'un sinistre, l'assuré doit respecter un délai de réserves précis. En transport routier national, les réserves motivées doivent être adressées au transporteur dans les 3 jours suivant la réception des marchandises, conformément à l'article L. 133-3 du Code de commerce. Passé ce délai, le recours contre le transporteur devient irrecevable. L'assureur marchandises, lui, dispose d'un processus indépendant : expertise contradictoire, évaluation de la perte réelle, puis règlement sur la base de la valeur déclarée ou facturée. La franchise contractuelle s'applique en déduction. Les contrats dits en valeur agréée évitent toute discussion sur la valeur au jour du sinistre. Un dossier bien constitué — lettre de voiture, photos, factures d'achat — accélère sensiblement le règlement. Nos équipes accompagnent chaque assuré dans la constitution de son dossier dès le premier jour du sinistre.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Combien coûte une assurance marchandise transport pour un envoi ponctuel ou un contrat annuel ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Le coût d'une assurance marchandise transport varie fortement selon la valeur des biens, la nature des marchandises et la fréquence des envois. Pour un envoi ponctuel, une prime ad valorem tourne généralement entre 0,1 % et 0,5 % de la valeur déclarée. Un contrat annuel tous risques pour une PME réalisant 500 000 euros de marchandises transportées par an se négocie couramment entre 800 et 2 500 euros, selon les garanties retenues et le bilan sinistres. Les secteurs à forte valeur ajoutée — électronique, pharmaceutique — supportent des taux plus élevés. La franchise choisie, les moyens de transport utilisés et les conditions de stockage intermédiaire influent directement sur la prime. Nos experts établissent une comparaison précise entre plusieurs assureurs pour optimiser le rapport garanties/coût selon votre volume d'activité réel.</p>
+
+					</div>
+				</div>
+				<div class="faq-item bg-surface rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+					<button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+						<span class="text-lg font-semibold text-gray-900 pr-4">Un auto-entrepreneur peut-il souscrire une assurance marchandise transport pour ses envois professionnels ?</span>
+						<span class="faq-toggle text-2xl text-green font-bold flex-shrink-0">+</span>
+					</button>
+					<div class="faq-answer hidden px-6 pb-5 text-gray-700 leading-relaxed">
+						<p class="mb-3">Oui, un auto-entrepreneur peut souscrire une assurance marchandise transport au même titre qu'une société. Le statut juridique n'est pas un critère d'éligibilité. En revanche, le volume annuel de marchandises transportées détermine la formule la mieux adaptée : un contrat à la déclaration mensuelle convient aux flux irréguliers, tandis qu'un contrat annuel en capital fixe s'adapte aux volumes stables. L'ORIAS recense les intermédiaires habilités à distribuer ces contrats, accessibles sur le registre public orias.fr. Un auto-entrepreneur transportant régulièrement des biens pour le compte d'un donneur d'ordre est exposé au même risque de sinistre qu'une entreprise de taille supérieure, avec souvent moins de trésorerie pour absorber une perte non couverte. Nos équipes proposent des formules calibrées pour les petits volumes, sans minimum de prime disproportionné.</p>
+
+					</div>
+				</div>
+
+			<!-- Pagination FAQ -->
+			<div class="flex items-center justify-center gap-2 mt-8" id="faq-pagination"></div>
+		</div>
+		</div>
+
+
+		<!-- ═══════════════════════════════════════════════════
+														     SECTION 8 — CTA FINALE
+														═══════════════════════════════════════════════════ -->
+		<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
+			<div class="container mx-auto px-4 lg:px-8 text-center">
+				<div class="max-w-4xl mx-auto">
+					<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
+						<i class="fas fa-truck text-white text-4xl"></i>
+					</div>
+					<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
+						Simulez en ligne votre devis assurance véhicule transport de marchandises
 					</h2>
-					<div class="w-16 lg:w-24 h-1 bg-green mx-auto rounded-full"></div>
-				</div>
-
-				<div class="space-y-4">
-
-					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-							<span>L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?</span>
-							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
-						</button>
-						<div class="faq-answer hidden px-6 pb-5">
-							<p class="text-gray-600 leading-relaxed">Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises.</p>
-						</div>
-					</div>
-
-					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-							<span>La garantie marchandises transportées est-elle obligatoire ?</span>
-							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
-						</button>
-						<div class="faq-answer hidden px-6 pb-5">
-							<p class="text-gray-600 leading-relaxed">Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport (lettre de voiture, CMR pour l'international) engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement.</p>
-						</div>
-					</div>
-
-					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-							<span>Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?</span>
-							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
-						</button>
-						<div class="faq-answer hidden px-6 pb-5">
-							<p class="text-gray-600 leading-relaxed">L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale (valeur de marché au moment du sinistre), valeur à neuf (prix de remplacement par un véhicule neuf équivalent) ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf protège mieux votre outil de travail.</p>
-						</div>
-					</div>
-
-					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-							<span>Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?</span>
-							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
-						</button>
-						<div class="faq-answer hidden px-6 pb-5">
-							<p class="text-gray-600 leading-relaxed">Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs selon la taille de la flotte. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner une réduction d'indemnité voire un refus de prise en charge.</p>
-						</div>
-					</div>
-
-					<div class="bg-light rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-						<button class="faq-question w-full text-left px-6 py-5 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-							<span>Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?</span>
-							<span class="faq-toggle text-green text-2xl flex-shrink-0 ml-4">+</span>
-						</button>
-						<div class="faq-answer hidden px-6 pb-5">
-							<p class="text-gray-600 leading-relaxed">La responsabilité civile du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et, pour le transport international, par la Convention CMR. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable.</p>
-						</div>
-					</div>
-
+					<p class="text-xl text-green mb-8 leading-relaxed">
+						Chaque activité de transport a ses propres contraintes. Nos experts examinent votre situation concrète, identifient les risques réels et sélectionnent les offres du marché qui correspondent à votre profil de risque.
+					</p>
+					<a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
+						<i class="fas fa-file-alt mr-2"></i>
+						Obtenez votre devis personnalisé — Gratuit en 2 min
+					</a>
 				</div>
 			</div>
-		</div>
-	</section>
-
-
-	<!-- ═══════════════════════════════════════════════════
-	     SECTION 8 — CTA FINALE
-	═══════════════════════════════════════════════════ -->
-	<section class="py-12 lg:py-20 bg-gradient-to-r from-green-500 to-green-600">
-		<div class="container mx-auto px-4 lg:px-8 text-center">
-			<div class="max-w-4xl mx-auto">
-				<div class="w-20 h-20 bg-white/20 rounded-3xl mx-auto mb-8 flex items-center justify-center">
-					<i class="fas fa-truck text-white text-4xl"></i>
-				</div>
-				<h2 class="text-3xl lg:text-5xl font-bold text-green mb-6">
-					Simulez en ligne votre devis assurance véhicule transport de marchandises
-				</h2>
-				<p class="text-xl text-green mb-8 leading-relaxed">
-					Chaque activité de transport a ses propres contraintes. Nos experts examinent votre situation concrète, identifient les risques réels et sélectionnent les offres du marché qui correspondent à votre profil de risque.
-				</p>
-				<a href="#formulaire" class="inline-block bg-white text-green font-bold py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105 text-lg">
-					<i class="fas fa-file-alt mr-2"></i>
-					Obtenez votre devis personnalisé — Gratuit en 2 min
-				</a>
-			</div>
-		</div>
-	</section>
+		</section>
 		<!-- Lire aussi -->
-	   <section class="py-6 bg-surface border-t border-gray-100">
-		<div class="container mx-auto px-4 lg:px-8">
-			<div class="text-gray-600 text-sm flex flex-col gap-1">
-				<span><i class="fas fa-book-open text-green mr-1"></i> Lire aussi :</span>
-				<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance véhicule transport marchandise</a>
+		<section class="py-6 bg-surface border-t border-gray-100">
+			<div class="container mx-auto px-4 lg:px-8">
+				<div class="text-gray-600 text-sm flex flex-col gap-1">
+					<span>
+						<i class="fas fa-book-open text-green mr-1"></i>
+						Lire aussi :</span>
+					<a href="{{ path('app_marchandises') }}" class="text-green font-semibold hover:underline ml-1">→ Assurance véhicule transport marchandise</a>
+				</div>
 			</div>
-		</div>
-	  </section>
+		</section>
 
 
-	<!-- Scripts -->
-	<script>
-		document.querySelectorAll('.faq-question').forEach(button => {
-			button.addEventListener('click', () => {
-				const answer = button.nextElementSibling;
-				const toggle = button.querySelector('.faq-toggle');
-				answer.classList.toggle('hidden');
-				toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
-			});
-		});
+		<!-- JAVASCRIPT POUR FAQ -->
+		<script>
+			document.querySelectorAll('.faq-question').forEach(button => {
+button.addEventListener('click', () => {
+const answer = button.nextElementSibling;
+const toggle = button.querySelector('.faq-toggle');
 
-		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-			anchor.addEventListener('click', function (e) {
-				e.preventDefault();
-				const target = document.querySelector(this.getAttribute('href'));
-				if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			});
-		});
-	</script>
+answer.classList.toggle('hidden');
+toggle.textContent = answer.classList.contains('hidden') ? '+' : '−';
+});
+});
+		</script>
 
-{% endblock %}
+		<!-- JAVASCRIPT PAGINATION FAQ (5 questions par page, réutilisable sur d'autres pages) -->
+		<script>
+			(function () {
+const PER_PAGE = 5;
+const container = document.getElementById('faq-container');
+const pagination = document.getElementById('faq-pagination');
+if (! container || ! pagination) 
+return;
 
-{% block schema %}
-<script type="application/ld+json">
-{
-	"@context": "https://schema.org",
-	"@graph": [
-		{
-			"@type": "InsuranceAgency",
-			"name": "L'Assurance des Transporteurs",
-			"url": "https://www.lassurance-des-transporteur.fr",
-			"telephone": "0808660540",
-			"areaServed": "FR",
-			"address": { "@type": "PostalAddress", "addressCountry": "FR" },
-			"description": "Expert en assurance véhicule transport de marchandises pour professionnels du transport routier en France.",
-			"knowsAbout": [
-				"assurance véhicule transport de marchandises",
-				"assurance poids lourd",
-				"assurance flotte transport",
-				"garantie marchandises transportées",
-				"assurance véhicule utilitaire professionnel"
-			]
-		},
-		{
-			"@type": "FAQPage",
-			"mainEntity": [
-				{
-					"@type": "Question",
-					"name": "L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "La garantie marchandises transportées est-elle obligatoire ?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale, valeur à neuf ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf lors de la souscription protège mieux votre outil de travail."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner un refus de prise en charge."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "La RC du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et la Convention CMR pour le transport international. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable."
-					}
-				}
-			]
-		}
-	]
+
+
+const items = Array.from(container.querySelectorAll('.faq-item'));
+const totalPages = Math.ceil(items.length / PER_PAGE);
+if (totalPages <= 1) 
+return;
+
+
+
+function showPage(page, scroll) {
+items.forEach((item, index) => {
+const itemPage = Math.floor(index / PER_PAGE) + 1;
+item.style.display = itemPage === page ? '' : 'none';
+});
+
+pagination.querySelectorAll('.faq-page-btn').forEach(btn => {
+const isActive = Number(btn.dataset.page) === page;
+btn.classList.toggle('bg-green', isActive);
+btn.classList.toggle('text-white', isActive);
+btn.classList.toggle('bg-white', ! isActive);
+btn.classList.toggle('text-gray-700', ! isActive);
+});
+
+if (scroll) {
+container.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
-</script>
-{% endblock %}
+}
+
+for (let page = 1; page <= totalPages; page++) {
+const btn = document.createElement('button');
+btn.type = 'button';
+btn.dataset.page = page;
+btn.textContent = page;
+btn.className = 'faq-page-btn w-10 h-10 rounded-lg font-semibold border border-gray-200 shadow-sm transition-colors bg-white text-gray-700 hover:bg-gray-50';
+btn.addEventListener('click', () => showPage(page, true));
+pagination.appendChild(btn);
+}
+
+showPage(1, false);
+})();
+		</script>
+
+		<script>
+			// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+});
+});
+		</script>
+
+	{% endblock %}
+
+	{% block schema %}
+		<script type="application/ld+json">
+			{
+																		"@context": "https://schema.org",
+																		"@graph": [
+																			{
+																				"@type": "InsuranceAgency",
+																				"name": "L'Assurance des Transporteurs",
+																				"url": "https://www.lassurance-des-transporteur.fr",
+																				"telephone": "0808660540",
+																				"areaServed": "FR",
+																				"address": { "@type": "PostalAddress", "addressCountry": "FR" },
+																				"description": "Expert en assurance véhicule transport de marchandises pour professionnels du transport routier en France.",
+																				"knowsAbout": [
+																					"assurance véhicule transport de marchandises",
+																					"assurance poids lourd",
+																					"assurance flotte transport",
+																					"garantie marchandises transportées",
+																					"assurance véhicule utilitaire professionnel"
+																				]
+																			},
+																			{
+																				"@type": "FAQPage",
+																				"mainEntity": [
+																					{
+																						"@type": "Question",
+																						"name": "L'assurance auto classique couvre-t-elle un véhicule utilisé pour transporter des marchandises ?",
+																						"acceptedAnswer": {
+																							"@type": "Answer",
+																							"text": "Non. Un contrat auto standard est prévu pour un usage privé. Utiliser un véhicule assuré en usage privé à des fins commerciales expose au risque de nullité du contrat en cas de sinistre. L'assureur peut refuser toute indemnisation si l'usage déclaré ne correspond pas à l'usage réel. Il est impératif de souscrire un contrat spécifiquement prévu pour l'usage professionnel transport de marchandises."
+																						}
+																					},
+																					{
+																						"@type": "Question",
+																						"name": "La garantie marchandises transportées est-elle obligatoire ?",
+																						"acceptedAnswer": {
+																							"@type": "Answer",
+																							"text": "Elle n'est pas imposée par la loi, contrairement à la responsabilité civile. Mais dans la pratique, la plupart des contrats de transport engagent votre responsabilité vis-à-vis du donneur d'ordre. Sans cette garantie, vous êtes exposé à des recours qui peuvent atteindre plusieurs dizaines de milliers d'euros selon la valeur du chargement."
+																						}
+																					},
+																					{
+																						"@type": "Question",
+																						"name": "Comment est calculée l'indemnisation en cas de sinistre sur un poids lourd ?",
+																						"acceptedAnswer": {
+																							"@type": "Answer",
+																							"text": "L'indemnisation dépend des garanties souscrites et de la valeur de référence choisie dans le contrat : valeur vénale, valeur à neuf ou valeur agréée fixée à la souscription. La valeur vénale est souvent défavorable pour les véhicules de plus de 3 ans. Négocier une valeur à neuf lors de la souscription protège mieux votre outil de travail."
+																						}
+																					},
+																					{
+																						"@type": "Question",
+																						"name": "Est-il possible d'assurer plusieurs conducteurs sur le même véhicule professionnel ?",
+																						"acceptedAnswer": {
+																							"@type": "Answer",
+																							"text": "Oui, et c'est même une nécessité dans la plupart des entreprises de transport. Le contrat doit mentionner explicitement tous les conducteurs réguliers ou prévoir une clause conducteurs désignés ou tous conducteurs. Un conducteur non déclaré peut être considéré comme exclu, ce qui peut entraîner un refus de prise en charge."
+																						}
+																					},
+																					{
+																						"@type": "Question",
+																						"name": "Que couvre la responsabilité civile du transporteur vis-à-vis du chargeur ?",
+																						"acceptedAnswer": {
+																							"@type": "Answer",
+																							"text": "La RC du transporteur vis-à-vis du chargeur est encadrée par le Code des transports et la Convention CMR pour le transport international. En cas de perte ou de dommage aux marchandises, le transporteur est présumé responsable sauf force majeure, vice propre de la marchandise ou faute du chargeur. Une garantie RC transporteur dédiée est donc indispensable."
+																						}
+																					},
+																					{
+  "@type": "Question",
+  "name": "C'est quoi exactement une assurance véhicule transport de marchandises ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "L'assurance véhicule transport de marchandises est un contrat couvrant à la fois la responsabilité civile du transporteur routier et les dommages subis par les marchandises acheminées. Elle diffère d'une assurance automobile classique par ses garanties spécifiques au risque marchandises. Un transporteur professionnel engage sa responsabilité à chaque chargement, qu'il roule 10 kilomètres ou traverse plusieurs régions. Le contrat intègre généralement une garantie responsabilité civile exploitation, une couverture des marchandises transportées pour compte d'autrui, et parfois une protection juridique en cas de litige avec un chargeur ou un commissionnaire. Les plafonds d'indemnisation varient selon la nature des marchandises et le tonnage du véhicule. Nos experts accompagnent les transporteurs dans le choix des garanties adaptées à leur activité réelle, pas à un profil générique. L'article L. 1432-4 du Code des transports précise les conditions dans lesquelles la responsabilité du transporteur routier de marchandises peut être engagée. Pour une présentation générale du cadre légal applicable, service-public.fr constitue une référence fiable et à jour."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Est-ce obligatoire de souscrire une assurance véhicule transport de marchandises pour exercer ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui, c'est une obligation légale. Tout véhicule utilisé pour le transport routier de marchandises à titre onéreux doit être couvert par une assurance responsabilité civile, sans laquelle aucune licence de transport ne peut être délivrée. L'obligation ne se limite pas à la circulation sur voie publique. L'inscription au registre des transporteurs routiers, géré par les DREAL, exige la production d'une attestation d'assurance en cours de validité. Un défaut de couverture expose l'entreprise à une suspension immédiate de sa licence et à des sanctions pénales. En France, plus de 40 000 entreprises de transport routier de marchandises sont soumises à cette exigence. Nos experts vérifient systématiquement la conformité des contrats aux exigences réglementaires en vigueur. L'article R. 3113-1 du Code des transports conditionne l'obtention de la licence de transport à la justification d'une assurance couvrant les risques liés à l'exploitation. L'ACPR contrôle par ailleurs la solvabilité des assureurs délivrant ces garanties."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Combien coûte une assurance véhicule transport de marchandises en France ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Le tarif varie de 1 500 à plus de 8 000 euros par an selon le tonnage du véhicule, la nature des marchandises transportées, l'ancienneté du conducteur et le sinistre antérieur déclaré. Plusieurs facteurs font varier la prime de façon significative : un poids lourd de plus de 19 tonnes revient nettement plus cher qu'un utilitaire léger, et un transporteur avec un sinistre responsable sur les trois dernières années peut voir sa prime majorée de 50 à 150 %. La nature des marchandises joue aussi un rôle déterminant : denrées périssables, matières dangereuses ou équipements de haute valeur génèrent des franchises et plafonds spécifiques. Pour obtenir un chiffrage précis correspondant à votre flotte et à votre activité, nos experts comparent les offres du marché et identifient les leviers d'optimisation disponibles. La Fédération Française de l'Assurance (FFA) publie chaque année des données sectorielles sur la sinistralité des véhicules utilitaires et poids lourds, qui orientent directement la tarification pratiquée par les assureurs."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Quelle différence entre assurance marchandises transportées et assurance véhicule transport de marchandises ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "L'assurance véhicule couvre la responsabilité civile du transporteur et les dommages au véhicule lui-même, tandis que l'assurance marchandises transportées indemnise le chargeur pour les pertes ou dommages subis par la cargaison pendant le transport. Ces deux garanties répondent à des besoins distincts et peuvent coexister dans un même contrat ou faire l'objet de polices séparées. Un transporteur pour compte d'autrui est tenu de couvrir sa responsabilité vis-à-vis du chargeur, mais c'est ce dernier qui choisit souvent de souscrire une assurance ad valorem pour protéger ses propres marchandises au-delà des plafonds légaux. Le plafond légal de responsabilité du transporteur routier est fixé à 23 euros par kilogramme de marchandise manquante ou avariée, ce qui peut s'avérer très insuffisant pour des cargaisons à forte valeur. Nos experts clarifieront quelle combinaison de garanties correspond précisément à votre situation. L'article L. 133-1 du Code de commerce encadre la responsabilité du voiturier, et les conditions générales du contrat type transport fixent les modalités d'indemnisation applicables en cas de litige."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Comment souscrire une assurance véhicule transport de marchandises rapidement ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pour souscrire, il faut fournir le relevé d'informations du ou des véhicules, le justificatif d'immatriculation, le numéro de licence de transport et une déclaration de sinistralité sur les 36 derniers mois. La constitution du dossier prend en général deux à cinq jours ouvrés selon la complexité de la flotte et les garanties demandées. Un transporteur nouvellement créé devra également fournir son extrait Kbis et son justificatif d'inscription au registre des transporteurs. Certaines situations particulières, comme une reprise d'activité après résiliation ou une sinistralité élevée, nécessitent un passage devant le Bureau Central de Tarification (BCT), instance qui impose à un assureur d'accepter la couverture à des conditions définies. Nos experts gèrent ces cas techniques et préparent les dossiers pour obtenir une prise d'effet rapide. L'ORIAS recense les intermédiaires habilités à placer ce type de contrat en France ; vérifier l'inscription de votre interlocuteur sur orias.fr constitue un réflexe de prudence élémentaire avant toute souscription."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Peut-on assurer un véhicule transport de marchandises après une résiliation pour sinistres ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui, une résiliation pour sinistres n'empêche pas de s'assurer, mais elle réduit le nombre d'assureurs accepteurs et augmente la prime. Le recours au Bureau Central de Tarification reste possible si tout refus est opposé. Un transporteur résilié reste inscrit dans le fichier AGIRA pendant cinq ans, ce qui est visible de tous les assureurs sollicités. Cette situation oblige souvent à passer par des marchés spécialisés ou des assureurs non-vie acceptant les profils aggravés, avec des franchises parfois deux à trois fois supérieures à la normale. Le BCT, institué par le Code des assurances, contraint l'assureur désigné à couvrir le risque aux conditions qu'il fixe, sans pouvoir refuser la garantie responsabilité civile. Nos experts connaissent les assureurs accepteurs sur ce segment et constituent les dossiers BCT lorsque la situation l'exige. L'article L. 212-1 du Code des assurances fonde le mécanisme du Bureau Central de Tarification, accessible à tout professionnel se voyant opposer deux refus d'assurance successifs."
+  }
+},
+{
+  "@type": "Question",
+  "name": "Quelles exclusions de garantie faut-il surveiller dans un contrat assurance véhicule transport de marchandises ?",
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Les exclusions les plus fréquentes portent sur le transport de matières dangereuses non déclarées, la surcharge du véhicule et les marchandises non mentionnées dans la déclaration d'activité initiale. Un contrat standard exclut également les dommages causés par une faute inexcusable du conducteur, les avaries résultant d'un défaut d'emballage imputable au chargeur, et parfois les vols sans effraction sur véhicule non équipé d'un système de géolocalisation homologué. Ces exclusions peuvent annuler une indemnisation sur un sinistre pourtant couvert en apparence, d'où l'importance d'une lecture rigoureuse des conditions particulières avant signature. Une franchise kilométrique ou une clause de stationnement nocturne obligatoire peut aussi avoir des conséquences majeures pour un transporteur en longue distance. Nos experts analysent les conditions générales ligne par ligne pour identifier les clauses susceptibles de fragiliser la couverture réelle. La directive européenne 2009/103/CE harmonise les exigences minimales de responsabilité civile pour les véhicules à moteur dans l'Union, mais laisse aux États membres la faculté d'étendre les obligations au-delà de ce socle commun."
+  }
+},
+																					{
+																					  "@type": "Question",
+																					  "name": "C'est quoi une assurance marchandise transport et à quoi sert-elle concrètement ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "L'assurance marchandise transport couvre les dommages subis par des biens pendant leur acheminement, qu'il s'agisse de pertes, vols, avaries ou destructions. Elle protège à la fois le transporteur et l'expéditeur selon la formule retenue. Cette garantie s'applique dès la prise en charge des marchandises jusqu'à leur livraison effective. En pratique, une palette endommagée lors d'un chargement ou un colis disparu en transit sont des sinistres typiques traités par ce type de contrat. La responsabilité du transporteur routier est encadrée par la Convention CMR pour les transports internationaux, avec un plafond d'indemnisation fixé à 8,33 DTS par kilogramme de marchandise manquante ou avariée, soit environ 10 euros au cours actuel. L'article L. 5422-1 du Code des transports précise les conditions de responsabilité applicables au transport de marchandises en France."
+																					  }
+																					},
+																					{
+																					  "@type": "Question",
+																					  "name": "Quels types de marchandises sont couverts par une assurance marchandise transport ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "Une assurance marchandise transport peut couvrir pratiquement toute nature de biens : produits alimentaires, matériaux de construction, équipements industriels, textiles ou biens de consommation courante. Certaines catégories font l'objet de conditions particulières. Les marchandises dites sensibles — œuvres d'art, métaux précieux, denrées périssables ou produits pharmaceutiques — nécessitent des garanties spécifiques, souvent assorties de contraintes de conditionnement ou de températures imposées. Un contrat standard exclut généralement les matières dangereuses classées ADR sans mention expresse. La valeur déclarée conditionne directement le montant de l'indemnisation : sous-déclarer une cargaison expose à une règle proportionnelle qui réduit l'indemnité en cas de sinistre. Nos experts analysent précisément la nature des biens transportés avant toute souscription pour éviter ce type d'écueil. L'article L. 113-9 du Code des assurances régit les effets de la fausse déclaration sur les garanties."
+																					  }
+																					},
+																					{
+																					  "@type": "Question",
+																					  "name": "Pourquoi choisir une assurance marchandise transport plutôt que de se reposer sur la responsabilité du transporteur ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "Se reposer uniquement sur la responsabilité du transporteur est une erreur fréquente et coûteuse. Le transporteur routier répond des dommages dans des limites strictes fixées par la loi ou les conventions collectives du transport, largement inférieures à la valeur marchande des biens. Pour un envoi de matériel informatique valant 30 000 euros, l'indemnisation plafonnée peut ne représenter que quelques milliers d'euros. Une assurance marchandise transport souscrite directement par l'expéditeur ou le destinataire garantit la valeur réelle des biens, sans attendre la reconnaissance de responsabilité du transporteur, ni engager de procédure contradictoire longue. Le délai moyen de règlement amiable d'un litige avec un transporteur dépasse souvent 18 mois. Une couverture autonome permet une indemnisation directe, généralement en moins de 30 jours après dépôt du dossier complet. Nos experts comparent les formules disponibles pour vous garantir une couverture à hauteur de la valeur réelle transportée."
+																					  }
+																					},
+																					{
+																					  "@type": "Question",
+																					  "name": "Comment fonctionne l'indemnisation en assurance marchandise transport après un sinistre ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "Dès la survenance d'un sinistre, l'assuré doit respecter un délai de réserves précis. En transport routier national, les réserves motivées doivent être adressées au transporteur dans les 3 jours suivant la réception des marchandises, conformément à l'article L. 133-3 du Code de commerce. Passé ce délai, le recours contre le transporteur devient irrecevable. L'assureur marchandises, lui, dispose d'un processus indépendant : expertise contradictoire, évaluation de la perte réelle, puis règlement sur la base de la valeur déclarée ou facturée. La franchise contractuelle s'applique en déduction. Les contrats dits en valeur agréée évitent toute discussion sur la valeur au jour du sinistre. Un dossier bien constitué — lettre de voiture, photos, factures d'achat — accélère sensiblement le règlement. Nos équipes accompagnent chaque assuré dans la constitution de son dossier dès le premier jour du sinistre."
+																					  }
+																					},
+																					{
+																					  "@type": "Question",
+																					  "name": "Combien coûte une assurance marchandise transport pour un envoi ponctuel ou un contrat annuel ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "Le coût d'une assurance marchandise transport varie fortement selon la valeur des biens, la nature des marchandises et la fréquence des envois. Pour un envoi ponctuel, une prime ad valorem tourne généralement entre 0,1 % et 0,5 % de la valeur déclarée. Un contrat annuel tous risques pour une PME réalisant 500 000 euros de marchandises transportées par an se négocie couramment entre 800 et 2 500 euros, selon les garanties retenues et le bilan sinistres. Les secteurs à forte valeur ajoutée — électronique, pharmaceutique — supportent des taux plus élevés. La franchise choisie, les moyens de transport utilisés et les conditions de stockage intermédiaire influent directement sur la prime. Nos experts établissent une comparaison précise entre plusieurs assureurs pour optimiser le rapport garanties/coût selon votre volume d'activité réel."
+																					  }
+																					},
+																					{
+																					  "@type": "Question",
+																					  "name": "Un auto-entrepreneur peut-il souscrire une assurance marchandise transport pour ses envois professionnels ?",
+																					  "acceptedAnswer": {
+																					    "@type": "Answer",
+																					    "text": "Oui, un auto-entrepreneur peut souscrire une assurance marchandise transport au même titre qu'une société. Le statut juridique n'est pas un critère d'éligibilité. En revanche, le volume annuel de marchandises transportées détermine la formule la mieux adaptée : un contrat à la déclaration mensuelle convient aux flux irréguliers, tandis qu'un contrat annuel en capital fixe s'adapte aux volumes stables. L'ORIAS recense les intermédiaires habilités à distribuer ces contrats, accessibles sur le registre public orias.fr. Un auto-entrepreneur transportant régulièrement des biens pour le compte d'un donneur d'ordre est exposé au même risque de sinistre qu'une entreprise de taille supérieure, avec souvent moins de trésorerie pour absorber une perte non couverte. Nos équipes proposent des formules calibrées pour les petits volumes, sans minimum de prime disproportionné."
+																					  }
+																					}
+																				]
+																			}
+																		]
+																	}
+		</script>
+	{% endblock %}

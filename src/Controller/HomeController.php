@@ -265,6 +265,72 @@ final class HomeController extends AbstractController
         ]);
     }
 
+    #[Route('/assurance-vehicule-transport-de-marchandises/poids-lourd', name: 'app_poids_lourd')]
+    public function poidsLourd(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger): Response
+    {
+        $transp = new Transport();
+        $form = $this->createForm(VehiculeType::class, $transp);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $errors = [];
+            foreach ($form->getErrors(true) as $error) {
+                $errors[] = $error->getOrigin()->getName() . ': ' . $error->getMessage();
+            }
+            $logger->error('Formulaire invalide', ['errors' => $errors]);
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $entityManager->persist($transp);
+                $entityManager->flush();
+
+                $telephone = $this->formatPhoneNumber($transp->getTele());
+                $data = [
+                    'nom'           => $transp->getNom() ?? '',
+                    'prenom'        => $transp->getPrenom() ?? '',
+                    'phone'         => $telephone ?? '',
+                    'email'         => $transp->getEmail() ?? '',
+                    'raisonSociale' => $transp->getRaison(),
+                    'lastAssure'    => $transp->getAncienne(),
+                    'motifResil'    => $transp->getMotif(),
+                    'typeProspect'  => "2",
+                    'source'        => "3",
+                    'activites'     => "1",
+                    'url'           => "13",
+                    'product'       => '/api/products/1',
+                ];
+
+                $ch = curl_init('https://aksam.azurewebsites.net/api/prospects');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+                $response  = curl_exec($ch);
+                $httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                $curlError = curl_error($ch);
+                curl_close($ch);
+
+                if ($httpCode >= 200 && $httpCode < 300) {
+                    $this->addFlash('success', 'Votre demande a été enregistrée et transmise avec succès !');
+                    $logger->info('Données envoyées à l\'API avec succès', ['status_code' => $httpCode, 'response' => $response]);
+                } else {
+                    $this->addFlash('warning', 'Votre demande a été enregistrée, mais un problème est survenu lors de la transmission.');
+                    $logger->error('Erreur lors de l\'envoi à l\'API', ['status_code' => $httpCode, 'error' => $curlError, 'response' => $response]);
+                }
+
+                return $this->redirectToRoute('app_reponse', [], Response::HTTP_SEE_OTHER);
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Une erreur est survenue lors de l\'enregistrement de votre demande.');
+                $logger->error('Erreur formulaire poids lourd', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);
+            }
+        }
+
+        return $this->render('home/poids-lourd.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
     #[Route('/assurance-transport-de-marchandise/assurance-marchandise-transportee', name: 'app_assurance_marchandise_transportee')]
     public function assuranceMarchandiseTransportee(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger): Response
     {
